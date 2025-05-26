@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce: สร้างยอดขาย 19 ล้านบาทใน 9 เดือน</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* --- Global Variables & Base Styles --- */
+        :root {
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #6c757d; /* Gray */
+            --accent-color: #28a745; /* Green */
+            --background-light: #f8f9fa;
+            --background-dark: #343a40;
+            --text-color-dark: #212529;
+            --text-color-light: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 20px;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color-dark);
+            background-color: var(--background-light);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-unit);
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--background-dark);
+            color: var(--text-color-light);
+            padding: var(--spacing-unit) 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: var(--primary-color);
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x600/007bff/ffffff?text=Digital+Marketing+Success') no-repeat center center/cover;
+            color: var(--text-color-light);
+            text-align: center;
+            padding: 100px var(--spacing-unit);
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3.5em;
+            margin-bottom: var(--spacing-unit);
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: var(--spacing-unit) * 2;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color-light);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-size: 1.3em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: var(--spacing-unit) * 3 0;
+            background-color: var(--background-light);
+            text-align: center;
+        }
+
+        section:nth-of-type(even) { /* Applies to even-numbered sections for alternating background */
+            background-color: #e9ecef;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-unit) * 2;
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-unit);
+            margin-top: var(--spacing-unit) * 2;
+        }
+
+        .card {
+            background-color: var(--text-color-light);
+            padding: var(--spacing-unit);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            font-size: 1.6em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card ul li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '✓';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .case-study {
+            background-color: var(--text-color-light);
+            padding: var(--spacing-unit) * 2;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            text-align: left;
+            margin-top: var(--spacing-unit) * 2;
+        }
+
+        .case-study h3 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .case-study p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .metrics {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-unit) * 2;
+            margin-top: var(--spacing-unit) * 2;
+        }
+
+        .metric-item {
+            text-align: center;
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            padding: var(--spacing-unit);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            min-width: 200px;
+        }
+
+        .metric-item .value {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .metric-item .label {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+        /* --- Testimonials --- */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-unit);
+            margin-top: var(--spacing-unit) * 2;
+        }
+
+        .testimonial-card {
+            background-color: var(--text-color-light);
+            padding: var(--spacing-unit);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '“';
+            font-size: 4em;
+            color: var(--primary-color);
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            opacity: 0.2;
+        }
+
+        .testimonial-card p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            padding-top: 20px;
+        }
+
+        .testimonial-card .author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* --- Contact Section --- */
+        #contact {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            padding: var(--spacing-unit) * 3 0;
+        }
+
+        #contact h2 {
+            color: var(--text-color-light);
+        }
+
+        #contact p {
+            font-size: 1.2em;
+            margin-bottom: var(--spacing-unit) * 2;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-unit);
+            font-size: 1.1em;
+        }
+
+        .contact-item {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-color-light);
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .contact-item i {
+            font-size: 1.5em;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--background-dark);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: var(--spacing-unit) 0;
+            font-size: 0.9em;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+
+            .card-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .metric-item {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .cta-button {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+            section {
+                padding: var(--spacing-unit) * 1.5 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce</h1>
+            <p>ขับเคลื่อนธุรกิจของคุณให้เติบโตในยุคดิจิทัล</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>เปลี่ยนไอเดียให้เป็นยอดขาย<br>กับทีมผู้เชี่ยวชาญตัวจริง!</h2>
+            <p>เราช่วยธุรกิจสร้างปรากฏการณ์ยอดขาย **19,000,000 บาท ภายใน 9 เดือน**</p>
+            <a href="#contact" class="cta-button">ปรึกษาผู้เชี่ยวชาญฟรี!</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>บริการของเรา</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>ที่ปรึกษาด้านกลยุทธ์ดิจิทัล</h3>
+                    <p>วางแผนและกำหนดทิศทางให้ธุรกิจของคุณเติบโตอย่างยั่งยืนในโลกออนไลน์</p>
+                    <ul>
+                        <li>การวิเคราะห์ตลาดและคู่แข่ง</li>
+                        <li>การวางแผนกลยุทธ์การตลาดดิจิทัล</li>
+                        <li>การเพิ่มประสิทธิภาพแคมเปญ</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>ทีมสร้างสรรค์คอนเทนต์</h3>
+                    <p>ผลิตคอนเทนต์คุณภาพสูงที่ดึงดูดใจ สร้างการมีส่วนร่วม และกระตุ้นยอดขาย</p>
+                    <ul>
+                        <li>คอนเทนต์สำหรับ Social Media (Facebook, IG, TikTok)</li>
+                        <li>คอนเทนต์สำหรับ E-commerce (รายละเอียดสินค้า, แบนเนอร์)</li>
+                        <li>บทความและบล็อก</li>
+                        <li>คอนเทนต์วิดีโอ</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>ทีมพัฒนา LINE Bot</h3>
+                    <p>สร้าง LINE Bot อัจฉริยะเพื่อยกระดับการบริการลูกค้าและเพิ่มประสิทธิภาพธุรกิจของคุณ</p>
+                    <ul>
+                        <li>LINE Bot สำหรับการบริการลูกค้า (ตอบคำถาม, ให้ข้อมูล)</li>
+                        <li>LINE Bot สำหรับการตลาด (ส่งโปรโมชั่น, เก็บข้อมูลลูกค้า)</li>
+                        <li>ระบบสะสมแต้ม/แจ้งเตือนโปรโมชั่น</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>ผู้เชี่ยวชาญด้าน E-commerce</h3>
+                    <p>บริหารจัดการร้านค้าออนไลน์บน Shopee, Lazada, TikTok Shop ให้เติบโตอย่างมืออาชีพ</p>
+                    <ul>
+                        <li>การตั้งค่าและเปิดร้านค้า</li>
+                        <li>การจัดการสินค้าและสต็อก</li>
+                        <li>การวางแผนแคมเปญโปรโมชั่น</li>
+                        <li>การวิเคราะห์ข้อมูลและรายงานผล</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="success-story">
+        <div class="container">
+            <h2>ความสำเร็จที่พิสูจน์แล้ว</h2>
+            <div class="case-study">
+                <h3>สร้างยอดขาย **19,000,000 บาท** ใน 9 เดือน!</h3>
+                <p>นี่คือเรื่องราวความสำเร็จที่เราภาคภูมิใจ ซึ่งแสดงถึงพลังของการผสานกลยุทธ์ดิจิทัลแบบครบวงจร</p>
+                <p>เราใช้การวิเคราะห์ข้อมูลเชิงลึกเพื่อทำความเข้าใจพฤติกรรมผู้บริโภค สร้างสรรค์คอนเทนต์ที่ดึงดูดใจผู้ซื้อ ผนวกกับการใช้โฆษณาแบบเจาะจงกลุ่มเป้าหมาย และการบริหารจัดการแคมเปญโปรโมชั่นอย่างชาญฉลาดบนแพลตฟอร์ม E-commerce ยอดนิยมอย่าง Shopee, Lazada และ TikTok โดยมีการใช้ LINE Bot เพื่อบริหารจัดการลูกค้าสัมพันธ์อย่างมีประสิทธิภาพ ซึ่งทั้งหมดนี้ส่งผลให้เกิดยอดขายที่ก้าวกระโดด</p>
+                <div class="metrics">
+                    <div class="metric-item">
+                        <div class="value">19M+</div>
+                        <div class="label">ยอดขาย (บาท)</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="value">9</div>
+                        <div class="label">ระยะเวลา (เดือน)</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="value">X</div>
+                        <div class="label">อัตราเติบโต (ตัวอย่าง)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-choose-us">
+        <div class="container">
+            <h2>ทำไมต้องเลือกเรา?</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>ผลลัพธ์ที่จับต้องได้</h3>
+                    <p>เรามุ่งเน้นการสร้างผลลัพธ์ทางธุรกิจที่ชัดเจนและวัดผลได้ เพื่อให้คุณเห็นการเติบโตที่แท้จริง</p>
+                </div>
+                <div class="card">
+                    <h3>ทีมงานครบวงจร</h3>
+                    <p>เรามีทีมงานที่ครอบคลุมทุกความต้องการด้านดิจิทัลและการตลาดออนไลน์ในที่เดียว</p>
+                </div>
+                <div class="card">
+                    <h3>ความเชี่ยวชาญเฉพาะด้าน</h3>
+                    <p>แต่ละทีมมีประสบการณ์และความรู้ลึกซึ้งในสาขาของตนเอง พร้อมรับมือทุกความท้าทาย</p>
+                </div>
+                <div class="card">
+                    <h3>กลยุทธ์ที่ปรับเปลี่ยนได้</h3>
+                    <p>เราพร้อมปรับกลยุทธ์ให้เข้ากับสถานการณ์และเป้าหมายของคุณอยู่เสมอ เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>เสียงจากลูกค้าของเรา</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"ทีมงานมืออาชีพมาก! ช่วยให้ยอดขายร้านผมพุ่งกระฉูดเกินคาดจริง ๆ ครับ"</p>
+                    <div class="author">- คุณสมศักดิ์, เจ้าของธุรกิจเครื่องสำอาง</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"ประทับใจมากกับการทำ LINE Bot ที่ช่วยตอบลูกค้าได้ตลอด 24 ชม. ลดภาระทีมงานไปได้เยอะเลย"</p>
+                    <div class="author">- คุณอลิสา, ผู้จัดการฝ่ายบริการลูกค้า</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"คอนเทนต์ที่สร้างสรรค์และตรงจุด ทำให้แบรนด์ของเราเป็นที่รู้จักมากขึ้นอย่างเห็นได้ชัด"</p>
+                    <div class="author">- คุณมานะ, ผู้บริหารแบรนด์แฟชั่น</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>พร้อมขับเคลื่อนธุรกิจให้ก้าวกระโดดแล้วหรือยัง?</h2>
+            <p>ปรึกษาทีมผู้เชี่ยวชาญของเราได้ฟรี! เราพร้อมที่จะช่วยคุณวางแผนกลยุทธ์และบรรลุเป้าหมายทางธุรกิจ</p>
+            <div class="contact-info">
+                <a href="tel:+66xxxxxxxx" class="contact-item">
+                    <i class="fas fa-phone-alt"></i> (+66) XXX-XXX-XXXX
+                </a>
+                <a href="mailto:info@yourcompany.com" class="contact-item">
+                    <i class="fas fa-envelope"></i> info@yourcompany.com
+                </a>
+                <a href="https://line.me/ti/p/@yourlineid" target="_blank" class="contact-item">
+                    <i class="fab fa-line"></i> LINE ID: @YourLineID
+                </a>
+                <a href="https://facebook.com/yourcompany" target="_blank" class="contact-item">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce. สงวนลิขสิทธิ์.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
