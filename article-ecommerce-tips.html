@@ -7,34 +7,431 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* --- COPY & PASTE THE CSS FROM YOUR index.html HERE --- */
-        /* รวมถึง CSS ที่เพิ่มสำหรับ team section ด้วย */
-        /* และ CSS เฉพาะสำหรับ article-listing / article-card ที่เพิ่มใน articles.html */
+        /* --- Global Variables & Base Styles --- */
+        :root {
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #6c757d; /* Gray */
+            --accent-color: #28a745; /* Green */
+            --background-light: #f8f9fa;
+            --background-dark: #343a40;
+            --text-color-dark: #212529;
+            --text-color-light: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 20px;
+        }
 
-        /* เพิ่ม CSS สำหรับเนื้อหาบทความเดี่ยวถ้าต้องการ */
-        .article-content {
+        body {
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color-dark);
+            background-color: var(--background-light);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-unit);
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--background-dark);
+            color: var(--text-color-light);
+            padding: var(--spacing-unit) 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: var(--primary-color);
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x600/007bff/ffffff?text=Digital+Marketing+Success') no-repeat center center/cover;
+            color: var(--text-color-light);
+            text-align: center;
+            padding: 100px var(--spacing-unit);
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3.5em;
+            margin-bottom: var(--spacing-unit);
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: var(--spacing-unit) * 2;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color-light);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-size: 1.3em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: var(--spacing-unit) * 3 0;
+            background-color: var(--background-light);
+            text-align: center;
+        }
+
+        section:nth-of-type(even) { /* Applies to even-numbered sections for alternating background */
+            background-color: #e9ecef;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-unit) * 2;
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-unit);
+            margin-top: var(--spacing-unit) * 2;
+        }
+
+        .card {
             background-color: var(--text-color-light);
-            padding: var(--spacing-unit) * 2;
+            padding: var(--spacing-unit);
             border-radius: var(--border-radius);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
-            margin-top: var(--spacing-unit) * 2;
+            transition: transform 0.3s ease;
         }
-        .article-content h1 {
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
             color: var(--primary-color);
-            font-size: 2.2em;
+            font-size: 1.6em;
+            margin-top: 0;
             margin-bottom: 15px;
         }
-        .article-content p {
-            margin-bottom: 1em;
+
+        .card ul {
+            list-style: none;
+            padding: 0;
         }
-        .article-content img {
-            max-width: 100%;
-            height: auto;
+
+        .card ul li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '✓';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .case-study {
+            background-color: var(--text-color-light);
+            padding: var(--spacing-unit) * 2;
             border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            text-align: left;
+            margin-top: var(--spacing-unit) * 2;
+        }
+
+        .case-study h3 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .case-study p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .metrics {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-unit) * 2;
+            margin-top: var(--spacing-unit) * 2;
+        }
+
+        .metric-item {
+            text-align: center;
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            padding: var(--spacing-unit);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            min-width: 200px;
+        }
+
+        .metric-item .value {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .metric-item .label {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+        /* --- Start of NEW CSS for Team Section --- */
+        #our-team {
+            padding: var(--spacing-unit) * 3 0;
+            background-color: #f0f4f7; /* Lighter background for contrast */
+            text-align: center;
+        }
+
+        #our-team .lead {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-unit) * 2;
+        }
+
+        #our-team h2 {
+            font-size: 2.5em;
+            color: var(--primary-color);
             margin-bottom: var(--spacing-unit);
         }
-        /* --- End of specific styles for article content --- */
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-unit) * 2;
+            margin-top: var(--spacing-unit) * 2;
+        }
+
+        .team-member {
+            background-color: var(--text-color-light);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: var(--spacing-unit);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover; /* Ensures image covers the area without distortion */
+            margin-bottom: 15px;
+            border: 3px solid var(--primary-color); /* Add a border for visual appeal */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .team-member h3 {
+            font-size: 1.6em;
+            color: var(--text-color-dark);
+            margin-bottom: 5px;
+        }
+
+        .team-member .role {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .team-member .bio {
+            font-size: 1em;
+            color: var(--text-color-dark);
+            margin-bottom: 0;
+            min-height: 4em; /* Ensure consistent height for bios */
+        }
+        /* --- End of NEW CSS for Team Section --- */
+
+        /* --- Testimonials --- */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-unit);
+            margin-top: var(--spacing-unit) * 2;
+        }
+
+        .testimonial-card {
+            background-color: var(--text-color-light);
+            padding: var(--spacing-unit);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '“';
+            font-size: 4em;
+            color: var(--primary-color);
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            opacity: 0.2;
+        }
+
+        .testimonial-card p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            padding-top: 20px;
+        }
+
+        .testimonial-card .author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* --- Contact Section --- */
+        #contact {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            padding: var(--spacing-unit) * 3 0;
+        }
+
+        #contact h2 {
+            color: var(--text-color-light);
+        }
+
+        #contact p {
+            font-size: 1.2em;
+            margin-bottom: var(--spacing-unit) * 2;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-unit);
+            font-size: 1.1em;
+        }
+
+        .contact-item {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-color-light);
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .contact-item i {
+            font-size: 1.5em;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--background-dark);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: var(--spacing-unit) 0;
+            font-size: 0.9em;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+
+            .card-grid, .testimonial-grid, .team-grid { /* Added .team-grid */
+                grid-template-columns: 1fr;
+            }
+
+            .metrics {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .metric-item {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .cta-button {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+            section {
+                padding: var(--spacing-unit) * 1.5 0;
+            }
+        }
     </style>
 </head>
 <body>
