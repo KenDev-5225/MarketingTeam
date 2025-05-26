@@ -220,6 +220,75 @@
             margin-top: 5px;
         }
 
+        /* --- Start of NEW CSS for Team Section --- */
+        #our-team {
+            padding: var(--spacing-unit) * 3 0;
+            background-color: #f0f4f7; /* Lighter background for contrast */
+            text-align: center;
+        }
+
+        #our-team .lead {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-unit) * 2;
+        }
+
+        #our-team h2 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-unit) * 2;
+            margin-top: var(--spacing-unit) * 2;
+        }
+
+        .team-member {
+            background-color: var(--text-color-light);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: var(--spacing-unit);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover; /* Ensures image covers the area without distortion */
+            margin-bottom: 15px;
+            border: 3px solid var(--primary-color); /* Add a border for visual appeal */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .team-member h3 {
+            font-size: 1.6em;
+            color: var(--text-color-dark);
+            margin-bottom: 5px;
+        }
+
+        .team-member .role {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .team-member .bio {
+            font-size: 1em;
+            color: var(--text-color-dark);
+            margin-bottom: 0;
+            min-height: 4em; /* Ensure consistent height for bios */
+        }
+        /* --- End of NEW CSS for Team Section --- */
+
         /* --- Testimonials --- */
         .testimonial-grid {
             display: grid;
@@ -329,7 +398,7 @@
                 font-size: 2em;
             }
 
-            .card-grid, .testimonial-grid {
+            .card-grid, .testimonial-grid, .team-grid { /* Added .team-grid */
                 grid-template-columns: 1fr;
             }
 
@@ -477,6 +546,38 @@
         </div>
     </section>
 
+    <section id="our-team">
+        <div class="container">
+            <h2>ทีมงานผู้เชี่ยวชาญของเรา</h2>
+            <p class="lead">เบื้องหลังความสำเร็จของคุณคือทีมงานที่เปี่ยมด้วยประสบการณ์และความมุ่งมั่น</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="team-lead.jpg" alt="รูปภาพหัวหน้าทีม">
+                    <h3>หัวหน้าทีมและ AI Prompt Editor</h3>
+                    <p class="role">Team Lead & AI Prompt Editor</p>
+                    <p class="bio">ผู้ริเริ่มและขับเคลื่อนกลยุทธ์ พร้อมความเชี่ยวชาญด้าน AI เพื่อผลลัพธ์สูงสุด</p>
+                </div>
+                <div class="team-member">
+                    <img src="e-commerce-specialist.jpg" alt="รูปภาพผู้เชี่ยวชาญ E-commerce">
+                    <h3>ผู้เชี่ยวชาญแพลตฟอร์ม E-commerce</h3>
+                    <p class="role">E-commerce Platform Specialist</p>
+                    <p class="bio">ผู้สร้างยอดขายบน Shopee, Lazada และ TikTok ด้วยกลยุทธ์ที่หลากหลาย</p>
+                </div>
+                <div class="team-member">
+                    <img src="content-creator.jpg" alt="รูปภาพ Facebook และ Content Creator">
+                    <h3>ผู้สร้างสรรค์คอนเทนต์และ Facebook</h3>
+                    <p class="role">Facebook & Content Creator</p>
+                    <p class="bio">สร้างสรรค์คอนเทนต์ที่ดึงดูดใจและบริหารจัดการ Facebook ได้อย่างมืออาชีพ</p>
+                </div>
+                <div class="team-member">
+                    <img src="tax-specialist.jpg" alt="รูปภาพฝ่ายวางแผนภาษี">
+                    <h3>ฝ่ายวางแผนภาษี</h3>
+                    <p class="role">Tax Planning Specialist</p>
+                    <p class="bio">ผู้ให้คำปรึกษาด้านภาษี เพื่อการบริหารจัดการธุรกิจที่ถูกต้องและมีประสิทธิภาพ</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="testimonials">
         <div class="container">
             <h2>เสียงจากลูกค้าของเรา</h2>
@@ -502,14 +603,14 @@
             <h2>พร้อมขับเคลื่อนธุรกิจให้ก้าวกระโดดแล้วหรือยัง?</h2>
             <p>ปรึกษาทีมผู้เชี่ยวชาญของเราได้ฟรี! เราพร้อมที่จะช่วยคุณวางแผนกลยุทธ์และบรรลุเป้าหมายทางธุรกิจ</p>
             <div class="contact-info">
-                <a href="tel:+66xxxxxxxx" class="contact-item">
-                    <i class="fas fa-phone-alt"></i> (+66) XXX-XXX-XXXX
+                <a href="tel:+66842156566" class="contact-item">
+                    <i class="fas fa-phone-alt"></i> (+66) 084-215-6566 (เคน)
                 </a>
-                <a href="mailto:info@yourcompany.com" class="contact-item">
-                    <i class="fas fa-envelope"></i> info@yourcompany.com
+                <a href="mailto:aitthiphols@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i> aitthiphols@gmail.com
                 </a>
-                <a href="https://line.me/ti/p/@yourlineid" target="_blank" class="contact-item">
-                    <i class="fab fa-line"></i> LINE ID: @YourLineID
+                <a href="https://line.me/ti/p/@bessking" target="_blank" class="contact-item">
+                    <i class="fab fa-line"></i> LINE ID: bessking
                 </a>
                 <a href="https://facebook.com/yourcompany" target="_blank" class="contact-item">
                     <i class="fab fa-facebook"></i> Facebook
