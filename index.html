@@ -263,9 +263,10 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            object-fit: cover; /* Ensures image covers the area without distortion */
-            margin-bottom: 15px;
-            border: 3px solid var(--primary-color); /* Add a border for visual appeal */
+            object-fit: cover;
+            display: block; /* เพิ่มบรรทัดนี้ */
+            margin: 0 auto 15px auto; /* แก้ไขบรรทัดนี้ */
+            border: 3px solid var(--primary-color);
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
