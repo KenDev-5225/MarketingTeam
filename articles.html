@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทความของเรา - ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* --- COPY & PASTE THE CSS FROM YOUR index.html HERE --- */
+        /* You can copy the entire <style> block from your index.html
+           and paste it here to ensure consistent styling. */
+
+        /* Add any specific styles for article page if needed */
+        .article-listing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-unit);
+            margin-top: var(--spacing-unit) * 2;
+        }
+        .article-card {
+            background-color: var(--text-color-light);
+            padding: var(--spacing-unit);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+        .article-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        .article-card p {
+            font-size: 1em;
+            color: var(--text-color-dark);
+        }
+        .article-card .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .article-card .read-more:hover {
+            text-decoration: underline;
+        }
+        .article-card .date {
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        /* --- End of specific styles for article page --- */
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>บทความของเรา</h1>
+            <p>แบ่งปันความรู้และข้อมูลเชิงลึกด้านดิจิทัลและ E-commerce</p>
+            <nav>
+                <a href="index.html" class="cta-button" style="padding: 10px 20px; font-size: 1em;">กลับสู่หน้าหลัก</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="articles-list">
+        <div class="container">
+            <h2>บทความล่าสุด</h2>
+            <div class="article-listing">
+                <div class="article-card">
+                    <p class="date">วันที่ 25 พฤษภาคม 2567</p>
+                    <h3><a href="article-ecommerce-tips.html">5 เทคนิคยกระดับยอดขายบน Shopee และ Lazada</a></h3>
+                    <p>เรียนรู้เทคนิคการตลาดและการจัดการร้านค้าที่จะช่วยเพิ่มยอดขายบนแพลตฟอร์ม E-commerce ยอดนิยม...</p>
+                    <a href="article-ecommerce-tips.html" class="read-more">อ่านต่อ &raquo;</a>
+                </div>
+
+                <div class="article-card">
+                    <p class="date">วันที่ 20 พฤษภาคม 2567</p>
+                    <h3><a href="article-line-bot-benefits.html">LINE Bot ทำอะไรได้มากกว่าที่คุณคิด</a></h3>
+                    <p>สำรวจประโยชน์ของ LINE Bot ในการสร้างปฏิสัมพันธ์กับลูกค้าและเพิ่มประสิทธิภาพธุรกิจ...</p>
+                    <a href="article-line-bot-benefits.html" class="read-more">อ่านต่อ &raquo;</a>
+                </div>
+
+                <div class="article-card">
+                    <p class="date">วันที่ 15 พฤษภาคม 2567</p>
+                    <h3><a href="article-content-marketing.html">กลยุทธ์ Content Marketing ที่ไม่ควรพลาดในปี 2024</a></h3>
+                    <p>เจาะลึกวิธีการสร้างสรรค์คอนเทนต์ที่ดึงดูดใจและเปลี่ยนผู้เยี่ยมชมให้เป็นลูกค้า...</p>
+                    <a href="article-content-marketing.html" class="read-more">อ่านต่อ &raquo;</a>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: var(--primary-color);">
+        <div class="container">
+            <h2>พร้อมขับเคลื่อนธุรกิจให้ก้าวกระโดดแล้วหรือยัง?</h2>
+            <p>ปรึกษาทีมผู้เชี่ยวชาญของเราได้ฟรี! เราพร้อมที่จะช่วยคุณวางแผนกลยุทธ์และบรรลุเป้าหมายทางธุรกิจ</p>
+            <div class="contact-info">
+                <a href="tel:+66842156566" class="contact-item">
+                    <i class="fas fa-phone-alt"></i> (+66) 084-215-6566 (เคน)
+                </a>
+                <a href="mailto:aitthiphols@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i> aitthiphols@gmail.com
+                </a>
+                <a href="https://line.me/ti/p/@bessking" target="_blank" class="contact-item">
+                    <i class="fab fa-line"></i> LINE ID: bessking
+                </a>
+                <a href="https://facebook.com/yourcompany" target="_blank" class="contact-item">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce. สงวนลิขสิทธิ์.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
