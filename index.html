@@ -262,9 +262,9 @@
         .section-lead {
             font-size: 1.2em;
             color: var(--secondary-color);
-            margin-top: -10px; /* Adjusted from -20px */
+            margin-top: -10px; 
             margin-bottom: 40px;
-            max-width: 700px; /* Increased max-width */
+            max-width: 700px; 
             margin-left: auto;
             margin-right: auto;
         }
@@ -300,11 +300,11 @@
 
         .pricing-card .package-desc {
             color: var(--secondary-color);
-            min-height: 40px; /* Ensures consistent starting point for features */
+            min-height: 40px; 
         }
 
         .pricing-card .price {
-            font-size: 2.8em; /* Adjusted size */
+            font-size: 2.8em; 
             font-weight: 700;
             color: var(--text-color-dark);
             margin: 10px 0;
@@ -327,8 +327,8 @@
 
         .features-list li {
             margin-bottom: 12px;
-            font-size: 1.05em; /* Slightly smaller for better fit */
-            padding-left: 20px;
+            font-size: 1.05em; 
+            padding-left: 25px; /* Increased padding for icon */
             position: relative;
         }
         
@@ -337,13 +337,17 @@
             color: var(--accent-color);
             position: absolute;
             left: 0;
+            font-weight: bold; /* Make checkmark bolder */
+        }
+        .features-list li b { /* For package names inside list items */
+            color: var(--text-color-dark);
         }
 
         .interest-button {
             display: block;
             text-align: center;
-            margin-top: auto; /* Pushes button to bottom */
-            padding: 12px 15px; /* Adjusted padding */
+            margin-top: auto; 
+            padding: 12px 15px; 
             font-size: 1em;
             background-color: var(--primary-color);
             color: var(--text-color-light);
@@ -385,7 +389,7 @@
             background-color: #218838;
         }
 
-        .upsell-section {
+        .upsell-section { /* Kept for consistency, but not directly used in the 3 main cards */
             margin-top: 60px;
             padding: 30px;
             background-color: #f0f4f7;
@@ -523,40 +527,40 @@
     
             <div class="pricing-container">
                 <div class="pricing-card">
-                    <h3>แพ็กเกจเริ่มต้นธุรกิจ</h3>
+                    <h3>แพ็กเกจเริ่มต้นธุรกิจดิจิทัล</h3>
                     <p class="package-desc">สำหรับผู้เริ่มต้น หรือต้องการเสริมความแข็งแกร่งเฉพาะจุด</p>
                     <ul class="features-list">
-                        <li><b>AI-Powered Content Starter:</b> สร้างสรรค์คอนเทนต์ยุคใหม่ด้วย AI (29,900.-)</li>
-                        <li><b>E-commerce Launchpad:</b> เปิดร้านค้าออนไลน์พร้อมขาย (34,900.-)</li>
-                        <li><b>Smart Bot Setup:</b> วางระบบบอทตอบคำถามเบื้องต้น (27,900.-)</li>
+                        <li><b>LINE Ecosystem Starter:</b> LINE OA, Bot พื้นฐาน, LINE SHOPPING (29,900.-)</li>
+                        <li><b>AI-Powered Content & Basic Ads:</b> คอนเทนต์ AI และเริ่มทดลอง Ads (27,900.- ไม่รวมงบ Ads)</li>
+                        <li><b>Multi-Platform E-commerce Launch:</b> เปิดร้าน Shopee/Lazada และ LINE SHOPPING (38,900.-)</li>
                     </ul>
                     <a href="[ลิงก์ Google Form สำหรับแพ็กเกจเริ่มต้น]" class="interest-button">เลือกแพ็กเกจเริ่มต้น</a>
                 </div>
     
                 <div class="pricing-card">
-                    <h3>แพ็กเกจเติบโต</h3>
+                    <h3>แพ็กเกจเติบโตและขยายผล</h3>
                     <p class="package-desc">สำหรับธุรกิจที่มีพื้นฐานแล้ว และต้องการยกระดับผลลัพธ์</p>
                     <ul class="features-list">
-                        <li><b>Content & Engagement Booster:</b> ปั้นคอนเทนต์ไวรัล ขยายฐานผู้ติดตาม (49,900.-)</li>
-                        <li><b>E-commerce Sales Maximizer:</b> เพิ่มยอดขายด้วยกลยุทธ์และ Automation (55,900.-)</li>
-                        <li><b>Data-Driven Strategy:</b> ใช้ข้อมูลขับเคลื่อนธุรกิจพร้อมระบบอัตโนมัติ (64,900.-)</li>
+                        <li><b>Advanced LINE Bot & Automation:</b> LINE Bot อัจฉริยะ พร้อมระบบอัตโนมัติ (48,900.-)</li>
+                        <li><b>Targeted Advertising & Conversion:</b> ยิง Ads ตรงเป้า เน้นผลลัพธ์ (39,900.- ไม่รวมงบ Ads)</li>
+                        <li><b>Omni-Channel Growth Engine:</b> ผสาน E-com, LINE, Ads เพื่อโตทุกช่องทาง (69,900.- ไม่รวมงบ Ads)</li>
                     </ul>
                     <a href="[ลิงก์ Google Form สำหรับแพ็กเกจเติบโต]" class="interest-button">เลือกแพ็กเกจเติบโต</a>
                 </div>
     
                 <div class="pricing-card featured">
                     <div class="featured-badge">VVIP EXCLUSIVE</div>
-                    <h3>แพ็กเกจ All-Inclusive</h3>
+                    <h3>แพ็กเกจ VVIP All-Inclusive</h3>
                     <p class="package-desc">พลิกโฉมธุรกิจสู่ยุค AI เต็มรูปแบบ พร้อมการดูแลที่เหนือกว่า</p>
-                    <div class="price">เริ่มต้น ฿149,900</div>
+                    <div class="price">เริ่มต้น ฿159,900</div>
                     <p class="price-note">(สำหรับโปรเจกต์ 3-6 เดือน)</p>
                     <ul class="features-list">
                         <li>วางแผนกลยุทธ์ธุรกิจด้วย AI เชิงลึก</li>
                         <li>ติดตั้งระบบ Automation & Bot ขั้นสูง</li>
-                        <li>บริหาร E-commerce และแคมเปญการตลาด</li>
+                        <li>พัฒนา LINE Ecosystem เต็มรูปแบบ</li>
+                        <li>บริหาร E-commerce และแคมเปญการตลาดหลายช่องทาง</li>
                         <li>สร้างและวิเคราะห์ Data Dashboard</li>
                         <li>ทีมงานดูแลและให้คำปรึกษาต่อเนื่อง</li>
-                        <li>โซลูชันครบวงจรที่ออกแบบเฉพาะสำหรับคุณ</li>
                     </ul>
                     <a href="[ลิงก์ Google Form สำหรับแพ็กเกจ VVIP]" class="interest-button">ปรึกษาแพ็กเกจ VVIP</a>
                 </div>
