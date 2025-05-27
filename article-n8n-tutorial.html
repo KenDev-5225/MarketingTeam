@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สอนใช้งาน n8n ครั้งแรก สร้าง Workflow แรกใน 5 นาที (ฉบับจับมือทำ) - ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce</title>
+    <title>สอนใช้งาน n8n ครั้งแรก: สร้าง Workflow แรกใน 5 นาที (ฉบับจับมือทำ) - ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
@@ -86,7 +86,7 @@
              line-height: 1.3;
              margin-top: 30px;
         }
-         .article-content h1 {
+        .article-content h1 {
             font-size: 2em;
             border-bottom: 2px solid #e0e0e0;
             padding-bottom: 10px;
@@ -96,7 +96,7 @@
              border-left: 4px solid var(--primary-color);
              padding-left: 15px;
         }
-         .article-content h4 {
+        .article-content h4 {
              font-size: 1.3em;
              color: var(--secondary-color);
         }
@@ -145,12 +145,12 @@
 
         /* --- Contact & Footer --- */
         #contact {
-             background-color: var(--primary-color);
-             color: var(--text-color-light);
+             background-color: var(--primary-color); /* Changed to primary-color for consistency in articles */
+             color: var(--text-color-light); /* Changed to text-color-light */
              text-align: center;
         }
         #contact h2 {
-             color: var(--text-color-light);
+             color: var(--text-color-light); /* Changed to text-color-light */
              font-size: 2.5em;
         }
         #contact p {
@@ -163,15 +163,41 @@
              display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-unit); font-size: 1.1em; margin-top: 30px;
         }
         .contact-item {
-             background-color: rgba(255, 255, 255, 0.15); padding: 15px 25px; border-radius: var(--border-radius); display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-color-light); transition: background-color 0.3s ease;
+             background-color: rgba(255, 255, 255, 0.15); /* Changed for better contrast */
+             padding: 15px 25px; border-radius: var(--border-radius); display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-color-light); transition: background-color 0.3s ease;
         }
         .contact-item:hover {
-             background-color: rgba(255, 255, 255, 0.25);
+             background-color: rgba(255, 255, 255, 0.25); /* Changed for better contrast */
         }
         footer {
             background-color: var(--background-dark); color: var(--secondary-color); text-align: center; padding: var(--spacing-unit) 0; font-size: 0.9em;
         }
 
+        /* --- CSS สำหรับปุ่มแชร์ Social Media (สำหรับบทความเดี่ยว) --- */
+        .social-share-buttons {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .share-button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+        .share-button:hover {
+            opacity: 0.8;
+        }
+        .share-button i {
+            margin-right: 8px;
+        }
+        .facebook { background-color: #3b5998; }
+        .line { background-color: #00c300; }
+        .twitter { background-color: #1da1f2; }
     </style>
 </head>
 <body>
@@ -282,7 +308,19 @@
                 <p>ขอแสดงความยินดีด้วยครับ! ตอนนี้คุณได้สร้างและสั่งงาน Workflow แรกบน n8n ได้สำเร็จแล้ว คุณได้เรียนรู้หัวใจสำคัญของการทำงานทั้งหมด ตั้งแต่การสร้าง Workflow, การเพิ่ม Node, การเชื่อมต่อ, การตั้งค่า ไปจนถึงการทดสอบและบันทึก</p>
                 <p>หลักการพื้นฐานเหล่านี้คือสิ่งที่คุณจะต้องใช้ซ้ำๆ ไม่ว่าคุณจะสร้างระบบที่ซับซ้อนแค่ไหนก็ตาม คุณได้ก้าวข้ามผ่านจุดที่ยากที่สุดของการเริ่มต้นไปแล้ว ตอนนี้ก็ถึงเวลาที่คุณจะนำความรู้นี้ไปทดลองต่อยอดกับ Node อื่นๆ ที่น่าสนใจต่อไปแล้วครับ!</p>
 
-            </div>
+                <div class="social-share-buttons" style="margin-top: 40px; text-align: center;">
+                    <p style="font-weight: 600; margin-bottom: 15px; font-size: 1.1em;">แชร์บทความนี้:</p>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://kendev-5225.github.io/MarketingTeam/article-n8n-first-workflow.html" target="_blank" class="share-button facebook">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                    <a href="https://social-plugins.line.me/lineit/share?url=https://kendev-5225.github.io/MarketingTeam/article-n8n-first-workflow.html" target="_blank" class="share-button line">
+                        <i class="fab fa-line"></i> LINE
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://kendev-5225.github.io/MarketingTeam/article-n8n-first-workflow.html&text=สอนใช้งาน%20n8n%20ครั้งแรก%3A%20สร้าง%20Workflow%20แรกใน%205%20นาที" target="_blank" class="share-button twitter">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                </div>
+                </div>
         </div>
     </section>
 
