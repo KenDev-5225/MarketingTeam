@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* --- Global Variables & Base Styles (คัดลอกจาก index.html) --- */
+        /* --- Global Variables & Base Styles (ควรจะเหมือนกับ index.html) --- */
         :root {
             --primary-color: #007bff; /* Blue */
             --secondary-color: #6c757d; /* Gray */
@@ -36,7 +36,7 @@
             padding: var(--spacing-unit);
         }
 
-        /* --- Header (คัดลอกจาก index.html) --- */
+        /* --- Header --- */
         header {
             background-color: var(--background-dark);
             color: var(--text-color-light);
@@ -48,7 +48,7 @@
             font-size: 2.5em;
             color: var(--primary-color);
         }
-        header p { /* ใช้สำหรับ subtitle ใน header หลัก */
+        header p {
             font-size: 1.2em;
             margin-top: 10px;
         }
@@ -69,15 +69,14 @@
             transform: translateY(-2px);
         }
 
-
-        /* --- Section Title Styling (ใช้ร่วมกัน) --- */
+        /* --- Section Styling --- */
         section {
-            padding: calc(var(--spacing-unit) * 2.5) 0; /* Adjusted padding */
+            padding: calc(var(--spacing-unit) * 2.5) 0;
         }
         section h2 {
             font-size: 2.5em;
             color: var(--primary-color);
-            margin-bottom: 10px; /* Reduced margin */
+            margin-bottom: 10px;
             text-align: center;
         }
         .section-lead {
@@ -90,10 +89,10 @@
             text-align: center;
         }
 
-        /* --- Article Grid (คล้าย Team Grid) --- */
+        /* --- Article Grid --- */
         .article-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ปรับ minmax ได้ตามต้องการ */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: calc(var(--spacing-unit) * 1.5);
             margin-top: var(--spacing-unit);
         }
@@ -103,32 +102,29 @@
             border-radius: var(--border-radius);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             padding: var(--spacing-unit);
-            text-align: center; /* ปรับให้เหมือน team-member */
+            text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
         .article-preview-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
         }
-
         .article-preview-card img.thumbnail {
-            width: 100%; /* ทำให้ภาพเต็มความกว้างของการ์ด */
-            height: 200px; /* กำหนดความสูงของภาพให้เท่ากัน */
-            object-fit: cover; /* ให้ภาพ cover พื้นที่โดยไม่บิดเบี้ยว */
-            border-radius: 4px; /* อาจจะเพิ่มมุมมนให้ภาพเล็กน้อย */
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
             margin-bottom: 15px;
         }
-
         .article-preview-card h3 {
-            font-size: 1.4em; /* ปรับขนาดตามความเหมาะสม */
+            font-size: 1.4em;
             color: var(--primary-color);
             margin-bottom: 10px;
             line-height: 1.3;
-             min-height: calc(1.3em * 2); /* For 2 lines of title */
+            min-height: calc(1.3em * 2);
         }
         .article-preview-card h3 a {
             text-decoration: none;
@@ -137,36 +133,75 @@
          .article-preview-card h3 a:hover {
             color: var(--accent-color);
          }
-
         .article-preview-card .excerpt {
             font-size: 0.95em;
             color: var(--secondary-color);
             margin-bottom: 15px;
             line-height: 1.5;
-            min-height: calc(1.5em * 3); /* For roughly 3 lines of excerpt */
-            overflow: hidden; /* ถ้าข้อย่อยาวเกินไป */
+            min-height: calc(1.5em * 3);
+            overflow: hidden;
         }
-        
         .article-preview-card .meta-info {
             font-size: 0.85em;
             color: #888;
             margin-bottom: 15px;
         }
-
         .article-preview-card .read-more-btn {
             display: inline-block;
             background-color: var(--accent-color);
             color: var(--text-color-light);
-            padding: 8px 20px; /* ปรับขนาดปุ่ม */
+            padding: 8px 20px;
             text-decoration: none;
             border-radius: 4px;
             font-size: 0.9em;
             font-weight: 600;
-            margin-top: auto; /* ดันปุ่มไปล่างสุด */
+            margin-top: auto;
             transition: background-color 0.2s ease;
         }
         .article-preview-card .read-more-btn:hover {
-            background-color: #218838; /* Darker green */
+            background-color: #218838;
+        }
+
+        /* --- Contact Section (คัดลอกจาก index.html) --- */
+        #contact {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            padding: calc(var(--spacing-unit) * 3) 0; /* Adjusted padding to match index */
+        }
+        #contact h2 {
+            color: var(--text-color-light); /* Ensure h2 color is light */
+        }
+        #contact p {
+            font-size: 1.2em;
+            margin-bottom: calc(var(--spacing-unit) * 1.5); /* Adjusted margin */
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-unit);
+            font-size: 1.1em;
+        }
+        .contact-item {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-color-light);
+            transition: background-color 0.3s ease;
+        }
+        .contact-item:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+         .contact-item i { /* Added from index.html context */
+            font-size: 1.5em;
         }
 
         /* --- Footer (คัดลอกจาก index.html) --- */
@@ -178,16 +213,16 @@
             font-size: 0.9em;
         }
         
-        /* Responsive adjustments if needed */
         @media (max-width: 768px) {
             .article-grid {
-                grid-template-columns: 1fr; /* Stack on smaller screens */
+                grid-template-columns: 1fr;
             }
-             .article-preview-card h3 {
+             .article-preview-card h3, .article-preview-card .excerpt {
                 min-height: auto;
             }
-            .article-preview-card .excerpt {
-                min-height: auto;
+            /* Responsive styles from index.html if any were specific to #contact */
+            #contact .contact-info { /* Copied from index.html responsive */
+                flex-direction: column;
             }
         }
 
@@ -202,7 +237,7 @@
             <nav style="margin-top: 20px;">
                 <a href="index.html" class="cta-button" style="padding: 10px 20px; font-size: 1em; margin-right: 10px;">หน้าหลัก</a>
                 <a href="articles.html" class="cta-button" style="padding: 10px 20px; font-size: 1em;">บทความ</a>
-                <a href="index.html#contact" class="cta-button" style="padding: 10px 20px; font-size: 1em; margin-left: 10px;">ติดต่อเรา</a>
+                <a href="#contact" class="cta-button" style="padding: 10px 20px; font-size: 1em; margin-left: 10px;">ติดต่อเรา</a>
             </nav>
         </div>
     </header>
@@ -244,11 +279,35 @@
                     <p class="excerpt">เรียนรู้เทคนิคการตลาดและการจัดการร้านค้าที่จะช่วยเพิ่มยอดขายบนแพลตฟอร์ม E-commerce ยอดนิยม...</p>
                     <a href="article-ecommerce-tips.html" class="read-more-btn">อ่านต่อ &raquo;</a>
                 </div>
-
-                </div>
+            </div>
         </div>
     </section>
 
+    <section id="contact">
+        <div class="container">
+            <h2>พร้อมขับเคลื่อนธุรกิจให้ก้าวกระโดดแล้วหรือยัง?</h2>
+            <p>ปรึกษาทีมผู้เชี่ยวชาญของเราได้ฟรี! เราพร้อมที่จะช่วยคุณวางแผนกลยุทธ์และบรรลุเป้าหมายทางธุรกิจ</p>
+            
+            <div style="text-align: center; margin-bottom: 30px;">
+                <p style="font-size: 1.1em; margin-bottom: 15px; color: var(--text-color-light);">หรือหากต้องการให้เราติดต่อกลับโดยตรง กรุณากรอกข้อมูลด้านล่างนี้:</p>
+                <a href="[ใส่ลิงก์ Google Form สำหรับการติดต่อกลับที่นี่]" class="cta-button" style="background-color: var(--accent-color);">คลิกเพื่อกรอกข้อมูลติดต่อกลับ</a>
+            </div>
+            <div class="contact-info">
+                <a href="tel:+66842156566" class="contact-item">
+                    <i class="fas fa-phone-alt"></i> (+66) 084-215-6566 (เคน)
+                </a>
+                <a href="mailto:aitthiphols@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i> aitthiphols@gmail.com
+                </a>
+                <a href="https://line.me/ti/p/@bessking" target="_blank" class="contact-item">
+                    <i class="fab fa-line"></i> LINE ID: bessking
+                </a>
+                <a href="https://facebook.com/yourcompany" target="_blank" class="contact-item">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="container">
             <p>&copy; 2025 ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce. สงวนลิขสิทธิ์.</p>
