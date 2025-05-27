@@ -3,517 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>บทความของเรา - ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>บทความทั้งหมด - ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce</title>
     <style>
-        /* --- Global Variables & Base Styles --- */
-        :root {
-            --primary-color: #007bff; /* Blue */
-            --secondary-color: #6c757d; /* Gray */
-            --accent-color: #28a745; /* Green */
-            --background-light: #f8f9fa;
-            --background-dark: #343a40;
-            --text-color-dark: #212529;
-            --text-color-light: #ffffff;
-            --border-radius: 8px;
-            --spacing-unit: 20px;
-        }
-
-        body {
-            font-family: 'Kanit', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: var(--text-color-dark);
-            background-color: var(--background-light);
-            scroll-behavior: smooth;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--spacing-unit);
-        }
-
-        /* --- Header --- */
-        header {
+        /* --- CSS หลักจาก index.html --- */
+        :root { /* ... CSS Variables ... */ }
+        body { /* ... body styles ... */ }
+        .container { /* ... container styles ... */ }
+        header { /* ... header styles ... */ }
+        /* ... (คัดลอก CSS ที่จำเป็นอื่นๆ จาก index.html มาเพื่อให้ Header, Footer เหมือนกัน) ... */
+        
+        /* --- Styles for this article listing page --- */
+        .page-title-section {
             background-color: var(--background-dark);
             color: var(--text-color-light);
+            padding: calc(var(--spacing-unit) * 2) 0;
+            text-align: center;
+        }
+        .page-title-section h1 {
+            color: var(--primary-color);
+            font-size: 2.8em;
+        }
+        .page-title-section p {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+
+        .article-grid-container {
             padding: var(--spacing-unit) 0;
-            text-align: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            color: var(--primary-color);
-        }
-
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x600/007bff/ffffff?text=Digital+Marketing+Success') no-repeat center center/cover;
-            color: var(--text-color-light);
-            text-align: center;
-            padding: 100px var(--spacing-unit);
-            position: relative;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h2 {
-            font-size: 3.5em;
-            margin-bottom: var(--spacing-unit);
-            color: var(--primary-color);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-
-        .hero p {
-            font-size: 1.5em;
-            margin-bottom: var(--spacing-unit) * 2;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--text-color-light);
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            font-size: 1.3em;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-
-        .cta-button:hover {
-            background-color: #218838;
-            transform: translateY(-2px);
-        }
-
-        /* --- Section Styling --- */
-        section {
-            padding: var(--spacing-unit) * 3 0;
-            background-color: var(--background-light);
-            text-align: center;
-        }
-
-        section:nth-of-type(even) { /* Applies to even-numbered sections for alternating background */
-            background-color: #e9ecef;
-        }
-
-        section h2 {
-            font-size: 2.5em;
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-unit) * 2;
-            text-align: center;
-        }
-
-        .text-left {
-            text-align: left;
-        }
-
-        .card-grid {
+        .article-listing {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-unit);
-            margin-top: var(--spacing-unit) * 2;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: calc(var(--spacing-unit) * 1.5);
+            margin-top: var(--spacing-unit);
         }
-
-        .card {
-            background-color: var(--text-color-light);
-            padding: var(--spacing-unit);
+        .article-card {
+            background-color: #fff;
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             text-align: left;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            color: var(--primary-color);
-            font-size: 1.6em;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-
-        .card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .card ul li {
-            margin-bottom: 8px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .card ul li::before {
-            content: '✓';
-            color: var(--accent-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .case-study {
-            background-color: var(--text-color-light);
-            padding: var(--spacing-unit) * 2;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            text-align: left;
-            margin-top: var(--spacing-unit) * 2;
-        }
-
-        .case-study h3 {
-            color: var(--primary-color);
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-
-        .case-study p {
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-
-        .metrics {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden; /* สำหรับรูปภาพ */
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: var(--spacing-unit) * 2;
-            margin-top: var(--spacing-unit) * 2;
+            flex-direction: column;
         }
-
-        .metric-item {
-            text-align: center;
-            background-color: var(--primary-color);
-            color: var(--text-color-light);
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+        .article-card .card-thumbnail img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .article-card .card-content {
             padding: var(--spacing-unit);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* ทำให้เนื้อหาเต็มการ์ด */
         }
-
-        .metric-item .value {
-            font-size: 3em;
-            font-weight: 700;
+        .article-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5em; /* ปรับให้ใหญ่ขึ้นเล็กน้อย */
+        }
+        .article-card h3 a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .article-card h3 a:hover {
             color: var(--accent-color);
         }
-
-        .metric-item .label {
-            font-size: 1.2em;
-            margin-top: 5px;
-        }
-
-        /* --- Start of NEW CSS for Team Section --- */
-        #our-team {
-            padding: var(--spacing-unit) * 3 0;
-            background-color: #f0f4f7; /* Lighter background for contrast */
-            text-align: center;
-        }
-
-        #our-team .lead {
-            font-size: 1.2em;
-            color: var(--secondary-color);
-            margin-bottom: var(--spacing-unit) * 2;
-        }
-
-        #our-team h2 {
-            font-size: 2.5em;
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-unit);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-unit) * 2;
-            margin-top: var(--spacing-unit) * 2;
-        }
-
-        .team-member {
-            background-color: var(--text-color-light);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: var(--spacing-unit);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-        }
-
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover; /* Ensures image covers the area without distortion */
-            margin-bottom: 15px;
-            border: 3px solid var(--primary-color); /* Add a border for visual appeal */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .team-member h3 {
-            font-size: 1.6em;
-            color: var(--text-color-dark);
-            margin-bottom: 5px;
-        }
-
-        .team-member .role {
-            color: var(--secondary-color);
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-
-        .team-member .bio {
+        .article-card .excerpt {
             font-size: 1em;
             color: var(--text-color-dark);
-            margin-bottom: 0;
-            min-height: 4em; /* Ensure consistent height for bios */
+            line-height: 1.6;
+            margin-bottom: 15px;
+            flex-grow: 1;
         }
-        /* --- End of NEW CSS for Team Section --- */
-
-        /* --- Testimonials --- */
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-unit);
-            margin-top: var(--spacing-unit) * 2;
-        }
-
-        .testimonial-card {
-            background-color: var(--text-color-light);
-            padding: var(--spacing-unit);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            font-style: italic;
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '“';
-            font-size: 4em;
-            color: var(--primary-color);
-            position: absolute;
-            top: 10px;
-            left: 15px;
-            opacity: 0.2;
-        }
-
-        .testimonial-card p {
-            font-size: 1.1em;
-            margin-bottom: 10px;
-            padding-top: 20px;
-        }
-
-        .testimonial-card .author {
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        /* --- Contact Section --- */
-        #contact {
-            background-color: var(--primary-color);
-            color: var(--text-color-light);
-            padding: var(--spacing-unit) * 3 0;
-        }
-
-        #contact h2 {
-            color: var(--text-color-light);
-        }
-
-        #contact p {
-            font-size: 1.2em;
-            margin-bottom: var(--spacing-unit) * 2;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: var(--spacing-unit);
-            font-size: 1.1em;
-        }
-
-        .contact-item {
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 15px 25px;
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--text-color-light);
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background-color: rgba(255, 255, 255, 0.25);
-        }
-
-        .contact-item i {
-            font-size: 1.5em;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--background-dark);
+        .article-card .meta-info {
+            font-size: 0.85em;
             color: var(--secondary-color);
-            text-align: center;
-            padding: var(--spacing-unit) 0;
-            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .article-card .read-more {
+            display: inline-block;
+            margin-top: auto; /* ดันปุ่มไปด้านล่างสุดของการ์ด */
+            color: var(--text-color-light);
+            background-color: var(--accent-color);
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+        .article-card .read-more:hover {
+            background-color: #218838; /* Darker green */
         }
 
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 2.5em;
-            }
-
-            .hero p {
-                font-size: 1.2em;
-            }
-
-            section h2 {
-                font-size: 2em;
-            }
-
-            .card-grid, .testimonial-grid, .team-grid { /* Added .team-grid */
-                grid-template-columns: 1fr;
-            }
-
-            .metrics {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .metric-item {
-                width: 80%;
-                max-width: 300px;
-            }
-
-            .contact-info {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h2 {
-                font-size: 2em;
-            }
-            .hero p {
-                font-size: 1em;
-            }
-            .cta-button {
-                font-size: 1em;
-                padding: 12px 25px;
-            }
-            section {
-                padding: var(--spacing-unit) * 1.5 0;
-            }
+        footer {
+            background-color: var(--background-dark); color: var(--secondary-color); text-align: center; padding: var(--spacing-unit) 0; font-size: 0.9em;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>บทความของเรา</h1>
-            <p>แบ่งปันความรู้และข้อมูลเชิงลึกด้านดิจิทัลและ E-commerce</p>
-            <nav>
-                <a href="index.html" class="cta-button" style="padding: 10px 20px; font-size: 1em;">กลับสู่หน้าหลัก</a>
+    <header> <div class="container">
+            <h1>ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce</h1>
+            <nav style="margin-top: 20px;">
+                <a href="index.html" class="cta-button" style="padding: 10px 20px; font-size: 1em; margin-right: 10px;">หน้าหลัก</a>
+                <a href="#articles-list" class="cta-button" style="padding: 10px 20px; font-size: 1em;">บทความ</a>
+                 <a href="index.html#contact" class="cta-button" style="padding: 10px 20px; font-size: 1em; margin-left:10px;">ติดต่อเรา</a>
             </nav>
         </div>
     </header>
 
-    <section id="articles-list">
+    <section class="page-title-section">
         <div class="container">
-            <h2>บทความล่าสุด</h2>
+            <h1>คลังความรู้และบทความ</h1>
+            <p>อัปเดตเทรนด์ เคล็ดลับ และกรณีศึกษาด้าน Digital & E-commerce</p>
+        </div>
+    </section>
+
+    <section id="articles-list" class="article-grid-container">
+        <div class="container">
             <div class="article-listing">
-
-                <div class="article-card">
-                    <p class="date">วันที่ 28 พฤษภาคม 2568</p>
-                    <h3><a href="article-line-bot-benefits.html">ไลน์บอท ผู้ช่วยอัจฉริยะที่ทำให้ชีวิตง่ายขึ้น</a></h3>
-                    <p>ทำความรู้จักกับไลน์บอท (LINE Bot) ผู้ช่วยอัจฉริยะที่จะมาเปลี่ยนวิธีการสื่อสารและทำธุรกิจบน LINE ให้มีประสิทธิภาพยิ่งขึ้น...</p>
-                    <a href="article-line-bot-benefits.html" class="read-more">อ่านต่อ &raquo;</a>
-                </div>
-
-                 <div class="article-card">
-                    <p class="date">วันที่ 27 พฤษภาคม 2568</p>
-                    <h3><a href="article-n8n-tutorial.html">สอนใช้งาน n8n ครั้งแรก สร้าง Workflow แรกใน 5 นาที</a></h3>
-                    <p>เริ่มต้นใช้งาน n8n ครั้งแรก! เรียนรู้วิธีสร้าง Workflow อัตโนมัติเพื่อจัดการงานซ้ำๆ ที่น่าเบื่อใน 5 นาที...</p>
-                    <a href="article-n8n-tutorial.html" class="read-more">อ่านต่อ &raquo;</a>
-                </div>
                 
                 <div class="article-card">
-                    <p class="date">วันที่ 25 พฤษภาคม 2568</p>
-                    <h3><a href="article-ecommerce-tips.html">5 เทคนิคยกระดับยอดขายบน Shopee และ Lazada</a></h3>
-                    <p>เรียนรู้เทคนิคการตลาดและการจัดการร้านค้าที่จะช่วยเพิ่มยอดขายบนแพลตฟอร์ม E-commerce ยอดนิยม...</p>
-                    <a href="article-ecommerce-tips.html" class="read-more">อ่านต่อ &raquo;</a>
+                    <div class="card-thumbnail">
+                        <a href="article-line-bot-advanced.html"><img src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="LINE Bot Advanced"></a>
+                    </div>
+                    <div class="card-content">
+                        <p class="meta-info">วันที่ 28 พฤษภาคม 2568</p>
+                        <h3><a href="article-line-bot-advanced.html">LINE Bot: ทำได้ "มากกว่า" ที่คุณคิด (และเปลี่ยนแปลงธุรกิจ)</a></h3>
+                        <p class="excerpt">เจาะลึกศักยภาพของ LINE Bot ที่เป็นมากกว่าแชทบอทธรรมดา แต่เป็นอาวุธลับที่ช่วยยกระดับและเปลี่ยนแปลงธุรกิจของคุณได้อย่างไร...</p>
+                        <a href="article-line-bot-advanced.html" class="read-more">อ่านต่อ &raquo;</a>
+                    </div>
                 </div>
 
                 <div class="article-card">
-                    <p class="date">วันที่ 20 พฤษภาคม 2568</p>
-                    <h3><a href="article-line-bot-advanced.html">LINE Bot: ทำได้ "มากกว่า" ที่คุณคิด (และเปลี่ยนแปลงธุรกิจ)</a></h3>
-                    <p>เจาะลึกศักยภาพของ LINE Bot ที่เป็นมากกว่าแชทบอทธรรมดา แต่เป็นอาวุธลับที่ช่วยยกระดับและเปลี่ยนแปลงธุรกิจของคุณได้อย่างไร...</p>
-                    <a href="article-line-bot-advanced.html" class="read-more">อ่านต่อ &raquo;</a>
+                     <div class="card-thumbnail">
+                        <a href="article-line-bot-benefits.html"><img src="https://images.pexels.com/photos/8721340/pexels-photo-8721340.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="LINE Bot Benefits"></a>
+                    </div>
+                    <div class="card-content">
+                        <p class="meta-info">วันที่ 28 พฤษภาคม 2568</p>
+                        <h3><a href="article-line-bot-benefits.html">ไลน์บอท: ผู้ช่วยอัจฉริยะที่ทำให้ชีวิตง่ายขึ้น</a></h3>
+                        <p class="excerpt">ทำความรู้จักกับไลน์บอท (LINE Bot) ผู้ช่วยอัจฉริยะที่จะมาเปลี่ยนวิธีการสื่อสารและทำธุรกิจบน LINE ให้มีประสิทธิภาพยิ่งขึ้น...</p>
+                        <a href="article-line-bot-benefits.html" class="read-more">อ่านต่อ &raquo;</a>
+                    </div>
                 </div>
 
                 <div class="article-card">
-                    <p class="date">วันที่ 15 พฤษภาคม 2568</p>
-                    <h3><a href="article-content-marketing.html">กลยุทธ์ Content Marketing ที่ไม่ควรพลาดในปี 2024</a></h3>
-                    <p>เจาะลึกวิธีการสร้างสรรค์คอนเทนต์ที่ดึงดูดใจและเปลี่ยนผู้เยี่ยมชมให้เป็นลูกค้า...</p>
-                    <a href="article-content-marketing.html" class="read-more">อ่านต่อ &raquo;</a>
+                     <div class="card-thumbnail">
+                        <a href="article-n8n-tutorial.html"><img src="https://images.pexels.com/photos/160107/pexels-photo-160107.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="n8n Tutorial"></a>
+                    </div>
+                    <div class="card-content">
+                        <p class="meta-info">วันที่ 27 พฤษภาคม 2568</p>
+                        <h3><a href="article-n8n-tutorial.html">สอนใช้งาน n8n ครั้งแรก: สร้าง Workflow แรกใน 5 นาที</a></h3>
+                        <p class="excerpt">เริ่มต้นใช้งาน n8n ครั้งแรก! เรียนรู้วิธีสร้าง Workflow อัตโนมัติเพื่อจัดการงานซ้ำๆ ที่น่าเบื่อใน 5 นาที...</p>
+                        <a href="article-n8n-tutorial.html" class="read-more">อ่านต่อ &raquo;</a>
+                    </div>
                 </div>
-
+                
                 </div>
         </div>
     </section>
 
-    <section id="contact" style="background-color: var(--primary-color);">
-        <div class="container">
-            <h2>พร้อมขับเคลื่อนธุรกิจให้ก้าวกระโดดแล้วหรือยัง?</h2>
-            <p>ปรึกษาทีมผู้เชี่ยวชาญของเราได้ฟรี! เราพร้อมที่จะช่วยคุณวางแผนกลยุทธ์และบรรลุเป้าหมายทางธุรกิจ</p>
-            <div class="contact-info">
-                <a href="tel:+66842156566" class="contact-item">
-                    <i class="fas fa-phone-alt"></i> (+66) 084-215-6566 (เคน)
-                </a>
-                <a href="mailto:aitthiphols@gmail.com" class="contact-item">
-                    <i class="fas fa-envelope"></i> aitthiphols@gmail.com
-                </a>
-                <a href="https://line.me/ti/p/@bessking" target="_blank" class="contact-item">
-                    <i class="fab fa-line"></i> LINE ID: bessking
-                </a>
-                <a href="https://facebook.com/yourcompany" target="_blank" class="contact-item">
-                    <i class="fab fa-facebook"></i> Facebook
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce. สงวนลิขสิทธิ์.</p>
+    <footer> <div class="container">
+            <p>&copy; 2025 ทีมผู้เชี่ยวชาญด้านดิจิทัลและ E-commerce. สงวนลิขสิทธิ์.</p>
         </div>
     </footer>
 
