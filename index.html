@@ -171,13 +171,14 @@
             font-weight: bold;
         }
 
-        .case-study {
+       .case-study {
             background-color: var(--text-color-light);
-            padding: var(--spacing-unit) * 2;
+            /* ปรับ padding ให้มีระยะห่างซ้าย-ขวามากขึ้น */
+            padding: 30px 40px; 
             border-radius: var(--border-radius);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             text-align: left;
-            margin-top: var(--spacing-unit) * 2;
+            margin-top: calc(var(--spacing-unit) * 2); /* แก้ไข синтаксис ให้ถูกต้อง */
         }
 
         .case-study h3 {
@@ -509,24 +510,24 @@
         <div class="container">
             <h2>ความสำเร็จที่พิสูจน์แล้ว</h2>
             <div class="case-study">
-                <h3>สร้างยอดขาย **19,000,000 บาท** ใน 9 เดือน!</h3>
+                <h3>สร้างยอดขาย <strong>19,000,000 บาท</strong> ใน 9 เดือน!</h3>
                 <p>นี่คือเรื่องราวความสำเร็จที่เราภาคภูมิใจ ซึ่งแสดงถึงพลังของการผสานกลยุทธ์ดิจิทัลแบบครบวงจร</p>
                 <p>เราใช้การวิเคราะห์ข้อมูลเชิงลึกเพื่อทำความเข้าใจพฤติกรรมผู้บริโภค สร้างสรรค์คอนเทนต์ที่ดึงดูดใจผู้ซื้อ ผนวกกับการใช้โฆษณาแบบเจาะจงกลุ่มเป้าหมาย และการบริหารจัดการแคมเปญโปรโมชั่นอย่างชาญฉลาดบนแพลตฟอร์ม E-commerce ยอดนิยมอย่าง Shopee, Lazada และ TikTok โดยมีการใช้ LINE Bot เพื่อบริหารจัดการลูกค้าสัมพันธ์อย่างมีประสิทธิภาพ ซึ่งทั้งหมดนี้ส่งผลให้เกิดยอดขายที่ก้าวกระโดด</p>
                 <div class="metrics">
                     <div class="metric-item">
-                        <div class="value">19M+</div>
-                        <div class="label">ยอดขาย (บาท)</div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="value">9</div>
-                        <div class="label">ระยะเวลา (เดือน)</div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="value">X</div>
-                        <div class="label">อัตราเติบโต (ตัวอย่าง)</div>
-                    </div>
-                </div>
+                    <div class="value">19M+</div>
+                <div class="label">ยอดขาย (บาท)</div>
             </div>
+            <div class="metric-item">
+                <div class="value">9</div>
+                <div class="label">ระยะเวลา (เดือน)</div>
+            </div>
+            <div class="metric-item">
+                <div class="value">X</div>
+                <div class="label">อัตราเติบโต (ตัวอย่าง)</div>
+            </div>
+        </div>
+    </div>
         </div>
     </section>
 
