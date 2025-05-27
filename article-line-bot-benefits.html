@@ -152,6 +152,31 @@
             background-color: var(--background-dark); color: var(--secondary-color); text-align: center; padding: var(--spacing-unit) 0; font-size: 0.9em;
         }
 
+        /* --- CSS สำหรับปุ่มแชร์ Social Media (สำหรับบทความเดี่ยว) --- */
+        .social-share-buttons {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .share-button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+        .share-button:hover {
+            opacity: 0.8;
+        }
+        .share-button i {
+            margin-right: 8px;
+        }
+        .facebook { background-color: #3b5998; }
+        .line { background-color: #00c300; }
+        .twitter { background-color: #1da1f2; }
     </style>
 </head>
 <body>
@@ -218,7 +243,19 @@
                 <h3>สรุป</h3>
                 <p>ไลน์บอทได้พิสูจน์แล้วว่าเป็นเครื่องมือที่มีศักยภาพในการเปลี่ยนแปลงวิธีการสื่อสารและปฏิสัมพันธ์บนแพลตฟอร์ม LINE ไม่ว่าจะเป็นการเพิ่มประสิทธิภาพในการบริการ การลดต้นทุน หรือการสร้างประสบการณ์ที่เป็นส่วนตัว ด้วยการพัฒนาอย่างไม่หยุดยั้ง ไลน์บอทจะยังคงเป็นส่วนสำคัญในการขับเคลื่อนนวัตกรรมและทำให้ชีวิตของผู้คนในยุคดิจิทัลง่ายขึ้นและสะดวกสบายยิ่งขึ้นในอนาคตอันใกล้</p>
 
-            </div>
+                <div class="social-share-buttons" style="margin-top: 40px; text-align: center;">
+                    <p style="font-weight: 600; margin-bottom: 15px; font-size: 1.1em;">แชร์บทความนี้:</p>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://kendev-5225.github.io/MarketingTeam/article-line-bot-benefits.html" target="_blank" class="share-button facebook">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                    <a href="https://social-plugins.line.me/lineit/share?url=https://kendev-5225.github.io/MarketingTeam/article-line-bot-benefits.html" target="_blank" class="share-button line">
+                        <i class="fab fa-line"></i> LINE
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://kendev-5225.github.io/MarketingTeam/article-line-bot-benefits.html&text=ไลน์บอท%3A%20ผู้ช่วยอัจฉริยะที่ทำให้ชีวิตง่ายขึ้น" target="_blank" class="share-button twitter">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                </div>
+                </div>
         </div>
     </section>
 
