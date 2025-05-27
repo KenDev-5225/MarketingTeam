@@ -169,14 +169,13 @@
             font-weight: bold;
         }
 
-       .case-study {
+        .case-study {
             background-color: var(--text-color-light);
-            /* ปรับ padding ให้มีระยะห่างซ้าย-ขวามากขึ้น */
-            padding: 30px 40px; 
+            padding: var(--spacing-unit) * 2;
             border-radius: var(--border-radius);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             text-align: left;
-            margin-top: calc(var(--spacing-unit) * 2); /* แก้ไข синтаксис ให้ถูกต้อง */
+            margin-top: var(--spacing-unit) * 2;
         }
 
         .case-study h3 {
@@ -185,11 +184,9 @@
             margin-bottom: 15px;
         }
 
-        /* โค้ดที่ปรับแก้แล้ว */
         .case-study p {
             font-size: 1.1em;
-            margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่างของย่อหน้าให้มากขึ้น */
-            line-height: 1.8;   /* เพิ่มระยะห่างระหว่างบรรทัด ทำให้อ่านง่ายและสบายตาขึ้น */
+            margin-bottom: 10px;
         }
 
         .metrics {
@@ -264,10 +261,9 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            object-fit: cover;
-            display: block; /* เพิ่มบรรทัดนี้ */
-            margin: 0 auto 15px auto; /* แก้ไขบรรทัดนี้ */
-            border: 3px solid var(--primary-color);
+            object-fit: cover; /* Ensures image covers the area without distortion */
+            margin-bottom: 15px;
+            border: 3px solid var(--primary-color); /* Add a border for visual appeal */
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
