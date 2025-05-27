@@ -264,7 +264,8 @@
             height: 150px;
             border-radius: 50%;
             object-fit: cover; /* Ensures image covers the area without distortion */
-            margin-bottom: 15px;
+            display: block; /* Added for centering */
+            margin: 0 auto 15px auto; /* Modified for centering */
             border: 3px solid var(--primary-color); /* Add a border for visual appeal */
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
@@ -432,6 +433,57 @@
                 padding: var(--spacing-unit) * 1.5 0;
             }
         }
+
+        /* --- CSS เฉพาะสำหรับเนื้อหาบทความเดี่ยว --- */
+        .article-content {
+            background-color: var(--text-color-light);
+            padding: var(--spacing-unit) * 2;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            margin-top: var(--spacing-unit) * 2;
+        }
+        .article-content h1 {
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+        .article-content p {
+            margin-bottom: 1em;
+        }
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-unit);
+        }
+        /* --- End of specific styles for article content --- */
+
+        /* --- CSS สำหรับปุ่มแชร์ Social Media (สำหรับบทความเดี่ยว) --- */
+        .social-share-buttons {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .share-button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+        .share-button:hover {
+            opacity: 0.8;
+        }
+        .share-button i {
+            margin-right: 8px;
+        }
+        .facebook { background-color: #3b5998; }
+        .line { background-color: #00c300; }
+        .twitter { background-color: #1da1f2; }
     </style>
 </head>
 <body>
@@ -464,7 +516,20 @@
                 <p>... (เนื้อหาบทความเต็มๆ ของคุณ) ...</p>
 
                 <p>**สรุป:** การใช้เทคนิคเหล่านี้ร่วมกันอย่างสม่ำเสมอ จะช่วยให้ร้านค้าของคุณแข็งแกร่งและสร้างยอดขายที่เติบโตอย่างก้าวกระโดดบน Shopee และ Lazada ได้อย่างแน่นอน</p>
-            </div>
+                
+                <div class="social-share-buttons" style="margin-top: 40px; text-align: center;">
+                    <p style="font-weight: 600; margin-bottom: 15px; font-size: 1.1em;">แชร์บทความนี้:</p>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://kendev-5225.github.io/MarketingTeam/article-ecommerce-tips.html" target="_blank" class="share-button facebook">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                    <a href="https://social-plugins.line.me/lineit/share?url=https://kendev-5225.github.io/MarketingTeam/article-ecommerce-tips.html" target="_blank" class="share-button line">
+                        <i class="fab fa-line"></i> LINE
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://kendev-5225.github.io/MarketingTeam/article-ecommerce-tips.html&text=5%20เทคนิคยกระดับยอดขายบน%20Shopee%20และ%20Lazada" target="_blank" class="share-button twitter">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                </div>
+                </div>
         </div>
     </section>
 
