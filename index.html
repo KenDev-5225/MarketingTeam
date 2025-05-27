@@ -304,10 +304,17 @@
         }
 
         .pricing-card .price {
-            font-size: 3em;
+            font-size: 2.8em; /* Adjusted size */
             font-weight: 700;
             color: var(--text-color-dark);
             margin: 10px 0;
+        }
+        
+        .pricing-card .price-note {
+            font-size: 0.9em;
+            font-style: italic;
+            color: var(--secondary-color);
+            margin-top: -15px;
         }
 
         .features-list {
@@ -321,14 +328,15 @@
         .features-list li {
             margin-bottom: 12px;
             font-size: 1.05em; /* Slightly smaller for better fit */
+            padding-left: 20px;
+            position: relative;
         }
-
-        .features-list .saving-note {
-            font-style: italic;
+        
+        .features-list li::before {
+            content: '✓';
             color: var(--accent-color);
-            font-weight: 600;
-            text-align: center;
-            margin-top: 20px;
+            position: absolute;
+            left: 0;
         }
 
         .interest-button {
@@ -396,55 +404,26 @@
             margin: 15px auto;
         }
         .upsell-section ul {
-            list-style-position: inside; /* Bullets inside the text block */
+            list-style-position: inside;
             max-width: 600px;
             margin: 20px auto 0 auto;
-            padding-left: 0; /* Reset padding */
+            padding-left: 0;
         }
          .upsell-section li {
             margin-bottom: 10px;
          }
 
-        /* --- Testimonials --- */
+        /* --- Testimonials & Contact --- */
         #testimonials {
             background-color: #ffffff;
         }
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-unit);
-            margin-top: calc(var(--spacing-unit) * 2);
-        }
-
-        .testimonial-card {
-            background-color: var(--background-light);
-            padding: calc(var(--spacing-unit) * 1.5);
-            border-radius: var(--border-radius);
-            text-align: center;
-            font-style: italic;
-            position: relative;
-        }
-        .testimonial-card p {
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-        .testimonial-card .author {
-            font-weight: 600;
-            color: var(--primary-color);
-            font-style: normal;
-        }
-
-
-        /* --- Contact Section --- */
         #contact {
             background-color: var(--primary-color);
             color: var(--text-color-light);
         }
-
         #contact h2 {
             color: var(--text-color-light);
         }
-
         #contact p {
             font-size: 1.2em;
             margin-bottom: calc(var(--spacing-unit) * 2);
@@ -452,7 +431,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .contact-info {
             display: flex;
             flex-wrap: wrap;
@@ -460,7 +438,6 @@
             gap: var(--spacing-unit);
             font-size: 1.1em;
         }
-
         .contact-item {
             background-color: rgba(255, 255, 255, 0.15);
             padding: 15px 25px;
@@ -472,7 +449,6 @@
             color: var(--text-color-light);
             transition: background-color 0.3s ease;
         }
-
         .contact-item:hover {
             background-color: rgba(255, 255, 255, 0.25);
         }
@@ -491,33 +467,27 @@
             .hero h2 {
                 font-size: 2.5em;
             }
-
             .hero p {
                 font-size: 1.2em;
             }
-
             section h2 {
                 font-size: 2em;
             }
-
-            .card-grid, .testimonial-grid, .team-grid, .pricing-container {
+            .card-grid, .team-grid, .pricing-container {
                 grid-template-columns: 1fr;
             }
             
             .pricing-card.featured {
                 transform: scale(1); 
             }
-
             .metrics {
                 flex-direction: column;
                 align-items: center;
             }
-
             .metric-item {
                 width: 80%;
                 max-width: 300px;
             }
-
             .contact-info {
                 flex-direction: column;
             }
@@ -549,63 +519,50 @@
     <section id="services">
         <div class="container">
             <h2>แพ็กเกจบริการของเรา</h2>
-            <p class="section-lead">เลือกแพ็กเกจที่ตอบโจทย์ธุรกิจของคุณที่สุด เพื่อผลลัพธ์ที่เหนือกว่า</p>
+            <p class="section-lead">โซลูชันที่ขับเคลื่อนด้วย AI และความเชี่ยวชาญเฉพาะทาง เพื่อผลลัพธ์ทางธุรกิจที่วัดผลได้จริง</p>
     
             <div class="pricing-container">
                 <div class="pricing-card">
-                    <h3>แพ็กเกจเดี่ยว</h3>
-                    <p class="package-desc">เลือกเฉพาะบริการที่จำเป็นสำหรับธุรกิจของคุณ</p>
+                    <h3>แพ็กเกจเริ่มต้นธุรกิจ</h3>
+                    <p class="package-desc">สำหรับผู้เริ่มต้น หรือต้องการเสริมความแข็งแกร่งเฉพาะจุด</p>
                     <ul class="features-list">
-                        <li>✓ วางระบบบอท (24,900.-)</li>
-                        <li>✓ เขียน Prompt AI (14,900.-)</li>
-                        <li>✓ เปิดร้านค้าออนไลน์ (29,900.-)</li>
-                        <li>✓ วางแผนการตลาด (19,900.-)</li>
-                        <li>✓ สร้าง Data Dashboard (34,900.-)</li>
+                        <li><b>AI-Powered Content Starter:</b> สร้างสรรค์คอนเทนต์ยุคใหม่ด้วย AI (29,900.-)</li>
+                        <li><b>E-commerce Launchpad:</b> เปิดร้านค้าออนไลน์พร้อมขาย (34,900.-)</li>
+                        <li><b>Smart Bot Setup:</b> วางระบบบอทตอบคำถามเบื้องต้น (27,900.-)</li>
                     </ul>
-                    <a href="[ลิงก์ Google Form สำหรับแพ็กเกจเดี่ยว]" class="interest-button">เลือกบริการ</a>
+                    <a href="[ลิงก์ Google Form สำหรับแพ็กเกจเริ่มต้น]" class="interest-button">เลือกแพ็กเกจเริ่มต้น</a>
                 </div>
     
                 <div class="pricing-card">
-                    <h3>แพ็กเกจจับคู่ (Combo)</h3>
-                    <p class="package-desc">ซื้อคู่ คุ้มกว่า พร้อมเริ่มต้นอย่างเป็นระบบ</p>
+                    <h3>แพ็กเกจเติบโต</h3>
+                    <p class="package-desc">สำหรับธุรกิจที่มีพื้นฐานแล้ว และต้องการยกระดับผลลัพธ์</p>
                     <ul class="features-list">
-                        <li><b>Combo A:</b> บอท + Prompt (34,900.-)</li>
-                        <li><b>Combo B:</b> เปิดร้านค้า + บอท (49,900.-)</li>
-                        <li><b>Combo C:</b> Data + Marketing (49,900.-)</li>
-                        <li class="saving-note">ประหยัดสูงสุด 15%</li>
+                        <li><b>Content & Engagement Booster:</b> ปั้นคอนเทนต์ไวรัล ขยายฐานผู้ติดตาม (49,900.-)</li>
+                        <li><b>E-commerce Sales Maximizer:</b> เพิ่มยอดขายด้วยกลยุทธ์และ Automation (55,900.-)</li>
+                        <li><b>Data-Driven Strategy:</b> ใช้ข้อมูลขับเคลื่อนธุรกิจพร้อมระบบอัตโนมัติ (64,900.-)</li>
                     </ul>
-                    <a href="[ลิงก์ Google Form สำหรับแพ็กเกจจับคู่]" class="interest-button">เลือกแพ็กเกจคู่</a>
+                    <a href="[ลิงก์ Google Form สำหรับแพ็กเกจเติบโต]" class="interest-button">เลือกแพ็กเกจเติบโต</a>
                 </div>
     
                 <div class="pricing-card featured">
-                    <div class="featured-badge">คุ้มค่าที่สุด</div>
-                    <h3>แพ็กเกจฟูล (Full Service)</h3>
-                    <p class="package-desc">โซลูชันครบวงจรสำหรับธุรกิจที่ต้องการเติบโตแบบก้าวกระโดด</p>
-                    <div class="price">฿89,900</div>
+                    <div class="featured-badge">VVIP EXCLUSIVE</div>
+                    <h3>แพ็กเกจ All-Inclusive</h3>
+                    <p class="package-desc">พลิกโฉมธุรกิจสู่ยุค AI เต็มรูปแบบ พร้อมการดูแลที่เหนือกว่า</p>
+                    <div class="price">เริ่มต้น ฿149,900</div>
+                    <p class="price-note">(สำหรับโปรเจกต์ 3-6 เดือน)</p>
                     <ul class="features-list">
-                        <li>✓ วางระบบ Bot (LINE/Facebook)</li>
-                        <li>✓ เขียน Prompt อัตโนมัติ</li>
-                        <li>✓ เปิดร้านค้า Shopee/Lazada/TikTok</li>
-                        <li>✓ วางแผนการตลาดออนไลน์ 1 เดือน</li>
-                        <li>✓ วาง Dashboard ดูข้อมูลลูกค้า</li>
-                        <li>✓ ติดตามผลและให้คำปรึกษา 1 เดือน</li>
+                        <li>วางแผนกลยุทธ์ธุรกิจด้วย AI เชิงลึก</li>
+                        <li>ติดตั้งระบบ Automation & Bot ขั้นสูง</li>
+                        <li>บริหาร E-commerce และแคมเปญการตลาด</li>
+                        <li>สร้างและวิเคราะห์ Data Dashboard</li>
+                        <li>ทีมงานดูแลและให้คำปรึกษาต่อเนื่อง</li>
+                        <li>โซลูชันครบวงจรที่ออกแบบเฉพาะสำหรับคุณ</li>
                     </ul>
-                    <a href="[ลิงก์ Google Form สำหรับแพ็กเกจฟูล]" class="interest-button">สนใจแพ็กเกจนี้</a>
+                    <a href="[ลิงก์ Google Form สำหรับแพ็กเกจ VVIP]" class="interest-button">ปรึกษาแพ็กเกจ VVIP</a>
                 </div>
-            </div>
-    
-            <div class="upsell-section">
-                <h3>บริการเสริมพิเศษ: ดูแลต่อเนื่องรายเดือน</h3>
-                <p>สำหรับลูกค้าที่ต้องการให้เราดูแลและต่อยอดความสำเร็จอย่างไม่หยุดยั้ง เรามีบริการดูแลต่อเนื่อง (Retainer Service) เพื่อให้ระบบของคุณทำงานได้อย่างเต็มประสิทธิภาพและทันต่อการเปลี่ยนแปลงเสมอ</p>
-                <ul>
-                    <li>ดูแลและอัปเดต Bot รายเดือน: เริ่มต้น 7,900 บาท</li>
-                    <li>วิเคราะห์ข้อมูลจาก Dashboard พร้อมให้คำแนะนำเชิงลึก: เริ่มต้น 9,900 บาท</li>
-                    <li>บริหารแคมเปญการตลาดและโฆษณา: เริ่มต้น 15,000 บาท (ไม่รวมงบโฆษณา)</li>
-                </ul>
             </div>
         </div>
     </section>
-
     <section id="success-story">
         <div class="container">
             <h2>ความสำเร็จที่พิสูจน์แล้ว</h2>
@@ -668,25 +625,6 @@
                     <h3>AI ผู้ช่วยวางกลยุทธ์</h3>
                     <p class="role">AI Strategic Partner</p>
                     <p class="bio">ปัญญาประดิษฐ์ที่ช่วยวิเคราะห์ข้อมูลและวางกลยุทธ์ เพื่อให้ธุรกิจของคุณถึงเป้าหมายและเปิดศักยภาพสูงสุดของทีม</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="testimonials">
-        <div class="container">
-            <h2>เสียงจากลูกค้าของเรา</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p>"ทีมงานมืออาชีพมาก! ช่วยให้ยอดขายร้านผมพุ่งกระฉูดเกินคาดจริง ๆ ครับ"</p>
-                    <div class="author">- คุณสมศักดิ์, เจ้าของธุรกิจเครื่องสำอาง</div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"ประทับใจมากกับการทำ LINE Bot ที่ช่วยตอบลูกค้าได้ตลอด 24 ชม. ลดภาระทีมงานไปได้เยอะเลย"</p>
-                    <div class="author">- คุณอลิสา, ผู้จัดการฝ่ายบริการลูกค้า</div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"คอนเทนต์ที่สร้างสรรค์และตรงจุด ทำให้แบรนด์ของเราเป็นที่รู้จักมากขึ้นอย่างเห็นได้ชัด"</p>
-                    <div class="author">- คุณมานะ, ผู้บริหารแบรนด์แฟชั่น</div>
                 </div>
             </div>
         </div>
