@@ -117,7 +117,7 @@
         section h2 {
             font-size: 2.5em;
             color: var(--primary-color);
-            margin-bottom: calc(var(--spacing-unit) * 1.5); /* Adjusted margin */
+            margin-bottom: calc(var(--spacing-unit) * 1.5); 
             text-align: center;
         }
 
@@ -207,7 +207,7 @@
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: calc(var(--spacing-unit) * 1.5); /* Adjusted gap */
+            gap: calc(var(--spacing-unit) * 1.5); 
             margin-top: calc(var(--spacing-unit) * 2);
         }
 
@@ -236,7 +236,7 @@
         }
 
         .team-member h3 {
-            font-size: 1.5em; /* Adjusted font size */
+            font-size: 1.5em; 
             color: var(--text-color-dark);
             margin-bottom: 5px;
             text-align: center;
@@ -246,7 +246,7 @@
             color: var(--secondary-color);
             font-style: italic;
             margin-bottom: 10px;
-            font-size: 0.95em; /* Adjusted font size */
+            font-size: 0.95em; 
             text-align: center;
         }
         .team-member .bio {
@@ -254,7 +254,7 @@
             color: var(--text-color-dark);
             margin-bottom: 0;
             text-align: center;
-            min-height: 4.5em; /* Ensure consistent height */
+            min-height: 4.5em; 
             line-height: 1.5;
         }
         
@@ -315,6 +315,7 @@
             font-style: italic;
             color: var(--secondary-color);
             margin-top: -15px;
+            margin-bottom: 15px;
         }
 
         .features-list {
@@ -328,7 +329,7 @@
         .features-list li {
             margin-bottom: 12px;
             font-size: 1.05em; 
-            padding-left: 25px; /* Increased padding for icon */
+            padding-left: 25px; 
             position: relative;
         }
         
@@ -337,10 +338,18 @@
             color: var(--accent-color);
             position: absolute;
             left: 0;
-            font-weight: bold; /* Make checkmark bolder */
+            font-weight: bold; 
         }
-        .features-list li b { /* For package names inside list items */
+        .features-list li b { 
             color: var(--text-color-dark);
+        }
+        .features-list .service-price-note { 
+            font-size: 0.85em;
+            font-style: italic;
+            color: var(--secondary-color);
+            display: block;
+            margin-left: -25px; 
+            padding-left: 25px; 
         }
 
         .interest-button {
@@ -388,35 +397,7 @@
         .pricing-card.featured .interest-button:hover {
             background-color: #218838;
         }
-
-        .upsell-section { /* Kept for consistency, but not directly used in the 3 main cards */
-            margin-top: 60px;
-            padding: 30px;
-            background-color: #f0f4f7;
-            border-radius: var(--border-radius);
-            text-align: left;
-        }
-        .upsell-section h3 {
-            color: var(--primary-color);
-            text-align: center;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-        .upsell-section p {
-            text-align: center;
-            max-width: 800px;
-            margin: 15px auto;
-        }
-        .upsell-section ul {
-            list-style-position: inside;
-            max-width: 600px;
-            margin: 20px auto 0 auto;
-            padding-left: 0;
-        }
-         .upsell-section li {
-            margin-bottom: 10px;
-         }
-
+        
         /* --- Testimonials & Contact --- */
         #testimonials {
             background-color: #ffffff;
@@ -495,6 +476,23 @@
             .contact-info {
                 flex-direction: column;
             }
+
+            /* === CSS สำหรับปุ่มบน Header ในหน้าจอมือถือ === */
+            header nav {
+                display: flex;
+                flex-direction: column; /* สั่งให้ปุ่มเรียงในแนวตั้ง */
+                align-items: center;    /* จัดปุ่มให้อยู่กึ่งกลางแนวนอน */
+                margin-top: 15px;       /* เพิ่มระยะห่างด้านบนของกลุ่มปุ่ม */
+            }
+
+            header nav .cta-button {
+                width: 80%;             /* กำหนดความกว้างของแต่ละปุ่ม */
+                max-width: 280px;       /* แต่ไม่ให้กว้างเกิน 280px */
+                margin: 8px 0 !important; /* เพิ่มระยะห่างบน-ล่างระหว่างปุ่ม และ !important เพื่อลบล้าง inline style ของ margin ซ้าย-ขวา */
+                padding: 12px 15px;     /* อาจจะปรับ padding ของปุ่มให้เล็กลงเล็กน้อยบนมือถือ */
+                font-size: 1em;         /* สามารถปรับขนาด font ได้ถ้าต้องการ */
+            }
+            /* === สิ้นสุด CSS สำหรับปุ่มบน Header ในหน้าจอมือถือ === */
         }
     </style>
 </head>
@@ -531,7 +529,7 @@
                     <p class="package-desc">สำหรับผู้เริ่มต้น หรือต้องการเสริมความแข็งแกร่งเฉพาะจุด</p>
                     <ul class="features-list">
                         <li><b>LINE Ecosystem Starter:</b> LINE OA, Bot พื้นฐาน, LINE SHOPPING (29,900.-)</li>
-                        <li><b>AI-Powered Content & Basic Ads:</b> คอนเทนต์ AI และเริ่มทดลอง Ads (27,900.- ไม่รวมงบ Ads)</li>
+                        <li><b>AI-Powered Content & Basic Ads:</b> คอนเทนต์ AI และเริ่มทดลอง Ads (27,900.-) <span class="service-price-note">(ไม่รวมงบ Ads)</span></li>
                         <li><b>Multi-Platform E-commerce Launch:</b> เปิดร้าน Shopee/Lazada และ LINE SHOPPING (38,900.-)</li>
                     </ul>
                     <a href="[ลิงก์ Google Form สำหรับแพ็กเกจเริ่มต้น]" class="interest-button">เลือกแพ็กเกจเริ่มต้น</a>
@@ -542,8 +540,8 @@
                     <p class="package-desc">สำหรับธุรกิจที่มีพื้นฐานแล้ว และต้องการยกระดับผลลัพธ์</p>
                     <ul class="features-list">
                         <li><b>Advanced LINE Bot & Automation:</b> LINE Bot อัจฉริยะ พร้อมระบบอัตโนมัติ (48,900.-)</li>
-                        <li><b>Targeted Advertising & Conversion:</b> ยิง Ads ตรงเป้า เน้นผลลัพธ์ (39,900.- ไม่รวมงบ Ads)</li>
-                        <li><b>Omni-Channel Growth Engine:</b> ผสาน E-com, LINE, Ads เพื่อโตทุกช่องทาง (69,900.- ไม่รวมงบ Ads)</li>
+                        <li><b>Targeted Advertising & Conversion:</b> ยิง Ads ตรงเป้า เน้นผลลัพธ์ (39,900.-) <span class="service-price-note">(ไม่รวมงบ Ads)</span></li>
+                        <li><b>Omni-Channel Growth Engine:</b> ผสาน E-com, LINE, Ads เพื่อโตทุกช่องทาง (69,900.-) <span class="service-price-note">(ไม่รวมงบ Ads)</span></li>
                     </ul>
                     <a href="[ลิงก์ Google Form สำหรับแพ็กเกจเติบโต]" class="interest-button">เลือกแพ็กเกจเติบโต</a>
                 </div>
@@ -558,7 +556,7 @@
                         <li>วางแผนกลยุทธ์ธุรกิจด้วย AI เชิงลึก</li>
                         <li>ติดตั้งระบบ Automation & Bot ขั้นสูง</li>
                         <li>พัฒนา LINE Ecosystem เต็มรูปแบบ</li>
-                        <li>บริหาร E-commerce และแคมเปญการตลาดหลายช่องทาง</li>
+                        <li>บริหาร E-commerce และแคมเปญการตลาดหลายช่องทาง <span class="service-price-note">(ไม่รวมงบ Ads)</span></li>
                         <li>สร้างและวิเคราะห์ Data Dashboard</li>
                         <li>ทีมงานดูแลและให้คำปรึกษาต่อเนื่อง</li>
                     </ul>
@@ -567,6 +565,7 @@
             </div>
         </div>
     </section>
+
     <section id="success-story">
         <div class="container">
             <h2>ความสำเร็จที่พิสูจน์แล้ว</h2>
