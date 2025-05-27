@@ -292,11 +292,15 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
-        .pricing-card h3 {
+        .pricing-card h3, .pricing-card h4 { /* Added h4 for after-sales */
             color: var(--primary-color);
             font-size: 1.8em;
             margin-top: 0;
         }
+         .after-sales-packages-section .pricing-card h4 { /* Specific for after-sales titles */
+            font-size: 1.6em;
+         }
+
 
         .pricing-card .package-desc {
             color: var(--secondary-color);
@@ -398,6 +402,29 @@
             background-color: #218838;
         }
         
+        /* --- After-Sales Packages Section Styles (NEW) --- */
+        .after-sales-packages-section {
+            margin-top: calc(var(--spacing-unit) * 3); 
+            padding-top: calc(var(--spacing-unit) * 1.5); /* Reduced top padding slightly */
+            border-top: 2px solid var(--primary-color); 
+        }
+
+        .after-sales-packages-section h3 { /* Main title for this sub-section */
+            color: var(--primary-color);
+            font-size: 2.2em; 
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .after-sales-packages-section .pricing-card .price span { /* For /เดือน */
+            font-size: 0.4em;
+            font-weight: normal;
+            color: var(--secondary-color);
+        }
+        .after-sales-packages-section .pricing-card {
+            border: 1px solid var(--secondary-color); /* Differentiate from main packages */
+            background-color: var(--background-light); /* Slightly different background */
+        }
+
         /* --- Testimonials & Contact --- */
         #testimonials {
             background-color: #ffffff;
@@ -449,6 +476,19 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
+            header nav {
+                display: flex;
+                flex-direction: column; 
+                align-items: center;    
+                margin-top: 15px;       
+            }
+
+            header nav .cta-button {
+                width: 80%;             
+                max-width: 280px;      
+                margin: 8px 0 !important; 
+                padding: 12px 15px;     
+            }
             .hero h2 {
                 font-size: 2.5em;
             }
@@ -457,6 +497,9 @@
             }
             section h2 {
                 font-size: 2em;
+            }
+            .after-sales-packages-section h3 { /* Responsive for after-sales title */
+                 font-size: 1.8em;
             }
             .card-grid, .team-grid, .pricing-container {
                 grid-template-columns: 1fr;
@@ -476,23 +519,6 @@
             .contact-info {
                 flex-direction: column;
             }
-
-            /* === CSS สำหรับปุ่มบน Header ในหน้าจอมือถือ === */
-            header nav {
-                display: flex;
-                flex-direction: column; /* สั่งให้ปุ่มเรียงในแนวตั้ง */
-                align-items: center;    /* จัดปุ่มให้อยู่กึ่งกลางแนวนอน */
-                margin-top: 15px;       /* เพิ่มระยะห่างด้านบนของกลุ่มปุ่ม */
-            }
-
-            header nav .cta-button {
-                width: 80%;             /* กำหนดความกว้างของแต่ละปุ่ม */
-                max-width: 280px;       /* แต่ไม่ให้กว้างเกิน 280px */
-                margin: 8px 0 !important; /* เพิ่มระยะห่างบน-ล่างระหว่างปุ่ม และ !important เพื่อลบล้าง inline style ของ margin ซ้าย-ขวา */
-                padding: 12px 15px;     /* อาจจะปรับ padding ของปุ่มให้เล็กลงเล็กน้อยบนมือถือ */
-                font-size: 1em;         /* สามารถปรับขนาด font ได้ถ้าต้องการ */
-            }
-            /* === สิ้นสุด CSS สำหรับปุ่มบน Header ในหน้าจอมือถือ === */
         }
     </style>
 </head>
@@ -562,11 +588,50 @@
                     </ul>
                     <a href="[ลิงก์ Google Form สำหรับแพ็กเกจ VVIP]" class="interest-button">ปรึกษาแพ็กเกจ VVIP</a>
                 </div>
-            </div>
-        </div>
-    </section>
+            </div> <div class="after-sales-packages-section">
+                <h3>แพ็กเกจดูแลต่อเนื่องและหลังการขาย</h3>
+                <p class="section-lead" style="font-size: 1.1em; margin-top: 0;">เพื่อให้ธุรกิจของคุณเติบโตอย่างยั่งยืนและระบบทำงานได้อย่างราบรื่น เรามีบริการดูแลต่อเนื่องที่ปรับให้เหมาะสมกับความต้องการของคุณ</p>
+                <div class="pricing-container"> <div class="pricing-card"> 
+                        <h4>Essential Care</h4>
+                        <p class="package-desc">ดูแลระบบพื้นฐานให้ทำงานราบรื่น</p>
+                        <div class="price" style="font-size: 2.2em;">฿4,900<span>/เดือน</span></div>
+                        <ul class="features-list">
+                            <li>ตรวจสอบและอัปเดต Bot (เดือนละ 1 ครั้ง)</li>
+                            <li>แก้ไขปัญหาเล็กน้อย (Minor Bugs)</li>
+                            <li>ปรึกษาออนไลน์ 2 ชั่วโมง/เดือน</li>
+                        </ul>
+                        <a href="[ลิงก์ Google Form สำหรับ Essential Care]" class="interest-button">สนใจแพ็กเกจนี้</a>
+                    </div>
 
-    <section id="success-story">
+                    <div class="pricing-card">
+                        <h4>Growth Support</h4>
+                        <p class="package-desc">ดูแลเชิงรุก พร้อมวิเคราะห์ข้อมูลต่อยอด</p>
+                        <div class="price" style="font-size: 2.2em;">฿9,900<span>/เดือน</span></div>
+                        <ul class="features-list">
+                            <li>ทุกอย่างใน Essential Care</li>
+                            <li>วิเคราะห์ Dashboard และสรุปผลรายเดือน</li>
+                            <li>ปรับปรุง Prompt AI/คอนเทนต์เบื้องต้น</li>
+                            <li>ปรึกษาออนไลน์/โทร 4 ชั่วโมง/เดือน</li>
+                        </ul>
+                        <a href="[ลิงก์ Google Form สำหรับ Growth Support]" class="interest-button">สนใจแพ็กเกจนี้</a>
+                    </div>
+
+                    <div class="pricing-card"> 
+                        <h4>VVIP Retainer</h4>
+                        <p class="package-desc">พาร์ทเนอร์ดูแลธุรกิจครบวงจรระยะยาว</p>
+                        <div class="price" style="font-size: 2.2em;">เริ่มต้น ฿19,900<span>/เดือน</span></div>
+                        <ul class="features-list">
+                            <li>ทุกอย่างใน Growth Support</li>
+                            <li>ดูแลและปรับปรุงแคมเปญ Ads ต่อเนื่อง</li>
+                            <li>พัฒนาฟีเจอร์ใหม่ (ตามตกลง)</li>
+                            <li>ประชุมวางแผนและติดตามผลรายเดือน</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <a href="[ลิงก์ Google Form สำหรับ VVIP Retainer]" class="interest-button">ปรึกษาแพ็กเกจนี้</a>
+                    </div>
+                </div>
+            </div>
+            </div> </section> <section id="success-story">
         <div class="container">
             <h2>ความสำเร็จที่พิสูจน์แล้ว</h2>
             <div class="case-study">
