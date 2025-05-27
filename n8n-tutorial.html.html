@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สอนใช้งาน n8n ครั้งแรก: สร้าง Workflow แรกใน 5 นาที (ฉบับจับมือทำ)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            line-height: 1.2;
+        }
+        h1 {
+            font-size: 2.2em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        h3 {
+            font-size: 1.5em;
+            margin-top: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        code {
+            background-color: #eef1f3;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.9em;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        figure {
+            margin: 20px 0;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        figcaption {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 8px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <article>
+            <h1>สอนใช้งาน n8n ครั้งแรก: สร้าง Workflow แรกใน 5 นาที (ฉบับจับมือทำ)</h1>
+
+            <p>เคยไหมที่อยากจะทำงานซ้ำๆ ที่น่าเบื่อให้เป็นอัตโนมัติ แต่ไม่รู้จะเริ่มต้นอย่างไร? หรือเคยได้ยินชื่อเครื่องมือ Automation อย่าง <strong>n8n</strong> แต่รู้สึกว่ามันดูซับซ้อนเกินไป?</p>
+            <p>ไม่ต้องกังวลครับ! ในบทความนี้ เราจะมาเริ่มต้นจากศูนย์กันจริงๆ ผมจะพาคุณสร้าง Workflow แรกที่ง่ายที่สุด เพื่อให้คุณเข้าใจหัวใจการทำงานของ n8n นั่นคือการสร้างข้อความ "สวัสดีชาวโลก" ขึ้นมาอัตโนมัติ หลังจากจบบทความนี้ คุณจะมีพื้นฐานที่แข็งแรงพอที่จะต่อยอดไปสร้างระบบที่ซับซ้อนขึ้นได้อย่างแน่นอน</p>
+            <p><strong>สิ่งที่ต้องเตรียม:</strong> คอมพิวเตอร์และอินเทอร์เน็ต แค่นั้นเลยครับ!</p>
+
+            <h3>ขั้นตอนที่ 1: เริ่มต้นกับ n8n Cloud</h3>
+            <p>สำหรับมือใหม่ วิธีที่ง่ายที่สุดในการเริ่มต้นคือการใช้ <strong>n8n Cloud</strong> เพราะไม่ต้องติดตั้งโปรแกรมใดๆ ทั้งสิ้น แค่สมัครแล้วเริ่มใช้งานผ่านเว็บเบราว์เซอร์ได้เลย</p>
+            <ol>
+                <li>ไปที่เว็บไซต์ <a href="https://n8n.io/" target="_blank" rel="noopener noreferrer">https://n8n.io/</a></li>
+                <li>คลิกที่ปุ่ม <code>"Start for free"</code> หรือ <code>"Sign up"</code></li>
+                <li>สมัครสมาชิกด้วยวิธีที่สะดวกที่สุด (แนะนำให้ใช้บัญชี Google)</li>
+                <li>เมื่อสมัครเสร็จเรียบร้อย คุณจะเข้ามาสู่หน้าจอหลัก (Dashboard) ซึ่งจะหน้าตาประมาณนี้</li>
+            </ol>
+            
+            <figure>
+                <img src="path/to/your/image-dashboard.png" alt="หน้าจอหลักของ n8n Cloud">
+                <figcaption>หน้าจอหลักของ n8n Cloud หลังจากสมัครสมาชิกสำเร็จ</figcaption>
+            </figure>
+
+            <h3>ขั้นตอนที่ 2: สร้าง Workflow แรกของคุณ</h3>
+            <p>เมื่อเข้ามาที่หน้า Dashboard แล้ว ให้เราคลิกที่ปุ่ม <strong>"Start from scratch"</strong> เพื่อเริ่มสร้าง Workflow ใหม่จากกระดานเปล่า</p>
+
+            <h4>2.1 เลือก "ตัวจุดประกาย" (Trigger)</h4>
+            <p>หลังจากกด "Start from scratch" แล้ว n8n จะถามเราเป็นอย่างแรกว่า "จะให้ Workflow นี้เริ่มทำงานเมื่อไหร่?" หรือที่เรียกว่า <strong>Trigger</strong> นั่นเอง</p>
+            <p>สำหรับบททดสอบแรกของเรา ให้เลือกอันที่ง่ายที่สุดคือ <code>Trigger manually</code> ซึ่งหมายถึง "เริ่มทำงานเมื่อเรากดปุ่มเอง"</p>
+
+            <figure>
+                <img src="path/to/your/image-trigger-select.png" alt="การเลือก Manual Trigger">
+                <figcaption>การเลือก Manual Trigger เพื่อเริ่มต้น Workflow</figcaption>
+            </figure>
+            
+            <p>เมื่อเลือกแล้ว คุณจะได้ Node แรกหน้าตาแบบนี้มาวางอยู่บนกระดานทำงานของเรา</p>
+
+            <figure>
+                <img src="path/to/your/image-start-node.png" alt="Start Node บน Canvas">
+                <figcaption>Start Node ของเราพร้อมสำหรับการทำงาน</figcaption>
+            </figure>
+
+            <h4>2.2 เพิ่ม "ตัวทำงาน" ชิ้นแรก (Set Node)</h4>
+            <p>ต่อไปเราจะเพิ่ม "ตัวทำงาน" หรือ Node ชิ้นที่สองเข้ามา ให้คลิกที่เครื่องหมายบวก <code>+</code> ที่ต่อท้าย Node แรก</p>
+            <p>จากนั้น ในช่องค้นหาที่ปรากฏขึ้นมาทางขวา ให้พิมพ์คำว่า <code>Set</code> แล้วคลิกเลือก <strong>Edit Fields (Set)</strong></p>
+            
+            <figure>
+                <img src="path/to/your/image-search-set.png" alt="การค้นหา Set Node">
+                <figcaption>การค้นหาและเลือก Set Node</figcaption>
+            </figure>
+
+            <p><strong>Set Node คืออะไร?</strong> มันคือ Node พื้นฐานที่สุด มีหน้าที่ง่ายๆ คือ "สร้างหรือกำหนดค่าข้อมูล" เหมาะมากสำหรับการทดลองของเราครับ</p>
+            
+            <h4>2.3 ตั้งค่าให้ Set Node สร้างข้อความ</h4>
+            <p>ตอนนี้เรามี Node สองชิ้นเชื่อมต่อกันแล้ว ให้เราคลิกที่ <code>Edit Fields</code> (Set Node) เพื่อตั้งค่า หน้าต่างตั้งค่าจะเปิดขึ้นมา ให้ทำตามนี้:</p>
+            <ol>
+                <li>คลิกที่ปุ่ม <code>Add Field</code></li>
+                <li>จะมี 2 ช่องปรากฏขึ้นมา:
+                    <ul>
+                        <li>ช่องบน <strong>(Name):</strong> พิมพ์ชื่อ <code>myMessage</code> (นี่คือชื่อของข้อมูลที่เราจะสร้าง)</li>
+                        <li>ช่องล่าง <strong>(Value):</strong> พิมพ์ข้อความ <code>สวัสดีชาวโลก</code> (นี่คือค่าของข้อมูล)</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <figure>
+                <img src="path/to/your/image-configure-set.png" alt="การตั้งค่า Set Node">
+                <figcaption>การกำหนดค่าให้ Set Node สร้างข้อมูลตามที่เราต้องการ</figcaption>
+            </figure>
+
+            <h3>ขั้นตอนที่ 3: ทดสอบและดูผลลัพธ์!</h3>
+            <p>ถึงเวลาที่สนุกที่สุดแล้ว! หลังจากตั้งค่าเสร็จ เราจะมาทดสอบกันว่า Workflow ของเราทำงานได้จริงหรือไม่</p>
+            <p>ที่ด้านล่างของหน้าจอ ให้กดปุ่มใหญ่ๆ ที่เขียนว่า <strong><code>Execute workflow</code></strong></p>
+            <p>รอสักครู่... คุณจะเห็นว่า Node ทั้งสองของเราจะมี <strong>กรอบสีเขียว</strong> สวยงามปรากฏขึ้นมาล้อมรอบ พร้อมกับข้อความ <code>Workflow executed successfully</code> ที่มุมขวาล่าง นี่คือสัญญาณว่า... <strong>สำเร็จแล้ว!</strong></p>
+
+            <figure>
+                <img src="path/to/your/image-execution-success.png" alt="Workflow ทำงานสำเร็จ">
+                <figcaption>Workflow แรกของเราทำงานสำเร็จ 100%!</figcaption>
+            </figure>
+
+            <h3>ขั้นตอนสุดท้าย: บันทึกผลงาน</h3>
+            <p>อย่าลืมบันทึกผลงานชิ้นเอกของคุณไว้ด้วยล่ะ!</p>
+            <ol>
+                <li><strong>ตั้งชื่อ:</strong> คลิกที่คำว่า <code>My Workflow</code> ด้านบนสุด แล้วเปลี่ยนเป็นชื่อที่จำง่าย เช่น <code>บททดสอบแรกของฉัน</code></li>
+                <li><strong>บันทึก:</strong> กดปุ่ม <code>Save</code> สีส้ม/แดงที่อยู่ทางขวา</li>
+            </ol>
+
+            <figure>
+                <img src="path/to/your/image-save-workflow.png" alt="การบันทึก Workflow">
+                <figcaption>การตั้งชื่อและบันทึก Workflow</figcaption>
+            </figure>
+
+            <h3>บทสรุป</h3>
+            <p>ขอแสดงความยินดีด้วยครับ! ตอนนี้คุณได้สร้างและสั่งงาน Workflow แรกบน n8n ได้สำเร็จแล้ว คุณได้เรียนรู้หัวใจสำคัญของการทำงานทั้งหมด ตั้งแต่การสร้าง Workflow, การเพิ่ม Node, การเชื่อมต่อ, การตั้งค่า ไปจนถึงการทดสอบและบันทึก</p>
+            <p>หลักการพื้นฐานเหล่านี้คือสิ่งที่คุณจะต้องใช้ซ้ำๆ ไม่ว่าคุณจะสร้างระบบที่ซับซ้อนแค่ไหนก็ตาม คุณได้ก้าวข้ามผ่านจุดที่ยากที่สุดของการเริ่มต้นไปแล้ว ตอนนี้ก็ถึงเวลาที่คุณจะนำความรู้นี้ไปทดลองต่อยอดกับ Node อื่นๆ ที่น่าสนใจต่อไปแล้วครับ!</p>
+
+        </article>
+    </div>
+
+</body>
+</html>
