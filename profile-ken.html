@@ -27,6 +27,7 @@
             color: var(--text-color-dark); 
             line-height: 1.6;
             scroll-behavior: smooth; 
+            padding-top: 60px; /* Added padding for fixed header, adjust as needed */
         }
         /* Custom scrollbar for a sleek look */
         ::-webkit-scrollbar {
@@ -64,7 +65,7 @@
             transition: background-color 0.3s ease;
         }
         .accordion-header:hover {
-            background-color: #f0f0f0; /* Adjusted for light theme */
+            background-color: #f0f0f0; 
         }
         .accordion-content {
             max-height: 0;
@@ -73,11 +74,11 @@
             padding: 0 1.5rem; 
         }
         .accordion-content.active {
-            max-height: 500px; 
-            padding: 1.5rem; 
+            max-height: 1000px; /* Increased for potentially longer content */ 
+            padding: 1rem 1.5rem; /* Adjusted padding */
         }
         .skill-bar-container {
-            background-color: #e0e0e0; /* Adjusted for light theme */
+            background-color: #e0e0e0; 
             border-radius: 9999px;
             height: 10px;
             overflow: hidden;
@@ -97,92 +98,151 @@
         /* Header Link Button Styles */
         .header-nav-button {
              background-color: var(--primary-color);
-             color: var(--text-color-light);
+             color: var(--text-color-light) !important; /* Ensure text color is light */
              padding: 0.5rem 1rem;
              border-radius: var(--border-radius);
              transition: background-color 0.3s ease;
              font-weight: 600;
+             display: inline-block; /* Ensure padding takes effect */
+             text-align: center;
         }
         .header-nav-button:hover {
             background-color: #0056b3; /* Darker blue */
         }
         
-        /* Ensure Tailwind's container is overridden for consistent padding */
+        /* Tailwind container adjustments */
         .container.mx-auto {
-            max-width: 1200px; /* Match team site width */
+            max-width: 1200px;
             padding-left: var(--spacing-unit);
             padding-right: var(--spacing-unit);
         }
-        /* Tailwind adjustments for sections to use theme spacing */
-        section.py-20 {
-            padding-top: calc(var(--spacing-unit) * 2.5);
-            padding-bottom: calc(var(--spacing-unit) * 2.5);
+        section.py-16 { /* Adjusted from py-20 for slightly less vertical space */
+            padding-top: calc(var(--spacing-unit) * 2);
+            padding-bottom: calc(var(--spacing-unit) * 2);
         }
-        section.px-4 {
-             padding-left: var(--spacing-unit);
-             padding-right: var(--spacing-unit);
+         @media (min-width: 640px) { /* sm breakpoint */
+            section.py-16 {
+                 padding-top: calc(var(--spacing-unit) * 2.5);
+                 padding-bottom: calc(var(--spacing-unit) * 2.5);
+            }
+             .header-nav-button {
+                padding: 0.5rem 1rem;
+            }
+         }
+         /* Responsive header navigation adjustments */
+        @media (max-width: 639px) { /* Below sm breakpoint */
+            header.fixed nav {
+                padding-bottom: 0.5rem; /* Add some padding below stacked items */
+            }
+            header.fixed nav ul {
+                width: 100%;
+            }
+            header.fixed nav ul li {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.25rem; /* Small gap between stacked items */
+            }
+             header.fixed nav ul li a:not(.header-nav-button) { /* Style for normal nav links */
+                display: block;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+             }
+             header.fixed nav ul li:last-child a:not(.header-nav-button) {
+                border-bottom: none;
+             }
+            header.fixed nav .header-nav-button {
+                width: 100%;
+                padding: 0.75rem 1rem; /* Make button slightly larger for tapping */
+            }
+            .section-title {
+                font-size: 1.75rem; /* text-2xl */
+                 margin-bottom: 1.5rem;
+            }
+            #hero h1 {
+                font-size: 2.25rem; /* text-3xl or 4xl */
+            }
+            #hero p {
+                font-size: 1rem; /* text-base */
+            }
+             #hero .profile-image {
+                width: 7rem; /* w-28 */
+                height: 7rem; /* h-28 */
+            }
+             #hero a.inline-block { /* CTA Button in Hero */
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem; /* text-sm */
+            }
+            #about .text-base, #experience .text-sm, #skills .text-sm, #contact .text-xs {
+                font-size: 0.9rem; /* Slightly adjust base mobile font for readability */
+            }
+             .accordion-header span, .accordion-header svg {
+                font-size: 0.95rem; /* Slightly smaller accordion titles */
+            }
+            .skill-bar-container span {
+                 font-size: 0.8rem;
+            }
         }
 
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="bg-[var(--background-dark)] bg-opacity-95 shadow-lg fixed w-full z-50 py-3">
-        <nav class="container mx-auto flex flex-col sm:flex-row justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 mb-2 sm:mb-0">อิทธิพล ศรีเดช</a>
-            <ul class="flex flex-wrap justify-center space-x-3 sm:space-x-4">
-                <li><a href="#about" class="text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-1 sm:px-3 sm:py-2">เกี่ยวกับฉัน</a></li>
-                <li><a href="#experience" class="text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-1 sm:px-3 sm:py-2">ประสบการณ์</a></li>
-                <li><a href="#skills" class="text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-1 sm:px-3 sm:py-2">ทักษะ</a></li>
-                <li><a href="#contact" class="text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-1 sm:px-3 sm:py-2">ติดต่อ</a></li>
-                <li><a href="index.html" class="header-nav-button text-sm">กลับหน้าหลักทีม</a></li>
+    <header class="bg-[var(--background-dark)] bg-opacity-95 shadow-lg fixed w-full z-50 py-3 top-0 left-0">
+        <nav class="container mx-auto flex flex-col sm:flex-row justify-between items-center px-4">
+            <a href="#hero" class="text-xl sm:text-2xl font-bold text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 mb-2 sm:mb-0">อิทธิพล ศรีเดช</a>
+            <ul class="flex flex-col sm:flex-row items-center sm:space-x-3 md:space-x-4">
+                <li class="py-1 sm:py-0"><a href="#about" class="text-sm sm:text-base text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-1 sm:px-3 sm:py-2">เกี่ยวกับฉัน</a></li>
+                <li class="py-1 sm:py-0"><a href="#experience" class="text-sm sm:text-base text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-1 sm:px-3 sm:py-2">ประสบการณ์</a></li>
+                <li class="py-1 sm:py-0"><a href="#skills" class="text-sm sm:text-base text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-1 sm:px-3 sm:py-2">ทักษะ</a></li>
+                <li class="py-1 sm:py-0"><a href="#contact" class="text-sm sm:text-base text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-1 sm:px-3 sm:py-2">ติดต่อ</a></li>
+                <li class="mt-2 sm:mt-0 sm:ml-2"><a href="index.html" class="header-nav-button text-xs sm:text-sm">กลับหน้าหลักทีม</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="hero" class="relative h-screen flex items-center justify-center bg-cover bg-center px-4" style="background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-cover bg-center px-4 pt-16 sm:pt-0" style="background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
         <div class="absolute inset-0 bg-black opacity-60"></div>
         <div class="relative z-10 text-center p-6 sm:p-8 bg-[var(--background-dark)] bg-opacity-75 rounded-xl shadow-2xl max-w-md sm:max-w-2xl mx-auto">
-            <img src="kennnn.jpg" alt="อิทธิพล ศรีเดช" class="profile-image w-32 h-32 sm:w-36 sm:h-36 rounded-full mx-auto mb-4 sm:mb-6 border-4 border-[var(--primary-color)] shadow-lg">
+            <img src="kennnn.jpg" alt="อิทธิพล ศรีเดช" class="profile-image w-28 h-28 sm:w-36 sm:h-36 rounded-full mx-auto mb-4 sm:mb-6 border-4 border-[var(--primary-color)] shadow-lg">
             <h1 class="text-3xl sm:text-5xl font-extrabold text-[var(--text-color-light)] mb-3 sm:mb-4 leading-tight">อิทธิพล ศรีเดช</h1>
-            <p class="text-lg sm:text-xl text-[var(--text-color-light)] mb-4 sm:mb-6">ผู้จัดการฝ่ายการตลาดและผู้บริหาร | ขับเคลื่อนการเติบโตด้วยกลยุทธ์และนวัตกรรม AI</p>
+            <p class="text-base sm:text-xl text-[var(--text-color-light)] mb-4 sm:mb-6">ผู้จัดการฝ่ายการตลาดและผู้บริหาร | ขับเคลื่อนการเติบโตด้วยกลยุทธ์และนวัตกรรม AI</p>
             <a href="#about" class="inline-block bg-[var(--accent-color)] text-[var(--text-color-light)] font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full shadow-lg hover:bg-[#218838] transition duration-300 transform hover:scale-105 text-sm sm:text-base">ดูประวัติโดยย่อ</a>
         </div>
     </section>
 
-    <section id="about" class="py-16 sm:py-20 bg-[var(--background-light)]">
+    <section id="about" class="py-12 sm:py-16 bg-[var(--background-light)]">
         <div class="container mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-10 sm:mb-12 section-title text-center sm:text-left">เกี่ยวกับฉัน</h2>
+            <h2 class="text-2xl sm:text-4xl font-bold mb-8 sm:mb-12 section-title text-center sm:text-left">เกี่ยวกับฉัน</h2>
             <div class="bg-[var(--text-color-light)] p-6 sm:p-8 rounded-xl shadow-xl text-left">
-                 <p class="text-base sm:text-lg text-[var(--text-color-dark)] mb-4">
+                 <p class="text-sm sm:text-lg text-[var(--text-color-dark)] mb-4">
                     ผู้จัดการฝ่ายการตลาดและผู้บริหาร ด้วยประสบการณ์ที่หลากหลายในด้านการตลาดดิจิทัล การบริหารจัดการทั่วไป การบริหารงานธุรการ และการเป็นผู้ประกอบการ E-commerce. มีความเชี่ยวชาญในการวางแผนกลยุทธ์ ขับเคลื่อนการเติบโต บริหารทีม งบประมาณ และการดำเนินงานร้านค้าออนไลน์ (Facebook, Shopee).
                 </p>
-                <p class="text-base sm:text-lg text-[var(--text-color-dark)] mb-4">
+                <p class="text-sm sm:text-lg text-[var(--text-color-dark)] mb-4">
                     โดดเด่นด้วยทักษะขั้นสูงในการใช้เครื่องมือการตลาดดิจิทัล (SEO, Google/Facebook Ads, LINE OA) รวมถึงการจัดการซัพพลายเออร์, โลจิสติกส์ และ Google Workspace. มีความสามารถพิเศษในการทำงานร่วมกับ AI เพื่อเพิ่มประสิทธิภาพในงานวิเคราะห์ การตลาด และการแก้ไขปัญหา.
                 </p>
-                <p class="text-base sm:text-lg text-[var(--text-color-dark)]">
+                <p class="text-sm sm:text-lg text-[var(--text-color-dark)]">
                     มุ่งมั่นที่จะนำประสบการณ์และความสามารถทั้งหมดนี้ไปใช้ในตำแหน่งผู้จัดการฝ่ายการตลาด, ผู้จัดการทั่วไป หรือผู้จัดการสำนักงาน/E-commerce เพื่อสร้างความสำเร็จที่ยั่งยืนให้กับองค์กร.
                 </p>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="py-16 sm:py-20 bg-white">
+    <section id="experience" class="py-12 sm:py-16 bg-white">
         <div class="container mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-10 sm:mb-12 section-title text-center sm:text-left">ประสบการณ์ทำงาน</h2>
+            <h2 class="text-2xl sm:text-4xl font-bold mb-8 sm:mb-12 section-title text-center sm:text-left">ประสบการณ์ทำงาน</h2>
             <div class="space-y-6 sm:space-y-8">
                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
-                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-lg sm:text-xl py-2">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl py-2">
                         <span>ผู้จัดการฝ่ายการตลาด - บริษัท เอ พลัส ทริปเปิ้ล จำกัด</span>
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="accordion-content">
-                        <p class="text-[var(--primary-color)] mb-2 text-sm sm:text-base">มิถุนายน 2566 - ปัจจุบัน</p>
-                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-sm sm:text-base">
+                        <p class="text-[var(--primary-color)] mb-2 text-xs sm:text-base">มิถุนายน 2566 - ปัจจุบัน</p>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-xs sm:text-base">
                             <li>วางแผนและดำเนินกลยุทธ์การตลาดให้สอดคล้องกับเป้าหมายทางธุรกิจ</li>
                             <li>วิเคราะห์ตลาด คู่แข่ง และกลุ่มเป้าหมาย เพื่อหาโอกาสทางการตลาด</li>
                             <li>สร้างและรักษาภาพลักษณ์แบรนด์ พัฒนาแผนการสื่อสารการตลาดทั้งออฟไลน์และออนไลน์</li>
-                            <li>วางแผนและดำเนินแคมเปญการตลาดดิจิทัล (SEO, Google Ads, Facebook Ads, LINE OA) เพื่อสร้างการรับรู้ เพิ่มลูกค้า และยอดขาย</li>
+                            <li>วางแผนและดำเนินแคมเปญการตลาดดิจิทัล (SEO, Google Ads, Facebook Ads, LINE OA)</li>
                             <li>วิเคราะห์ข้อมูลและปรับปรุงแคมเปญอย่างต่อเนื่องเพื่อ ROI สูงสุด</li>
                             <li>วางแผนและดำเนินแคมเปญส่งเสริมการขาย บริหารงบประมาณ และวัดผล</li>
                             <li>วิเคราะห์ข้อมูลการตลาดและลูกค้าเพื่อนำเสนอข้อมูลเชิงลึกแก่ผู้บริหาร</li>
@@ -190,29 +250,29 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
-                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-lg sm:text-xl py-2">
+                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl py-2">
                         <span>จัดหาผลผลิตทางการเกษตร - บริษัท เอม ไทย ฟรุต จำกัด</span>
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="accordion-content">
-                        <p class="text-[var(--primary-color)] mb-2 text-sm sm:text-base">เมษายน 2563 - กรกฎาคม 2566</p>
-                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-sm sm:text-base">
-                            <li>จัดหาและประสานงานเกษตรกรเพื่อเพาะปลูกพืชตามความต้องการ</li>
+                        <p class="text-[var(--primary-color)] mb-2 text-xs sm:text-base">เมษายน 2563 - กรกฎาคม 2566</p>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-xs sm:text-base">
+                             <li>จัดหาและประสานงานเกษตรกรเพื่อเพาะปลูกพืชตามความต้องการ</li>
                             <li>ลงพื้นที่ ให้คำแนะนำ ติดตาม และให้ความรู้แก่เกษตรกรเพื่อให้ผลผลิตได้มาตรฐาน</li>
                             <li>จัดทำเอกสารสัญญาและเอกสารที่เกี่ยวข้อง</li>
                             <li>ควบคุมงบประมาณ ต้นทุน และนำส่งสินค้าให้แก่บริษัท/คู่ค้า</li>
                         </ul>
                     </div>
                 </div>
-                <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
-                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-lg sm:text-xl py-2">
-                        <span>กรรมการผู้จัดการ / Managing Director - บริษัท ลีโอไนน์ โกลบอล จำกัด</span>
-                         <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl py-2">
+                        <span>กรรมการผู้จัดการ - บริษัท ลีโอไนน์ โกลบอล จำกัด</span>
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="accordion-content">
-                        <p class="text-[var(--primary-color)] mb-2 text-sm sm:text-base">เมษายน 2562 - สิงหาคม 2563</p>
-                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-sm sm:text-base">
+                        <p class="text-[var(--primary-color)] mb-2 text-xs sm:text-base">เมษายน 2562 - สิงหาคม 2563</p>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-xs sm:text-base">
                             <li>กำหนดนโยบาย ทิศทาง และแนวทางการปฏิบัติงานขององค์กร</li>
                             <li>บริหาร จัดการ ควบคุม และแนะนำทุกฝ่ายให้ดำเนินงานตามนโยบายและเป้าหมาย</li>
                             <li>จัดสรรทรัพยากร ควบคุมและบริหารงบประมาณ</li>
@@ -221,67 +281,36 @@
                         </ul>
                     </div>
                 </div>
-                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
-                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-lg sm:text-xl py-2">
-                        <span>ผู้จัดการแผนกธุรการ ฝ่ายทรัพยากรบุคคล - บริษัท น้อมจิตต์อินคอเปอเรชั่น จำกัด (มหาชน)</span>
-                        <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="accordion-content">
-                        <p class="text-[var(--primary-color)] mb-2 text-sm sm:text-base">มิถุนายน 2556 - ธันวาคม 2559</p>
-                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-sm sm:text-base">
-                            <li>ติดตามปัญหา คิดริเริ่มแนวทางปฏิบัติใหม่ และพัฒนาแผนก</li>
-                            <li>ควบคุม ติดตาม และประเมินผลการปฏิบัติงานของเจ้าหน้าที่และหัวหน้าส่วนงาน</li>
-                            <li>กำหนดนโยบายและวางแผนการปฏิบัติงานประจำปีของแผนก</li>
-                            <li>วางระบบงานเอกสาร จัดทำแบบฟอร์ม และวางระบบ ISO ของแผนก</li>
-                            <li>ประสานงานระหว่างหน่วยงานภายในและกับลูกค้าเช่าพื้นที่</li>
-                            <li>ควบคุมดูแลการทำงานของเจ้าหน้าที่ 6 ส่วนงาน (ปฏิบัติการ, รักษาความปลอดภัย, บริการ/ทำความสะอาด, ประสานงาน, ลานจอด, บริการห้องน้ำ)</li>
-                        </ul>
-                    </div>
-                </div>
-                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
-                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-lg sm:text-xl py-2">
-                        <span>รักษาการณ์ ผู้จัดการแผนกธุรการ - น้อมจิตต์เซฟวิ่งสโตร์</span>
-                        <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="accordion-content">
-                         <p class="text-[var(--primary-color)] mb-2 text-sm sm:text-base">สิงหาคม 2555 – สิงหาคม 2556</p>
-                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-sm sm:text-base">
-                           <li>ติดตามและแก้ไขปัญหาต่างๆ ภายในศูนย์การค้า</li>
-                            <li>บริหารจัดการลานจอดรถ ควบคุมการจัดส่งเอกสาร</li>
-                            <li>กำหนดเป้าหมายและนโยบายการทำงาน</li>
-                            <li>ดูแล ตรวจสอบ และควบคุมการทำงานของเจ้าหน้าที่ธุรการ, ทำความสะอาด, รักษาความปลอดภัย, ประสานงาน และระบบลานจอดรถ</li>
-                        </ul>
-                    </div>
-                </div>
+
             </div>
 
-            <h3 class="text-2xl sm:text-3xl font-bold mt-12 sm:mt-16 mb-6 sm:mb-8 section-title text-center sm:text-left">ประสบการณ์ผู้ประกอบการ</h3>
+            <h3 class="text-xl sm:text-3xl font-bold mt-10 sm:mt-16 mb-6 sm:mb-8 section-title text-center sm:text-left">ประสบการณ์ผู้ประกอบการ</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
-                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-lg sm:text-xl py-2">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl py-2">
                         <span>ร้านเสื้อผ้าผู้หญิงออนไลน์ (Facebook)</span>
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="accordion-content">
-                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-sm sm:text-base">
-                            <li>บริหารจัดการร้านค้าบน Facebook จำนวน 3 เพจ</li>
-                            <li>ดำเนินการยิงโฆษณา Facebook Ads เพื่อเข้าถึงกลุ่มเป้าหมายและเพิ่มยอดขาย</li>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-xs sm:text-base">
+                             <li>บริหารจัดการร้านค้าบน Facebook จำนวน 3 เพจ</li>
+                            <li>ดำเนินการยิงโฆษณา Facebook Ads</li>
                             <li>จัดหาและติดต่อซัพพลายเออร์สินค้าเสื้อผ้าโดยตรง</li>
-                            <li>วางแผนและบริหารจัดการด้านโลจิสติกส์ ทั้งการรับสินค้าจากซัพพลายเออร์และการจัดส่งถึงลูกค้า</li>
+                            <li>วางแผนและบริหารจัดการด้านโลจิสติกส์</li>
                             <li>วางแผนการสั่งซื้อสินค้าและการจัดการสต็อก</li>
                         </ul>
                     </div>
                 </div>
                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
-                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-lg sm:text-xl py-2">
+                     <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl py-2">
                         <span>ร้านจำหน่ายยางรถจักรยานยนต์ (Shopee)</span>
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="accordion-content">
-                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-sm sm:text-base">
-                            <li>เปิดและบริหารจัดการร้านค้าบนแพลตฟอร์ม Shopee</li>
-                            <li><strong class="text-[var(--primary-color)]">ผลประกอบการ:</strong> สร้างยอดขาย 200,000 บาท ภายใน 90 วันแรก</li>
-                            <li>จัดหาและติดต่อซัพพลายเออร์ยางรถจักรยานยนต์</li>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-xs sm:text-base">
+                            <li>เปิดและบริหารจัดการร้านค้าบน Shopee</li>
+                            <li><strong class="text-[var(--primary-color)]">ผลประกอบการ:</strong> ยอดขาย 200,000 บาท (90 วันแรก)</li>
+                            <li>จัดหาและติดต่อซัพพลายเออร์</li>
                             <li>บริหารจัดการด้านโลจิสติกส์และการจัดส่ง</li>
                             <li>วางแผนการสั่งซื้อและสต็อกสินค้า</li>
                         </ul>
@@ -291,97 +320,97 @@
         </div>
     </section>
 
-    <section id="skills" class="py-16 sm:py-20 bg-[var(--background-light)]">
+    <section id="skills" class="py-12 sm:py-16 bg-[var(--background-light)]">
         <div class="container mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-10 sm:mb-12 section-title text-center sm:text-left">ทักษะ</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12">
+            <h2 class="text-2xl sm:text-4xl font-bold mb-8 sm:mb-12 section-title text-center sm:text-left">ทักษะ</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
                 <div>
-                    <h3 class="text-xl sm:text-2xl font-semibold text-[var(--text-color-dark)] mb-6">ทักษะด้านคอมพิวเตอร์และดิจิทัล (Hard Skills)</h3>
+                    <h3 class="text-lg sm:text-2xl font-semibold text-[var(--text-color-dark)] mb-6">ทักษะด้านคอมพิวเตอร์และดิจิทัล</h3>
                     <ul class="space-y-5 sm:space-y-6">
-                        <li class="text-[var(--text-color-dark)] text-sm sm:text-base">
+                        <li class="text-xs sm:text-base text-[var(--text-color-dark)]">
                             <div class="flex justify-between items-center mb-1">
-                                <span>E-commerce: Platform Management (Shopee, Facebook Pages), Facebook Ads Management</span>
-                                <span class="text-xs sm:text-sm text-[var(--primary-color)]">ชำนาญ</span>
+                                <span>E-commerce Platforms, Facebook Ads</span>
+                                <span class="text-[0.7rem] sm:text-sm text-[var(--primary-color)]">ชำนาญ</span>
                             </div>
                             <div class="skill-bar-container"><div class="skill-bar" data-level="90"></div></div>
                         </li>
-                         <li class="text-[var(--text-color-dark)] text-sm sm:text-base">
+                         <li class="text-xs sm:text-base text-[var(--text-color-dark)]">
                             <div class="flex justify-between items-center mb-1">
-                                <span>การตลาดดิจิทัล: SEO, Google Ads, LINE OA</span>
-                                <span class="text-xs sm:text-sm text-[var(--primary-color)]">ชำนาญ</span>
+                                <span>Digital Marketing: SEO, Google Ads, LINE OA</span>
+                                <span class="text-[0.7rem] sm:text-sm text-[var(--primary-color)]">ชำนาญ</span>
                             </div>
                             <div class="skill-bar-container"><div class="skill-bar" data-level="85"></div></div>
                         </li>
-                        <li class="text-[var(--text-color-dark)] text-sm sm:text-base">
+                        <li class="text-xs sm:text-base text-[var(--text-color-dark)]">
                             <div class="flex justify-between items-center mb-1">
-                                <span>การจัดการ: Supplier Sourcing, Logistics Management, Inventory Planning</span>
-                                <span class="text-xs sm:text-sm text-[var(--primary-color)]">ชำนาญ</span>
+                                <span>Management: Sourcing, Logistics, Inventory</span>
+                                <span class="text-[0.7rem] sm:text-sm text-[var(--primary-color)]">ชำนาญ</span>
                             </div>
                             <div class="skill-bar-container"><div class="skill-bar" data-level="80"></div></div>
                         </li>
-                        <li class="text-[var(--text-color-dark)] text-sm sm:text-base">
+                         <li class="text-xs sm:text-base text-[var(--text-color-dark)]">
                             <div class="flex justify-between items-center mb-1">
-                                <span>โปรแกรม: Canva</span>
-                                <span class="text-xs sm:text-sm text-[var(--primary-color)]">ชำนาญ</span>
+                                <span>Canva</span>
+                                <span class="text-[0.7rem] sm:text-sm text-[var(--primary-color)]">ชำนาญ</span>
                             </div>
                             <div class="skill-bar-container"><div class="skill-bar" data-level="95"></div></div>
                         </li>
-                        <li class="text-[var(--text-color-dark)] text-sm sm:text-base">
+                        <li class="text-xs sm:text-base text-[var(--text-color-dark)]">
                             <div class="flex justify-between items-center mb-1">
-                                <span>Google Workspace: Slides, Drive, Sheets, Meet, Docs</span>
-                                <span class="text-xs sm:text-sm text-[var(--primary-color)]">ชำนาญ</span>
+                                <span>Google Workspace</span>
+                                <span class="text-[0.7rem] sm:text-sm text-[var(--primary-color)]">ชำนาญ</span>
                             </div>
                             <div class="skill-bar-container"><div class="skill-bar" data-level="80"></div></div>
                         </li>
-                        <li class="text-[var(--text-color-dark)] text-sm sm:text-base">
+                         <li class="text-xs sm:text-base text-[var(--text-color-dark)]">
                             <div class="flex justify-between items-center mb-1">
-                                <span>การทำงานร่วมกับ AI: Data Analysis, Marketing, Basic Programming, Prompt Engineering</span>
-                                <span class="text-xs sm:text-sm text-[var(--primary-color)]">ดีเยี่ยม</span>
+                                <span>AI Collaboration: Data Analysis, Marketing, Prompt Engineering</span>
+                                <span class="text-[0.7rem] sm:text-sm text-[var(--primary-color)]">ดีเยี่ยม</span>
                             </div>
                             <div class="skill-bar-container"><div class="skill-bar" data-level="90"></div></div>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-xl sm:text-2xl font-semibold text-[var(--text-color-dark)] mb-6">ทักษะอื่นๆ (Soft Skills)</h3>
-                    <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-2 text-sm sm:text-base">
-                        <li>ภาวะผู้นำ, การเป็นผู้ประกอบการ (Entrepreneurship)</li>
+                    <h3 class="text-lg sm:text-2xl font-semibold text-[var(--text-color-dark)] mb-6">ทักษะอื่นๆ</h3>
+                    <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-2 text-xs sm:text-base">
+                        <li>ภาวะผู้นำ, การเป็นผู้ประกอบการ</li>
                         <li>การประสานงาน, การทำงานร่วมกับผู้อื่น</li>
                         <li>ความคิดสร้างสรรค์, การคิดเชิงออกแบบ</li>
                         <li>การทำงานภายใต้แรงกดดัน, ความฉลาดทางอารมณ์</li>
-                        <li>ความเข้าใจในสื่อยุคใหม่, การเรียนรู้ตลอดชีวิต, การบริหารจัดการการรับรู้</li>
+                        <li>ความเข้าใจในสื่อยุคใหม่, การเรียนรู้ตลอดชีวิต</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-16 sm:py-20 bg-[var(--primary-color)]">
+    <section id="contact" class="py-12 sm:py-16 bg-[var(--primary-color)]">
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-10 sm:mb-12 section-title mx-auto text-[var(--text-color-light)]">ติดต่อ</h2>
-            <p class="text-base sm:text-lg text-[var(--text-color-light)] mb-8 max-w-xl sm:max-w-2xl mx-auto">
+            <h2 class="text-2xl sm:text-4xl font-bold mb-8 sm:mb-12 section-title mx-auto text-[var(--text-color-light)]">ติดต่อ</h2>
+            <p class="text-sm sm:text-lg text-[var(--text-color-light)] mb-8 max-w-xl sm:max-w-2xl mx-auto">
                 หากท่านสนใจหรือต้องการสอบถามข้อมูลเพิ่มเติม สามารถติดต่อได้ตามช่องทางด้านล่างนี้
             </p>
-            <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
-                <a href="tel:+66842156566" class="bg-[rgba(255,255,255,0.15)] p-4 sm:p-6 rounded-lg shadow-md flex flex-col items-center hover:bg-[rgba(255,255,255,0.25)] transition duration-300 transform hover:scale-105 w-full xs:w-auto sm:min-w-[160px]">
-                    <i class="fas fa-phone-alt text-[var(--text-color-light)] text-2xl sm:text-3xl mb-2"></i>
-                    <span class="text-[var(--text-color-light)] font-semibold text-sm sm:text-base">โทรศัพท์</span>
-                    <span class="text-xs sm:text-sm text-[var(--text-color-light)]">084-215-6566</span>
+            <div class="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center sm:items-stretch gap-4 sm:gap-6">
+                <a href="tel:+66842156566" class="bg-[rgba(255,255,255,0.15)] p-4 rounded-lg shadow-md flex flex-col items-center hover:bg-[rgba(255,255,255,0.25)] transition duration-300 transform hover:scale-105 w-full max-w-[280px] sm:w-auto sm:min-w-[160px]">
+                    <i class="fas fa-phone-alt text-[var(--text-color-light)] text-xl sm:text-2xl mb-2"></i>
+                    <span class="text-[var(--text-color-light)] font-semibold text-xs sm:text-sm">โทรศัพท์</span>
+                    <span class="text-[0.75rem] sm:text-xs text-[var(--text-color-light)]">084-215-6566</span>
                 </a>
-                <a href="mailto:aitthiphols@gmail.com" class="bg-[rgba(255,255,255,0.15)] p-4 sm:p-6 rounded-lg shadow-md flex flex-col items-center hover:bg-[rgba(255,255,255,0.25)] transition duration-300 transform hover:scale-105 w-full xs:w-auto sm:min-w-[160px]">
-                    <i class="fas fa-envelope text-[var(--text-color-light)] text-2xl sm:text-3xl mb-2"></i>
-                    <span class="text-[var(--text-color-light)] font-semibold text-sm sm:text-base">อีเมล</span>
-                    <span class="text-xs sm:text-sm text-[var(--text-color-light)]">aitthiphols@gmail.com</span>
+                <a href="mailto:aitthiphols@gmail.com" class="bg-[rgba(255,255,255,0.15)] p-4 rounded-lg shadow-md flex flex-col items-center hover:bg-[rgba(255,255,255,0.25)] transition duration-300 transform hover:scale-105 w-full max-w-[280px] sm:w-auto sm:min-w-[160px]">
+                    <i class="fas fa-envelope text-[var(--text-color-light)] text-xl sm:text-2xl mb-2"></i>
+                    <span class="text-[var(--text-color-light)] font-semibold text-xs sm:text-sm">อีเมล</span>
+                    <span class="text-[0.75rem] sm:text-xs text-[var(--text-color-light)] break-all">aitthiphols@gmail.com</span>
                 </a>
-                <div class="bg-[rgba(255,255,255,0.15)] p-4 sm:p-6 rounded-lg shadow-md flex flex-col items-center w-full xs:w-auto sm:min-w-[160px]">
-                    <i class="fab fa-line text-[var(--text-color-light)] text-2xl sm:text-3xl mb-2"></i>
-                    <span class="text-[var(--text-color-light)] font-semibold text-sm sm:text-base">Line ID</span>
-                    <span class="text-xs sm:text-sm text-[var(--text-color-light)]">Bessking</span>
-                </div>
-                <a href="https://www.facebook.com/share/1EBAtap7KJ/" target="_blank" class="bg-[rgba(255,255,255,0.15)] p-4 sm:p-6 rounded-lg shadow-md flex flex-col items-center hover:bg-[rgba(255,255,255,0.25)] transition duration-300 transform hover:scale-105 w-full xs:w-auto sm:min-w-[160px]">
-                    <i class="fab fa-facebook-f text-[var(--text-color-light)] text-2xl sm:text-3xl mb-2"></i>
-                    <span class="text-[var(--text-color-light)] font-semibold text-sm sm:text-base">Facebook</span>
-                    <span class="text-xs sm:text-sm text-[var(--text-color-light)]">เยี่ยมชมโปรไฟล์</span>
+                <a href="https://line.me/ti/p/@bessking" target="_blank" rel="noopener noreferrer" class="bg-[rgba(255,255,255,0.15)] p-4 rounded-lg shadow-md flex flex-col items-center hover:bg-[rgba(255,255,255,0.25)] transition duration-300 transform hover:scale-105 w-full max-w-[280px] sm:w-auto sm:min-w-[160px]">
+                    <i class="fab fa-line text-[var(--text-color-light)] text-xl sm:text-2xl mb-2"></i>
+                    <span class="text-[var(--text-color-light)] font-semibold text-xs sm:text-sm">Line ID</span>
+                    <span class="text-[0.75rem] sm:text-xs text-[var(--text-color-light)]">@bessking (คลิก)</span>
+                </a>
+                <a href="https://www.facebook.com/share/1EBAtap7KJ/" target="_blank" rel="noopener noreferrer" class="bg-[rgba(255,255,255,0.15)] p-4 rounded-lg shadow-md flex flex-col items-center hover:bg-[rgba(255,255,255,0.25)] transition duration-300 transform hover:scale-105 w-full max-w-[280px] sm:w-auto sm:min-w-[160px]">
+                    <i class="fab fa-facebook-f text-[var(--text-color-light)] text-xl sm:text-2xl mb-2"></i>
+                    <span class="text-[var(--text-color-light)] font-semibold text-xs sm:text-sm">Facebook</span>
+                    <span class="text-[0.75rem] sm:text-xs text-[var(--text-color-light)]">เยี่ยมชมโปรไฟล์</span>
                 </a>
             </div>
         </div>
@@ -397,12 +426,11 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href.startsWith('#')) { // Only prevent default for hash links on this page
+                if (href.startsWith('#')) { 
                     e.preventDefault();
                     const targetElement = document.querySelector(href);
                     if (targetElement) {
-                         // Adjust scroll position to account for fixed header
-                        const headerOffset = document.querySelector('header').offsetHeight || 70; // Fallback offset
+                        const headerOffset = document.querySelector('header').offsetHeight || 70; 
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         
@@ -424,7 +452,6 @@
             header.addEventListener('click', () => {
                 const isActive = content.classList.contains('active');
                 
-                // Close all other accordions first
                 accordionItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.querySelector('.accordion-content').classList.remove('active');
@@ -432,7 +459,6 @@
                     }
                 });
 
-                // Then toggle the clicked one
                 if (!isActive) {
                     content.classList.add('active');
                     icon.classList.add('rotate-180');
@@ -450,11 +476,13 @@
                 if (rect.top < window.innerHeight && rect.bottom >= 0 && !bar.classList.contains('animated')) {
                     const level = bar.dataset.level;
                     bar.style.width = `${level}%`;
-                    bar.classList.add('animated'); // Prevent re-animation
+                    bar.classList.add('animated'); 
                 }
             });
         };
-        window.addEventListener('load', animateSkillBars);
+        window.addEventListener('load', () => {
+            setTimeout(animateSkillBars, 100); // Delay slightly to ensure layout is stable
+        });
         window.addEventListener('scroll', animateSkillBars);
     </script>
 </body>
