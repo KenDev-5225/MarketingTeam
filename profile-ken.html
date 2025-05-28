@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* --- Global Variables & Base Styles (from team theme) --- */
         :root {
             --primary-color: #007bff; /* Blue */
             --secondary-color: #6c757d; /* Gray */
@@ -21,16 +20,14 @@
             --border-radius: 8px;
             --spacing-unit: 20px;
         }
-
         body {
             font-family: 'Kanit', sans-serif; 
             background-color: var(--background-light); 
             color: var(--text-color-dark); 
             line-height: 1.6;
             scroll-behavior: smooth; 
-            padding-top: 68px; /* Adjusted for initial header height on desktop */
+            padding-top: 68px; /* Default for desktop */
         }
-        /* Custom scrollbar for a sleek look */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #e0e0e0; }
         ::-webkit-scrollbar-thumb { background: #a0a0a0; border-radius: 4px; }
@@ -73,14 +70,14 @@
             padding-top: calc(var(--spacing-unit) * 2); padding-bottom: calc(var(--spacing-unit) * 2);
         }
          @media (min-width: 640px) { /* sm breakpoint */
-            body { padding-top: 68px; /* Re-adjust if desktop header height changes */ }
+            body { padding-top: 68px; }
             section.py-12 {
                  padding-top: calc(var(--spacing-unit) * 2.5); padding-bottom: calc(var(--spacing-unit) * 2.5);
             }
              .header-nav-button { padding: 0.5rem 1rem; }
          }
         @media (max-width: 639px) { /* Below sm breakpoint */
-            body { padding-top: 56px; /* Adjusted for mobile header (logo line only) */ }
+            body { padding-top: 56px; }
             header.fixed nav ul li a:not(.header-nav-button) { 
                 display: block; padding: 0.75rem 0.5rem; 
                 border-bottom: 1px solid rgba(107, 114, 128, 0.4); 
@@ -96,17 +93,18 @@
             #hero p { font-size: 1rem; }
             #hero .profile-image { width: 7rem; height: 7rem; }
             #hero a.inline-block { padding: 0.75rem 1.5rem; font-size: 0.875rem; }
+            
             #about .text-sm, 
-            #experience .accordion-header span, /* Target span inside accordion header */
+            #experience .accordion-header span,
             #experience .accordion-content p, 
             #experience .accordion-content ul li,
             #skills .text-xs, 
-            #skills h3.text-lg, /* Target specific h3 in skills */
-            #contact .text-\\[0\\.75rem\\] { /* Escaped brackets for Tailwind arbitrary value */
-                font-size: 0.9rem !important; /* Ensure readability, !important if needed */
+            #skills h3.text-lg,
+            #contact .text-\\[0\\.75rem\\] {
+                font-size: 0.9rem !important;
             }
-            .accordion-header svg { width: 1.25rem; height: 1.25rem;} /* w-5 h-5 */
-            #experience .grid.md\:grid-cols-2 { gap: 1rem; }
+            .accordion-header svg { width: 1.25rem; height: 1.25rem;}
+             #experience .grid.md\:grid-cols-2 { gap: 1rem; }
             #experience .grid.md\:grid-cols-2 > .accordion-item {
                 padding-left: 0.5rem; padding-right: 0.5rem;
             }
