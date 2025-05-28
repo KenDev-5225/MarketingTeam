@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อิทธิพล ศรีเดช - ประวัติส่วนตัวและประวัติการทำงาน</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* --- Global Variables & Base Styles (from team theme) --- */
+        :root {
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #6c757d; /* Gray */
+            --accent-color: #28a745; /* Green */
+            --background-light: #f8f9fa;
+            --background-dark: #343a40;
+            --text-color-dark: #212529;
+            --text-color-light: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 20px;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif; /* Changed to Kanit */
+            background-color: var(--background-light); /* Light grey background from the theme */
+            color: var(--text-color-dark); /* Dark text for contrast on light background */
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scrolling for navigation */
+        }
+        /* Custom scrollbar for a sleek look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a0a0a0;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #707070;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            color: var(--primary-color); /* Changed to primary-color */
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60%;
+            height: 3px;
+            background-color: var(--primary-color); /* Changed to primary-color */
+            border-radius: 2px;
+        }
+        .accordion-header {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .accordion-header:hover {
+            background-color: #f5f5f5; /* Lighter hover for light theme */
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            padding: 0 1.5rem; /* Initial padding 0 */
+        }
+        .accordion-content.active {
+            max-height: 500px; /* Adjust based on expected content height */
+            padding: 1.5rem; /* Active padding */
+        }
+        .skill-bar-container {
+            background-color: var(--secondary-color); /* Lighter background for skill bar container */
+            border-radius: 9999px;
+            height: 10px;
+            overflow: hidden;
+        }
+        .skill-bar {
+            background-color: var(--primary-color); /* Changed to primary-color */
+            height: 100%;
+            width: 0%; /* Initial width for animation */
+            transition: width 1s ease-out;
+            border-radius: 9999px;
+        }
+        .skill-bar.animate {
+            /* Width will be set by JS */
+        }
+        /* Keyframe for subtle pulse animation on buttons */
+        @keyframes pulse-accent { /* Renamed for clarity */
+            0% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4); /* Accent color rgba */
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
+        }
+        .btn-primary:hover {
+            animation: pulse-accent 1.5s infinite; /* Changed to pulse-accent */
+        }
+        /* Image styling */
+        .profile-image {
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-[var(--background-dark)] bg-opacity-90 shadow-lg fixed w-full z-50 py-4">
+        <nav class="container mx-auto flex justify-between items-center px-4">
+            <a href="#hero" class="text-2xl font-bold text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300">อิทธิพล ศรีเดช</a>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300">เกี่ยวกับฉัน</a></li>
+                <li><a href="#experience" class="text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300">ประสบการณ์ทำงาน</a></li>
+                <li><a href="#skills" class="text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300">ทักษะ</a></li>
+                <li><a href="#contact" class="text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="relative z-10 text-center p-8 bg-gray-800 bg-opacity-70 rounded-xl shadow-2xl max-w-2xl mx-4">
+            <img src="https://placehold.co/150x150/007bff/ffffff?text=Your+Photo" alt="อิทธิพล ศรีเดช" class="profile-image w-36 h-36 rounded-full mx-auto mb-6 border-4 border-[var(--primary-color)] shadow-lg">
+            <h1 class="text-5xl font-extrabold text-[var(--text-color-light)] mb-4 leading-tight">อิทธิพล ศรีเดช</h1>
+            <p class="text-xl text-[var(--text-color-light)] mb-6">ผู้จัดการฝ่ายการตลาดและผู้บริหาร | ขับเคลื่อนการเติบโตด้วยกลยุทธ์และนวัตกรรม AI</p>
+            <a href="#about" class="btn-primary inline-block bg-[var(--accent-color)] text-[var(--text-color-light)] font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#218838] transition duration-300 transform hover:scale-105">ดูประวัติโดยย่อ</a>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-[var(--background-light)] px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-12 section-title">เกี่ยวกับฉัน</h2>
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-12 items-start"> <div class="bg-[var(--text-color-light)] p-8 rounded-xl shadow-xl text-left"> <p class="text-lg text-[var(--text-color-dark)] mb-6">
+                        ผู้จัดการฝ่ายการตลาดและผู้บริหาร ด้วยประสบการณ์ที่หลากหลายในด้านการตลาดดิจิทัล การบริหารจัดการทั่วไป การบริหารงานธุรการ และการเป็นผู้ประกอบการ E-commerce. มีความเชี่ยวชาญในการวางแผนกลยุทธ์ ขับเคลื่อนการเติบโต บริหารทีม งบประมาณ และการดำเนินงานร้านค้าออนไลน์ (Facebook, Shopee).
+                    </p>
+                    <p class="text-lg text-[var(--text-color-dark)] mb-6">
+                        โดดเด่นด้วยทักษะขั้นสูงในการใช้เครื่องมือการตลาดดิจิทัล (SEO, Google/Facebook Ads, LINE OA) รวมถึงการจัดการซัพพลายเออร์, โลจิสติกส์ และ Google Workspace. มีความสามารถพิเศษในการทำงานร่วมกับ AI เพื่อเพิ่มประสิทธิภาพในงานวิเคราะห์ การตลาด และการแก้ไขปัญหา.
+                    </p>
+                    <p class="text-lg text-[var(--text-color-dark)]">
+                        มุ่งมั่นที่จะนำประสบการณ์และความสามารถทั้งหมดนี้ไปใช้ในตำแหน่งผู้จัดการฝ่ายการตลาด, ผู้จัดการทั่วไป หรือผู้จัดการสำนักงาน/E-commerce เพื่อสร้างความสำเร็จที่ยั่งยืนให้กับองค์กร.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 bg-white px-4"> <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-12 section-title">ประสบการณ์ทำงาน</h2>
+
+            <div class="space-y-8">
+                <div class="bg-[var(--text-color-light)] p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-xl py-2">
+                        <span>ผู้จัดการฝ่ายการตลาด - บริษัท เอ พลัส ทริปเปิ้ล จำกัด</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-[var(--primary-color)] mb-2">มิถุนายน 2566 - ปัจจุบัน</p>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1">
+                            <li>วางแผนและดำเนินกลยุทธ์การตลาดให้สอดคล้องกับเป้าหมายทางธุรกิจ</li>
+                            <li>วิเคราะห์ตลาด คู่แข่ง และกลุ่มเป้าหมาย เพื่อหาโอกาสทางการตลาด</li>
+                            <li>สร้างและรักษาภาพลักษณ์แบรนด์ พัฒนาแผนการสื่อสารการตลาดทั้งออฟไลน์และออนไลน์</li>
+                            <li>วางแผนและดำเนินแคมเปญการตลาดดิจิทัล (SEO, Google Ads, Facebook Ads, LINE OA) เพื่อสร้างการรับรู้ เพิ่มลูกค้า และยอดขาย</li>
+                            <li>วิเคราะห์ข้อมูลและปรับปรุงแคมเปญอย่างต่อเนื่องเพื่อ ROI สูงสุด</li>
+                            <li>วางแผนและดำเนินแคมเปญส่งเสริมการขาย บริหารงบประมาณ และวัดผล</li>
+                            <li>วิเคราะห์ข้อมูลการตลาดและลูกค้าเพื่อนำเสนอข้อมูลเชิงลึกแก่ผู้บริหาร</li>
+                            <li>ประยุกต์ใช้ AI เพื่อช่วยในการวิเคราะห์ข้อมูลตลาด สร้างสรรค์เนื้อหา และเพิ่มประสิทธิภาพแคมเปญ</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--text-color-light)] p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-xl py-2">
+                        <span>จัดหาผลผลิตทางการเกษตร - บริษัท เอม ไทย ฟรุต จำกัด</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-[var(--primary-color)] mb-2">เมษายน 2563 - กรกฎาคม 2566</p>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1">
+                            <li>จัดหาและประสานงานเกษตรกรเพื่อเพาะปลูกพืชตามความต้องการ</li>
+                            <li>ลงพื้นที่ ให้คำแนะนำ ติดตาม และให้ความรู้แก่เกษตรกรเพื่อให้ผลผลิตได้มาตรฐาน</li>
+                            <li>จัดทำเอกสารสัญญาและเอกสารที่เกี่ยวข้อง</li>
+                            <li>ควบคุมงบประมาณ ต้นทุน และนำส่งสินค้าให้แก่บริษัท/คู่ค้า</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--text-color-light)] p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-xl py-2">
+                        <span>กรรมการผู้จัดการ / Managing Director - บริษัท ลีโอไนน์ โกลบอล จำกัด</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-[var(--primary-color)] mb-2">เมษายน 2562 - สิงหาคม 2563</p>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1">
+                            <li>กำหนดนโยบาย ทิศทาง และแนวทางการปฏิบัติงานขององค์กร</li>
+                            <li>บริหาร จัดการ ควบคุม และแนะนำทุกฝ่ายให้ดำเนินงานตามนโยบายและเป้าหมาย</li>
+                            <li>จัดสรรทรัพยากร ควบคุมและบริหารงบประมาณ</li>
+                            <li>ประสานงานกับคณะกรรมการบริษัทและหน่วยงานภายนอก</li>
+                            <li>ให้คำปรึกษาแก่ผู้ใต้บังคับบัญชา สร้างความพึงพอใจลูกค้า และสร้างผลกำไร</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--text-color-light)] p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-xl py-2">
+                        <span>ผู้จัดการแผนกธุรการ ฝ่ายทรัพยากรบุคคล - บริษัท น้อมจิตต์อินคอเปอเรชั่น จำกัด (มหาชน)</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-[var(--primary-color)] mb-2">มิถุนายน 2556 - ธันวาคม 2559</p>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1">
+                            <li>ติดตามปัญหา คิดริเริ่มแนวทางปฏิบัติใหม่ และพัฒนาแผนก</li>
+                            <li>ควบคุม ติดตาม และประเมินผลการปฏิบัติงานของเจ้าหน้าที่และหัวหน้าส่วนงาน</li>
+                            <li>กำหนดนโยบายและวางแผนการปฏิบัติงานประจำปีของแผนก</li>
+                            <li>วางระบบงานเอกสาร จัดทำแบบฟอร์ม และวางระบบ ISO ของแผนก</li>
+                            <li>ประสานงานระหว่างหน่วยงานภายในและกับลูกค้าเช่าพื้นที่</li>
+                            <li>ควบคุมดูแลการทำงานของเจ้าหน้าที่ 6 ส่วนงาน (ปฏิบัติการ, รักษาความปลอดภัย, บริการ/ทำความสะอาด, ประสานงาน, ลานจอด, บริการห้องน้ำ)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--text-color-light)] p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-xl py-2">
+                        <span>รักษาการณ์ ผู้จัดการแผนกธุรการ - น้อมจิตต์เซฟวิ่งสโตร์</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-[var(--primary-color)] mb-2">สิงหาคม 2555 – สิงหาคม 2556</p>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1">
+                            <li>ติดตามและแก้ไขปัญหาต่างๆ ภายในศูนย์การค้า</li>
+                            <li>บริหารจัดการลานจอดรถ ควบคุมการจัดส่งเอกสาร</li>
+                            <li>กำหนดเป้าหมายและนโยบายการทำงาน</li>
+                            <li>ดูแล ตรวจสอบ และควบคุมการทำงานของเจ้าหน้าที่ธุรการ, ทำความสะอาด, รักษาความปลอดภัย, ประสานงาน และระบบลานจอดรถ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-bold mt-16 mb-8 section-title">ประสบการณ์ผู้ประกอบการ</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-[var(--text-color-light)] p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-xl py-2">
+                        <span>ร้านเสื้อผ้าผู้หญิงออนไลน์ (Facebook)</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1">
+                            <li>บริหารจัดการร้านค้าบน Facebook จำนวน 3 เพจ</li>
+                            <li>ดำเนินการยิงโฆษณา Facebook Ads เพื่อเข้าถึงกลุ่มเป้าหมายและเพิ่มยอดขาย</li>
+                            <li>จัดหาและติดต่อซัพพลายเออร์สินค้าเสื้อผ้าโดยตรง</li>
+                            <li>วางแผนและบริหารจัดการด้านโลจิสติกส์ ทั้งการรับสินค้าจากซัพพลายเออร์และการจัดส่งถึงลูกค้า</li>
+                            <li>วางแผนการสั่งซื้อสินค้าและการจัดการสต็อก</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-[var(--text-color-light)] p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-xl py-2">
+                        <span>ร้านจำหน่ายยางรถจักรยานยนต์ (Shopee)</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1">
+                            <li>เปิดและบริหารจัดการร้านค้าบนแพลตฟอร์ม Shopee</li>
+                            <li><strong class="text-[var(--primary-color)]">ผลประกอบการ:</strong> สร้างยอดขาย 200,000 บาท ภายใน 90 วันแรก</li>
+                            <li>จัดหาและติดต่อซัพพลายเออร์ยางรถจักรยานยนต์</li>
+                            <li>บริหารจัดการด้านโลจิสติกส์และการจัดส่ง</li>
+                            <li>วางแผนการสั่งซื้อและสต็อกสินค้า</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-[var(--background-light)] px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-12 section-title">ทักษะ</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold text-[var(--text-color-dark)] mb-6">ทักษะด้านคอมพิวเตอร์และดิจิทัล (Hard Skills)</h3>
+                    <ul class="space-y-6">
+                        <li class="text-[var(--text-color-dark)]">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>E-commerce: Platform Management (Shopee, Facebook Pages), Facebook Ads Management</span>
+                                <span class="text-sm text-[var(--primary-color)]">ชำนาญ</span>
+                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar" data-level="90"></div></div>
+                        </li>
+                        <li class="text-[var(--text-color-dark)]">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>การตลาดดิจิทัล: SEO, Google Ads, LINE OA</span>
+                                <span class="text-sm text-[var(--primary-color)]">ชำนาญ</span>
+                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar" data-level="85"></div></div>
+                        </li>
+                        <li class="text-[var(--text-color-dark)]">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>การจัดการ: Supplier Sourcing, Logistics Management, Inventory Planning</span>
+                                <span class="text-sm text-[var(--primary-color)]">ชำนาญ</span>
+                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar" data-level="80"></div></div>
+                        </li>
+                        <li class="text-[var(--text-color-dark)]">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>โปรแกรม: Canva</span>
+                                <span class="text-sm text-[var(--primary-color)]">ชำนาญ</span>
+                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar" data-level="95"></div></div>
+                        </li>
+                        <li class="text-[var(--text-color-dark)]">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>Google Workspace: Slides, Drive, Sheets, Meet, Docs</span>
+                                <span class="text-sm text-[var(--primary-color)]">ชำนาญ</span>
+                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar" data-level="80"></div></div>
+                        </li>
+                        <li class="text-[var(--text-color-dark)]">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>การทำงานร่วมกับ AI: Data Analysis, Marketing, Basic Programming, Prompt Engineering</span>
+                                <span class="text-sm text-[var(--primary-color)]">ดีเยี่ยม</span>
+                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar" data-level="90"></div></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold text-[var(--text-color-dark)] mb-6">ทักษะอื่นๆ (Soft Skills)</h3>
+                    <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-2 mb-8">
+                        <li>ภาวะผู้นำ, การเป็นผู้ประกอบการ (Entrepreneurship)</li>
+                        <li>การประสานงาน, การทำงานร่วมกับผู้อื่น</li>
+                        <li>ความคิดสร้างสรรค์, การคิดเชิงออกแบบ</li>
+                        <li>การทำงานภายใต้แรงกดดัน, ความฉลาดทางอารมณ์</li>
+                        <li>ความเข้าใจในสื่อยุคใหม่, การเรียนรู้ตลอดชีวิต, การบริหารจัดการการรับรู้</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-[var(--primary-color)] px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-12 section-title mx-auto text-[var(--text-color-light)]">ติดต่อ</h2>
+            <p class="text-lg text-[var(--text-color-light)] mb-8 max-w-2xl mx-auto">
+                หากท่านสนใจหรือต้องการสอบถามข้อมูลเพิ่มเติม สามารถติดต่อได้ตามช่องทางด้านล่างนี้
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-8 mb-12">
+                <div class="bg-[rgba(255,255,255,0.15)] p-6 rounded-xl shadow-xl flex flex-col items-center hover:bg-[rgba(255,255,255,0.25)] transition duration-300 transform hover:scale-105">
+                    <svg class="w-10 h-10 text-[var(--text-color-light)] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
+                    <p class="text-[var(--text-color-light)] font-semibold">เบอร์โทรศัพท์</p>
+                    <a href="tel:+66842156566" class="text-[var(--text-color-light)] hover:text-[var(--text-color-light)] transition duration-300">084-215-6566</a>
+                </div>
+                <div class="bg-[rgba(255,255,255,0.15)] p-6 rounded-xl shadow-xl flex flex-col items-center hover:bg-[rgba(255,255,255,0.25)] transition duration-300 transform hover:scale-105">
+                    <svg class="w-10 h-10 text-[var(--text-color-light)] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <p class="text-[var(--text-color-light)] font-semibold">อีเมล</p>
+                    <a href="mailto:aitthiphols@gmail.com" class="text-[var(--text-color-light)] hover:text-[var(--text-color-light)] transition duration-300">aitthiphols@gmail.com</a>
+                </div>
+                <div class="bg-[rgba(255,255,255,0.15)] p-6 rounded-xl shadow-xl flex flex-col items-center hover:bg-[rgba(255,255,255,0.25)] transition duration-300 transform hover:scale-105">
+                    <i class="fab fa-line w-10 h-10 text-[var(--text-color-light)] mb-3 text-4xl"></i>
+                    <p class="text-[var(--text-color-light)] font-semibold">Line ID</p>
+                    <span class="text-[var(--text-color-light)]">Bessking</span>
+                </div>
+                <div class="bg-[rgba(255,255,255,0.15)] p-6 rounded-xl shadow-xl flex flex-col items-center hover:bg-[rgba(255,255,255,0.25)] transition duration-300 transform hover:scale-105">
+                    <i class="fab fa-facebook-f w-10 h-10 text-[var(--text-color-light)] mb-3 text-4xl"></i>
+                    <p class="text-[var(--text-color-light)] font-semibold">Facebook</p>
+                    <a href="https://www.facebook.com/share/1EBAtap7KJ/" target="_blank" class="text-[var(--text-color-light)] hover:text-[var(--text-color-light)] transition duration-300">เยี่ยมชม</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[var(--background-dark)] py-8 text-center text-[var(--secondary-color)] text-sm">
+        <div class="container mx-auto px-4">
+            &copy; 2025 อิทธิพล ศรีเดช. สงวนลิขสิทธิ์.
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Accordion functionality for experience sections
+        const accordionItems = document.querySelectorAll('.accordion-item');
+
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+            const icon = header.querySelector('svg');
+
+            header.addEventListener('click', () => {
+                // Toggle active class on content and rotate icon
+                content.classList.toggle('active');
+                icon.classList.toggle('rotate-180');
+
+                // Close other open accordions
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        const otherContent = otherItem.querySelector('.accordion-content');
+                        const otherIcon = otherItem.querySelector('svg');
+                        otherContent.classList.remove('active');
+                        otherIcon.classList.remove('rotate-180');
+                    }
+                });
+            });
+        });
+
+        // Skill bar animation on scroll
+        const skillBars = document.querySelectorAll('.skill-bar');
+
+        const animateSkillBars = () => {
+            skillBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                // Check if the skill bar is in the viewport
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const level = bar.dataset.level;
+                    bar.style.width = `${level}%`;
+                } else {
+                    // Reset width if out of view (optional, for re-animation on scroll up/down)
+                    bar.style.width = '0%';
+                }
+            });
+        };
+
+        // Initial animation when page loads
+        window.addEventListener('load', animateSkillBars);
+        // Animate on scroll
+        window.addEventListener('scroll', animateSkillBars);
+
+        // Optional: Simple message box for form submission (no actual backend)
+        function showMessage(message, type = 'success') {
+            const messageBox = document.createElement('div');
+            messageBox.className = `fixed bottom-5 right-5 p-4 rounded-lg shadow-lg text-white z-50 ${type === 'success' ? 'bg-green-600' : 'bg-red-600'}`;
+            messageBox.textContent = message;
+            document.body.appendChild(messageBox);
+
+            setTimeout(() => {
+                messageBox.remove();
+            }, 3000); // Remove after 3 seconds
+        }
+
+        // Example: Form submission (client-side only, no actual backend)
+        // const contactForm = document.getElementById('contactForm');
+        // if (contactForm) {
+        //     contactForm.addEventListener('submit', function(e) {
+        //         e.preventDefault();
+        //         // Basic validation
+        //         const name = this.name.value;
+        //         const email = this.email.value;
+        //         const message = this.message.value;
+
+        //         if (name && email && message) {
+        //             showMessage('ข้อความของคุณถูกส่งแล้ว (จำลอง)!');
+        //             this.reset();
+        //         } else {
+        //             showMessage('กรุณากรอกข้อมูลให้ครบถ้วน', 'error');
+        //         }
+        //     });
+        // }
+    </script>
+</body>
+</html>
