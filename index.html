@@ -211,6 +211,16 @@
             margin-top: calc(var(--spacing-unit) * 2);
         }
 
+        .team-member-link { /* Added for clickable team member cards */
+            text-decoration: none; 
+            color: inherit; 
+            display: block; 
+            height: 100%; 
+        }
+         .team-member-link .team-member {
+             height: 100%; 
+         }
+
         .team-member {
             background-color: var(--text-color-light);
             border-radius: var(--border-radius);
@@ -292,12 +302,12 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
-        .pricing-card h3, .pricing-card h4 { /* Added h4 for after-sales */
+        .pricing-card h3, .pricing-card h4 { 
             color: var(--primary-color);
             font-size: 1.8em;
             margin-top: 0;
         }
-         .after-sales-packages-section .pricing-card h4 { /* Specific for after-sales titles */
+         .after-sales-packages-section .pricing-card h4 { 
             font-size: 1.6em;
          }
 
@@ -402,27 +412,30 @@
             background-color: #218838;
         }
         
-        /* --- After-Sales Packages Section Styles (NEW) --- */
+        /* --- After-Sales Packages Section Styles --- */
         .after-sales-packages-section {
             margin-top: calc(var(--spacing-unit) * 3); 
-            padding-top: calc(var(--spacing-unit) * 1.5); /* Reduced top padding slightly */
+            padding-top: calc(var(--spacing-unit) * 1.5); 
             border-top: 2px solid var(--primary-color); 
+            /* background-color: #f0f4f7;  Optional: different background */
+            /* border-radius: var(--border-radius); Optional: if you want a contained look */
+            /* padding-bottom: calc(var(--spacing-unit) * 2);  Optional */
         }
 
-        .after-sales-packages-section h3 { /* Main title for this sub-section */
+        .after-sales-packages-section > h3 { /* Direct child h3 for the section title */
             color: var(--primary-color);
             font-size: 2.2em; 
             margin-bottom: 15px;
             text-align: center;
         }
-        .after-sales-packages-section .pricing-card .price span { /* For /เดือน */
+        .after-sales-packages-section .pricing-card .price span { 
             font-size: 0.4em;
             font-weight: normal;
             color: var(--secondary-color);
         }
         .after-sales-packages-section .pricing-card {
-            border: 1px solid var(--secondary-color); /* Differentiate from main packages */
-            background-color: var(--background-light); /* Slightly different background */
+            border: 1px solid var(--secondary-color); 
+            background-color: var(--background-light); 
         }
 
         /* --- Testimonials & Contact --- */
@@ -464,6 +477,10 @@
         .contact-item:hover {
             background-color: rgba(255, 255, 255, 0.25);
         }
+         .contact-item i {
+            font-size: 1.5em;
+        }
+
 
         /* --- Footer --- */
         footer {
@@ -498,7 +515,7 @@
             section h2 {
                 font-size: 2em;
             }
-            .after-sales-packages-section h3 { /* Responsive for after-sales title */
+            .after-sales-packages-section h3 { 
                  font-size: 1.8em;
             }
             .card-grid, .team-grid, .pricing-container {
@@ -591,7 +608,8 @@
             </div> <div class="after-sales-packages-section">
                 <h3>แพ็กเกจดูแลต่อเนื่องและหลังการขาย</h3>
                 <p class="section-lead" style="font-size: 1.1em; margin-top: 0;">เพื่อให้ธุรกิจของคุณเติบโตอย่างยั่งยืนและระบบทำงานได้อย่างราบรื่น เรามีบริการดูแลต่อเนื่องที่ปรับให้เหมาะสมกับความต้องการของคุณ</p>
-                <div class="pricing-container"> <div class="pricing-card"> 
+                <div class="pricing-container"> 
+                    <div class="pricing-card"> 
                         <h4>Essential Care</h4>
                         <p class="package-desc">ดูแลระบบพื้นฐานให้ทำงานราบรื่น</p>
                         <div class="price" style="font-size: 2.2em;">฿4,900<span>/เดือน</span></div>
@@ -631,7 +649,10 @@
                     </div>
                 </div>
             </div>
-            </div> </section> <section id="success-story">
+            </div> 
+    </section> 
+    
+    <section id="success-story">
         <div class="container">
             <h2>ความสำเร็จที่พิสูจน์แล้ว</h2>
             <div class="case-study">
@@ -670,30 +691,38 @@
             <h2>ทีมงานผู้เชี่ยวชาญของเรา</h2>
             <p class="section-lead">เบื้องหลังความสำเร็จของคุณคือทีมงานที่เปี่ยมด้วยประสบการณ์และความมุ่งมั่น</p>
             <div class="team-grid">
-                <div class="team-member">
-                    <img src="kennnn.jpg" alt="รูปภาพหัวหน้าทีม เคน">
-                    <h3>หัวหน้าทีมและ AI Prompt Editor</h3>
-                    <p class="role">Team Lead & AI Prompt Editor</p>
-                    <p class="bio">ผู้ริเริ่มและขับเคลื่อนกลยุทธ์ พร้อมความเชี่ยวชาญด้าน AI เพื่อผลลัพธ์สูงสุด</p>
-                </div>
-                <div class="team-member">
-                    <img src="jackk.jpg" alt="รูปภาพผู้เชี่ยวชาญ E-commerce แจ็ค">
-                    <h3>ผู้เชี่ยวชาญแพลตฟอร์ม E-commerce</h3>
-                    <p class="role">E-commerce Platform Specialist</p>
-                    <p class="bio">ผู้สร้างยอดขายบน Shopee, Lazada และ TikTok ด้วยกลยุทธ์ที่หลากหลาย</p>
-                </div>
-                <div class="team-member">
-                    <img src="beww.jpg" alt="รูปภาพผู้สร้างสรรค์คอนเทนต์ บิว">
-                    <h3>ผู้สร้างสรรค์คอนเทนต์และ Social Media</h3>
-                    <p class="role">Social Media Specialist & Content Creator</p>
-                    <p class="bio">สร้างสรรค์คอนเทนต์ที่ดึงดูดใจและบริหารจัดการ Social Media ได้อย่างมืออาชีพ</p>
-                </div>
-                <div class="team-member">
-                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="รูปภาพ AI ผู้ช่วยวางกลยุทธ์">
-                    <h3>AI ผู้ช่วยวางกลยุทธ์</h3>
-                    <p class="role">AI Strategic Partner</p>
-                    <p class="bio">ปัญญาประดิษฐ์ที่ช่วยวิเคราะห์ข้อมูลและวางกลยุทธ์ เพื่อให้ธุรกิจของคุณถึงเป้าหมายและเปิดศักยภาพสูงสุดของทีม</p>
-                </div>
+                <a href="profile-ken.html" class="team-member-link">
+                    <div class="team-member">
+                        <img src="kennnn.jpg" alt="รูปภาพหัวหน้าทีม เคน">
+                        <h3>หัวหน้าทีมและ AI Prompt Editor</h3>
+                        <p class="role">Team Lead & AI Prompt Editor</p>
+                        <p class="bio">ผู้ริเริ่มและขับเคลื่อนกลยุทธ์ พร้อมความเชี่ยวชาญด้าน AI เพื่อผลลัพธ์สูงสุด</p>
+                    </div>
+                </a>
+                <a href="#" class="team-member-link"> 
+                    <div class="team-member">
+                        <img src="jackk.jpg" alt="รูปภาพผู้เชี่ยวชาญ E-commerce แจ็ค">
+                        <h3>ผู้เชี่ยวชาญแพลตฟอร์ม E-commerce</h3>
+                        <p class="role">E-commerce Platform Specialist</p>
+                        <p class="bio">ผู้สร้างยอดขายบน Shopee, Lazada และ TikTok ด้วยกลยุทธ์ที่หลากหลาย</p>
+                    </div>
+                </a>
+                <a href="#" class="team-member-link"> 
+                    <div class="team-member">
+                        <img src="beww.jpg" alt="รูปภาพผู้สร้างสรรค์คอนเทนต์ บิว">
+                        <h3>ผู้สร้างสรรค์คอนเทนต์และ Social Media</h3>
+                        <p class="role">Social Media Specialist & Content Creator</p>
+                        <p class="bio">สร้างสรรค์คอนเทนต์ที่ดึงดูดใจและบริหารจัดการ Social Media ได้อย่างมืออาชีพ</p>
+                    </div>
+                </a>
+                <a href="#" class="team-member-link">
+                    <div class="team-member">
+                        <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="รูปภาพ AI ผู้ช่วยวางกลยุทธ์">
+                        <h3>AI ผู้ช่วยวางกลยุทธ์</h3>
+                        <p class="role">AI Strategic Partner</p>
+                        <p class="bio">ปัญญาประดิษฐ์ที่ช่วยวิเคราะห์ข้อมูลและวางกลยุทธ์ เพื่อให้ธุรกิจของคุณถึงเป้าหมายและเปิดศักยภาพสูงสุดของทีม</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
