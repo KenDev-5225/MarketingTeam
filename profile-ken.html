@@ -27,7 +27,7 @@
             color: var(--text-color-dark); 
             line-height: 1.6;
             scroll-behavior: smooth; 
-            padding-top: 60px; /* Added padding for fixed header, adjust as needed */
+            padding-top: 80px; /* Increased padding for fixed header, adjust as needed for mobile */
         }
         /* Custom scrollbar for a sleek look */
         ::-webkit-scrollbar {
@@ -63,6 +63,7 @@
         .accordion-header {
             cursor: pointer;
             transition: background-color 0.3s ease;
+            padding: 0.75rem 1rem; /* Added padding to header */
         }
         .accordion-header:hover {
             background-color: #f0f0f0; 
@@ -71,11 +72,11 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-out, padding 0.5s ease-out;
-            padding: 0 1.5rem; 
+            padding: 0 1rem; /* Consistent padding for content */
         }
         .accordion-content.active {
-            max-height: 1000px; /* Increased for potentially longer content */ 
-            padding: 1rem 1.5rem; /* Adjusted padding */
+            max-height: 1000px; 
+            padding: 1rem 1.5rem; 
         }
         .skill-bar-container {
             background-color: #e0e0e0; 
@@ -98,16 +99,16 @@
         /* Header Link Button Styles */
         .header-nav-button {
              background-color: var(--primary-color);
-             color: var(--text-color-light) !important; /* Ensure text color is light */
+             color: var(--text-color-light) !important; 
              padding: 0.5rem 1rem;
              border-radius: var(--border-radius);
              transition: background-color 0.3s ease;
              font-weight: 600;
-             display: inline-block; /* Ensure padding takes effect */
+             display: inline-block; 
              text-align: center;
         }
         .header-nav-button:hover {
-            background-color: #0056b3; /* Darker blue */
+            background-color: #0056b3; 
         }
         
         /* Tailwind container adjustments */
@@ -116,12 +117,15 @@
             padding-left: var(--spacing-unit);
             padding-right: var(--spacing-unit);
         }
-        section.py-16 { /* Adjusted from py-20 for slightly less vertical space */
+        section.py-12 { /* Adjusted from py-16 for slightly less vertical space */
             padding-top: calc(var(--spacing-unit) * 2);
             padding-bottom: calc(var(--spacing-unit) * 2);
         }
          @media (min-width: 640px) { /* sm breakpoint */
-            section.py-16 {
+            body {
+                padding-top: 70px; /* Adjust for desktop header height */
+            }
+            section.py-12 {
                  padding-top: calc(var(--spacing-unit) * 2.5);
                  padding-bottom: calc(var(--spacing-unit) * 2.5);
             }
@@ -131,8 +135,11 @@
          }
          /* Responsive header navigation adjustments */
         @media (max-width: 639px) { /* Below sm breakpoint */
+            body {
+                padding-top: 120px; /* Increased padding for taller mobile header */
+            }
             header.fixed nav {
-                padding-bottom: 0.5rem; /* Add some padding below stacked items */
+                padding-bottom: 0.5rem; 
             }
             header.fixed nav ul {
                 width: 100%;
@@ -140,9 +147,9 @@
             header.fixed nav ul li {
                 width: 100%;
                 text-align: center;
-                margin-bottom: 0.25rem; /* Small gap between stacked items */
+                margin-bottom: 0.25rem; 
             }
-             header.fixed nav ul li a:not(.header-nav-button) { /* Style for normal nav links */
+             header.fixed nav ul li a:not(.header-nav-button) { 
                 display: block;
                 padding: 0.5rem 0;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -152,35 +159,48 @@
              }
             header.fixed nav .header-nav-button {
                 width: 100%;
-                padding: 0.75rem 1rem; /* Make button slightly larger for tapping */
+                padding: 0.75rem 1rem; 
             }
             .section-title {
-                font-size: 1.75rem; /* text-2xl */
+                font-size: 1.75rem; 
                  margin-bottom: 1.5rem;
             }
             #hero h1 {
-                font-size: 2.25rem; /* text-3xl or 4xl */
+                font-size: 2.25rem; 
             }
             #hero p {
-                font-size: 1rem; /* text-base */
+                font-size: 1rem; 
             }
              #hero .profile-image {
-                width: 7rem; /* w-28 */
-                height: 7rem; /* h-28 */
+                width: 7rem; 
+                height: 7rem; 
             }
-             #hero a.inline-block { /* CTA Button in Hero */
+             #hero a.inline-block { 
                 padding: 0.75rem 1.5rem;
-                font-size: 0.875rem; /* text-sm */
+                font-size: 0.875rem; 
             }
-            #about .text-base, #experience .text-sm, #skills .text-sm, #contact .text-xs {
-                font-size: 0.9rem; /* Slightly adjust base mobile font for readability */
+            #about .text-sm, #experience .text-xs, #skills .text-xs, #contact .text-\[0\.75rem\] {
+                font-size: 0.9rem; 
             }
              .accordion-header span, .accordion-header svg {
-                font-size: 0.95rem; /* Slightly smaller accordion titles */
+                font-size: 0.9rem; /* Adjusted accordion title */
             }
+             .accordion-item .p-4 { /* Ensure padding on mobile for accordion items */
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+             }
             .skill-bar-container span {
                  font-size: 0.8rem;
             }
+             /* Adjusting Entrepreneur Experience Cards for mobile */
+            #experience .grid.md\:grid-cols-2 { /* Targeting the specific grid */
+                gap: 1rem; /* Reduce gap on mobile */
+            }
+            #experience .grid.md\:grid-cols-2 > .accordion-item {
+                padding-left: 0.5rem; /* Add some horizontal padding to the cards themselves */
+                padding-right: 0.5rem;
+            }
+
         }
 
     </style>
@@ -200,7 +220,7 @@
         </nav>
     </header>
 
-    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-cover bg-center px-4 pt-16 sm:pt-0" style="background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-cover bg-center px-4 pt-20 sm:pt-0" style="background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
         <div class="absolute inset-0 bg-black opacity-60"></div>
         <div class="relative z-10 text-center p-6 sm:p-8 bg-[var(--background-dark)] bg-opacity-75 rounded-xl shadow-2xl max-w-md sm:max-w-2xl mx-auto">
             <img src="kennnn.jpg" alt="อิทธิพล ศรีเดช" class="profile-image w-28 h-28 sm:w-36 sm:h-36 rounded-full mx-auto mb-4 sm:mb-6 border-4 border-[var(--primary-color)] shadow-lg">
@@ -232,7 +252,7 @@
             <h2 class="text-2xl sm:text-4xl font-bold mb-8 sm:mb-12 section-title text-center sm:text-left">ประสบการณ์ทำงาน</h2>
             <div class="space-y-6 sm:space-y-8">
                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
-                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl py-2">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl">
                         <span>ผู้จัดการฝ่ายการตลาด - บริษัท เอ พลัส ทริปเปิ้ล จำกัด</span>
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
@@ -250,12 +270,12 @@
                         </ul>
                     </div>
                 </div>
-                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
-                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl py-2">
+                <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl">
                         <span>จัดหาผลผลิตทางการเกษตร - บริษัท เอม ไทย ฟรุต จำกัด</span>
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                    <div class="accordion-content">
+                     <div class="accordion-content">
                         <p class="text-[var(--primary-color)] mb-2 text-xs sm:text-base">เมษายน 2563 - กรกฎาคม 2566</p>
                         <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-xs sm:text-base">
                              <li>จัดหาและประสานงานเกษตรกรเพื่อเพาะปลูกพืชตามความต้องการ</li>
@@ -266,11 +286,11 @@
                     </div>
                 </div>
                  <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
-                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl py-2">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl">
                         <span>กรรมการผู้จัดการ - บริษัท ลีโอไนน์ โกลบอล จำกัด</span>
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                    <div class="accordion-content">
+                     <div class="accordion-content">
                         <p class="text-[var(--primary-color)] mb-2 text-xs sm:text-base">เมษายน 2562 - สิงหาคม 2563</p>
                         <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-xs sm:text-base">
                             <li>กำหนดนโยบาย ทิศทาง และแนวทางการปฏิบัติงานขององค์กร</li>
@@ -282,47 +302,11 @@
                     </div>
                 </div>
 
-                 <div class="bg-[var(--text-color-light)] p-6 rounded-xl shadow-xl accordion-item">
-                        <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-xl py-2">
-                            <span>ผู้จัดการแผนกธุรการ ฝ่ายทรัพยากรบุคคล - บริษัท น้อมจิตต์อินคอเปอเรชั่น จำกัด (มหาชน)</span>
-                            <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="accordion-content">
-                            <p class="text-[var(--primary-color)] mb-2">มิถุนายน 2556 - ธันวาคม 2559</p>
-                            <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1">
-                                <li>ติดตามปัญหา คิดริเริ่มแนวทางปฏิบัติใหม่ และพัฒนาแผนก</li>
-                                <li>ควบคุม ติดตาม และประเมินผลการปฏิบัติงานของเจ้าหน้าที่และหัวหน้าส่วนงาน</li>
-                                <li>กำหนดนโยบายและวางแผนการปฏิบัติงานประจำปีของแผนก</li>
-                                <li>วางระบบงานเอกสาร จัดทำแบบฟอร์ม และวางระบบ ISO ของแผนก</li>
-                                <li>ประสานงานระหว่างหน่วยงานภายในและกับลูกค้าเช่าพื้นที่</li>
-                                <li>ควบคุมดูแลการทำงานของเจ้าหน้าที่ 6 ส่วนงาน (ปฏิบัติการ, รักษาความปลอดภัย, บริการ/ทำความสะอาด, ประสานงาน, ลานจอด, บริการห้องน้ำ)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="bg-[var(--text-color-light)] p-6 rounded-xl shadow-xl accordion-item">
-                        <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-xl py-2">
-                            <span>รักษาการณ์ ผู้จัดการแผนกธุรการ - น้อมจิตต์เซฟวิ่งสโตร์</span>
-                            <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="accordion-content">
-                            <p class="text-[var(--primary-color)] mb-2">สิงหาคม 2555 – สิงหาคม 2556</p>
-                            <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1">
-                                <li>ติดตามและแก้ไขปัญหาต่างๆ ภายในศูนย์การค้า</li>
-                                <li>บริหารจัดการลานจอดรถ ควบคุมการจัดส่งเอกสาร</li>
-                                <li>กำหนดเป้าหมายและนโยบายการทำงาน</li>
-                                <li>ดูแล ตรวจสอบ และควบคุมการทำงานของเจ้าหน้าที่ธุรการ, ทำความสะอาด, รักษาความปลอดภัย, ประสานงาน และระบบลานจอดรถ</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
 
             <h3 class="text-xl sm:text-3xl font-bold mt-10 sm:mt-16 mb-6 sm:mb-8 section-title text-center sm:text-left">ประสบการณ์ผู้ประกอบการ</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
-                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl py-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6"> <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl">
                         <span>ร้านเสื้อผ้าผู้หญิงออนไลน์ (Facebook)</span>
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
@@ -337,7 +321,7 @@
                     </div>
                 </div>
                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
-                     <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl py-2">
+                     <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl">
                         <span>ร้านจำหน่ายยางรถจักรยานยนต์ (Shopee)</span>
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
@@ -350,8 +334,9 @@
                             <li>วางแผนการสั่งซื้อและสต็อกสินค้า</li>
                         </ul>
                     </div>
-                </div>        
+                </div> 
             </div>
+        </div>
     </section>
 
     <section id="skills" class="py-12 sm:py-16 bg-[var(--background-light)]">
@@ -464,7 +449,12 @@
                     e.preventDefault();
                     const targetElement = document.querySelector(href);
                     if (targetElement) {
-                        const headerOffset = document.querySelector('header').offsetHeight || 70; 
+                        let headerOffset = 70; // Default offset
+                        const headerElement = document.querySelector('header.fixed');
+                        if (headerElement) {
+                            headerOffset = headerElement.offsetHeight;
+                        }
+                        
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         
@@ -488,8 +478,12 @@
                 
                 accordionItems.forEach(otherItem => {
                     if (otherItem !== item) {
-                        otherItem.querySelector('.accordion-content').classList.remove('active');
-                        otherItem.querySelector('svg').classList.remove('rotate-180');
+                        const otherContent = otherItem.querySelector('.accordion-content');
+                        const otherIcon = otherItem.querySelector('svg');
+                        if (otherContent.classList.contains('active')) {
+                           otherContent.classList.remove('active');
+                           otherIcon.classList.remove('rotate-180');
+                        }
                     }
                 });
 
@@ -515,7 +509,7 @@
             });
         };
         window.addEventListener('load', () => {
-            setTimeout(animateSkillBars, 100); // Delay slightly to ensure layout is stable
+            setTimeout(animateSkillBars, 100); 
         });
         window.addEventListener('scroll', animateSkillBars);
     </script>
