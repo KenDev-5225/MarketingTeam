@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>อิทธิพล ศรีเดช - ประวัติส่วนตัวและประวัติการทำงาน</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* --- Global Variables & Base Styles (from team theme) --- */
         :root {
             --primary-color: #007bff; /* Blue */
             --secondary-color: #6c757d; /* Gray */
@@ -20,202 +20,122 @@
             --border-radius: 8px;
             --spacing-unit: 20px;
         }
-
         body {
             font-family: 'Kanit', sans-serif; 
             background-color: var(--background-light); 
             color: var(--text-color-dark); 
             line-height: 1.6;
             scroll-behavior: smooth; 
-            padding-top: 80px; /* Increased padding for fixed header, adjust as needed for mobile */
+            padding-top: 68px; /* Adjusted for initial header height on desktop */
         }
-        /* Custom scrollbar for a sleek look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #e0e0e0;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #a0a0a0;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #707070;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e0e0e0; }
+        ::-webkit-scrollbar-thumb { background: #a0a0a0; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #707070; }
         .section-title {
-            position: relative;
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-            display: inline-block;
-            color: var(--primary-color); 
+            position: relative; padding-bottom: 0.5rem; margin-bottom: 2rem; display: inline-block; color: var(--primary-color); 
         }
         .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 60%;
-            height: 3px;
-            background-color: var(--primary-color); 
-            border-radius: 2px;
+            content: ''; position: absolute; left: 0; bottom: 0; width: 60%; height: 3px; background-color: var(--primary-color); border-radius: 2px;
         }
         .accordion-header {
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            padding: 0.75rem 1rem; /* Added padding to header */
+            cursor: pointer; transition: background-color 0.3s ease; padding: 0.75rem 1rem; 
         }
-        .accordion-header:hover {
-            background-color: #f0f0f0; 
-        }
+        .accordion-header:hover { background-color: #f0f0f0; }
         .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
-            padding: 0 1rem; /* Consistent padding for content */
+            max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.5s ease-out; padding: 0 1rem; 
         }
         .accordion-content.active {
-            max-height: 1000px; 
-            padding: 1rem 1.5rem; 
+            max-height: 1000px; padding: 1rem 1.5rem; 
         }
         .skill-bar-container {
-            background-color: #e0e0e0; 
-            border-radius: 9999px;
-            height: 10px;
-            overflow: hidden;
+            background-color: #e0e0e0; border-radius: 9999px; height: 10px; overflow: hidden;
         }
         .skill-bar {
-            background-color: var(--primary-color); 
-            height: 100%;
-            width: 0%; 
-            transition: width 1s ease-out;
-            border-radius: 9999px;
+            background-color: var(--primary-color); height: 100%; width: 0%; transition: width 1s ease-out; border-radius: 9999px;
         }
-        /* Image styling */
-        .profile-image {
-            object-fit: cover;
-            object-position: center;
-        }
-        /* Header Link Button Styles */
+        .profile-image { object-fit: cover; object-position: center; }
         .header-nav-button {
-             background-color: var(--primary-color);
-             color: var(--text-color-light) !important; 
-             padding: 0.5rem 1rem;
-             border-radius: var(--border-radius);
-             transition: background-color 0.3s ease;
-             font-weight: 600;
-             display: inline-block; 
-             text-align: center;
+             background-color: var(--primary-color); color: var(--text-color-light) !important; 
+             padding: 0.5rem 1rem; border-radius: var(--border-radius);
+             transition: background-color 0.3s ease; font-weight: 600;
+             display: inline-block; text-align: center;
         }
-        .header-nav-button:hover {
-            background-color: #0056b3; 
-        }
+        .header-nav-button:hover { background-color: #0056b3; }
         
-        /* Tailwind container adjustments */
         .container.mx-auto {
-            max-width: 1200px;
-            padding-left: var(--spacing-unit);
-            padding-right: var(--spacing-unit);
+            max-width: 1200px; padding-left: var(--spacing-unit); padding-right: var(--spacing-unit);
         }
-        section.py-12 { /* Adjusted from py-16 for slightly less vertical space */
-            padding-top: calc(var(--spacing-unit) * 2);
-            padding-bottom: calc(var(--spacing-unit) * 2);
+        section.py-12 { 
+            padding-top: calc(var(--spacing-unit) * 2); padding-bottom: calc(var(--spacing-unit) * 2);
         }
          @media (min-width: 640px) { /* sm breakpoint */
-            body {
-                padding-top: 70px; /* Adjust for desktop header height */
-            }
+            body { padding-top: 68px; /* Re-adjust if desktop header height changes */ }
             section.py-12 {
-                 padding-top: calc(var(--spacing-unit) * 2.5);
-                 padding-bottom: calc(var(--spacing-unit) * 2.5);
+                 padding-top: calc(var(--spacing-unit) * 2.5); padding-bottom: calc(var(--spacing-unit) * 2.5);
             }
-             .header-nav-button {
-                padding: 0.5rem 1rem;
-            }
+             .header-nav-button { padding: 0.5rem 1rem; }
          }
-         /* Responsive header navigation adjustments */
         @media (max-width: 639px) { /* Below sm breakpoint */
-            body {
-                padding-top: 120px; /* Increased padding for taller mobile header */
+            body { padding-top: 56px; /* Adjusted for mobile header (logo line only) */ }
+            /* Hamburger menu will take space when open, content below will shift. */
+            header.fixed nav ul li a:not(.header-nav-button) { 
+                display: block; padding: 0.75rem 0.5rem; /* Increased padding for easier tap */
+                border-bottom: 1px solid rgba(107, 114, 128, 0.4); /* var(--secondary-color) with opacity */
             }
-            header.fixed nav {
-                padding-bottom: 0.5rem; 
-            }
-            header.fixed nav ul {
-                width: 100%;
-            }
-            header.fixed nav ul li {
-                width: 100%;
-                text-align: center;
-                margin-bottom: 0.25rem; 
-            }
-             header.fixed nav ul li a:not(.header-nav-button) { 
-                display: block;
-                padding: 0.5rem 0;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-             }
              header.fixed nav ul li:last-child a:not(.header-nav-button) {
                 border-bottom: none;
              }
             header.fixed nav .header-nav-button {
-                width: 100%;
-                padding: 0.75rem 1rem; 
+                width: 100%; padding: 0.75rem 1rem; 
             }
-            .section-title {
-                font-size: 1.75rem; 
-                 margin-bottom: 1.5rem;
-            }
-            #hero h1 {
-                font-size: 2.25rem; 
-            }
-            #hero p {
-                font-size: 1rem; 
-            }
-             #hero .profile-image {
-                width: 7rem; 
-                height: 7rem; 
-            }
-             #hero a.inline-block { 
-                padding: 0.75rem 1.5rem;
-                font-size: 0.875rem; 
-            }
+            .section-title { font-size: 1.75rem; margin-bottom: 1.5rem; }
+            #hero h1 { font-size: 2.25rem; }
+            #hero p { font-size: 1rem; }
+            #hero .profile-image { width: 7rem; height: 7rem; }
+            #hero a.inline-block { padding: 0.75rem 1.5rem; font-size: 0.875rem; }
             #about .text-sm, #experience .text-xs, #skills .text-xs, #contact .text-\[0\.75rem\] {
                 font-size: 0.9rem; 
             }
-             .accordion-header span, .accordion-header svg {
-                font-size: 0.9rem; /* Adjusted accordion title */
-            }
-             .accordion-item .p-4 { /* Ensure padding on mobile for accordion items */
-                padding-left: 0.75rem;
-                padding-right: 0.75rem;
-             }
-            .skill-bar-container span {
-                 font-size: 0.8rem;
-            }
-             /* Adjusting Entrepreneur Experience Cards for mobile */
-            #experience .grid.md\:grid-cols-2 { /* Targeting the specific grid */
-                gap: 1rem; /* Reduce gap on mobile */
-            }
+            .accordion-header span { font-size: 0.9rem; }
+            .accordion-header svg { width: 1.25rem; height: 1.25rem;} /* w-5 h-5 */
+            #experience .grid.md\:grid-cols-2 { gap: 1rem; }
             #experience .grid.md\:grid-cols-2 > .accordion-item {
-                padding-left: 0.5rem; /* Add some horizontal padding to the cards themselves */
-                padding-right: 0.5rem;
+                padding-left: 0.5rem; padding-right: 0.5rem;
             }
-
         }
-
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="bg-[var(--background-dark)] bg-opacity-95 shadow-lg fixed w-full z-50 py-3 top-0 left-0">
-        <nav class="container mx-auto flex flex-col sm:flex-row justify-between items-center px-4">
-            <a href="#hero" class="text-xl sm:text-2xl font-bold text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 mb-2 sm:mb-0">อิทธิพล ศรีเดช</a>
-            <ul class="flex flex-col sm:flex-row items-center sm:space-x-3 md:space-x-4">
-                <li class="py-1 sm:py-0"><a href="#about" class="text-sm sm:text-base text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-1 sm:px-3 sm:py-2">เกี่ยวกับฉัน</a></li>
-                <li class="py-1 sm:py-0"><a href="#experience" class="text-sm sm:text-base text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-1 sm:px-3 sm:py-2">ประสบการณ์</a></li>
-                <li class="py-1 sm:py-0"><a href="#skills" class="text-sm sm:text-base text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-1 sm:px-3 sm:py-2">ทักษะ</a></li>
-                <li class="py-1 sm:py-0"><a href="#contact" class="text-sm sm:text-base text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-1 sm:px-3 sm:py-2">ติดต่อ</a></li>
-                <li class="mt-2 sm:mt-0 sm:ml-2"><a href="index.html" class="header-nav-button text-xs sm:text-sm">กลับหน้าหลักทีม</a></li>
+    <header x-data="{ open: false }" @keydown.escape.window="open = false" class="bg-[var(--background-dark)] bg-opacity-95 shadow-lg fixed w-full z-50 py-3 top-0 left-0">
+        <nav class="container mx-auto flex flex-wrap justify-between items-center px-4">
+            <a href="index.html" class="text-xl sm:text-2xl font-bold text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300">อิทธิพล ศรีเดช</a>
+            
+            <button @click="open = !open" type="button" class="sm:hidden text-[var(--text-color-light)] focus:outline-none p-2 rounded hover:bg-[var(--primary-color)]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <ul 
+                x-show="open" 
+                @click.away="open = false"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-95"
+                class="w-full sm:flex sm:w-auto sm:items-center sm:space-x-3 md:space-x-4 mt-3 sm:mt-0 hidden" 
+                :class="{'!block': open, '!hidden': !open && window.innerWidth < 640}"
+            >
+                <li class="w-full sm:w-auto"><a @click="open = false" href="#about" class="block sm:inline text-sm sm:text-base text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-2 sm:px-3 sm:py-2 border-b sm:border-none border-gray-700">เกี่ยวกับฉัน</a></li>
+                <li class="w-full sm:w-auto"><a @click="open = false" href="#experience" class="block sm:inline text-sm sm:text-base text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-2 sm:px-3 sm:py-2 border-b sm:border-none border-gray-700">ประสบการณ์</a></li>
+                <li class="w-full sm:w-auto"><a @click="open = false" href="#skills" class="block sm:inline text-sm sm:text-base text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-2 sm:px-3 sm:py-2 border-b sm:border-none border-gray-700">ทักษะ</a></li>
+                <li class="w-full sm:w-auto"><a @click="open = false" href="#contact" class="block sm:inline text-sm sm:text-base text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300 px-2 py-2 sm:px-3 sm:py-2 border-b sm:border-none border-gray-700">ติดต่อ</a></li>
+                <li class="mt-2 sm:mt-0 sm:ml-2 w-full sm:w-auto"><a href="index.html" class="header-nav-button text-xs sm:text-sm block sm:inline-block w-full sm:w-auto">กลับหน้าหลักทีม</a></li>
             </ul>
         </nav>
     </header>
@@ -270,6 +190,7 @@
                         </ul>
                     </div>
                 </div>
+                
                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
                     <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl">
                         <span>จัดหาผลผลิตทางการเกษตร - บริษัท เอม ไทย ฟรุต จำกัด</span>
@@ -301,11 +222,43 @@
                         </ul>
                     </div>
                 </div>
-
-            </div>
+                <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl">
+                        <span>ผู้จัดการแผนกธุรการ ฝ่ายทรัพยากรบุคคล - บริษัท น้อมจิตต์อินคอเปอเรชั่น จำกัด (มหาชน)</span>
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-[var(--primary-color)] mb-2 text-xs sm:text-base">มิถุนายน 2556 - ธันวาคม 2559</p>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-xs sm:text-base">
+                            <li>ติดตามปัญหา คิดริเริ่มแนวทางปฏิบัติใหม่ และพัฒนาแผนก</li>
+                            <li>ควบคุม ติดตาม และประเมินผลการปฏิบัติงานของเจ้าหน้าที่และหัวหน้าส่วนงาน</li>
+                            <li>กำหนดนโยบายและวางแผนการปฏิบัติงานประจำปีของแผนก</li>
+                            <li>วางระบบงานเอกสาร จัดทำแบบฟอร์ม และวางระบบ ISO ของแผนก</li>
+                            <li>ประสานงานระหว่างหน่วยงานภายในและกับลูกค้าเช่าพื้นที่</li>
+                            <li>ควบคุมดูแลการทำงานของเจ้าหน้าที่ 6 ส่วนงาน (ปฏิบัติการ, รักษาความปลอดภัย, บริการ/ทำความสะอาด, ประสานงาน, ลานจอด, บริการห้องน้ำ)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
+                    <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl">
+                        <span>รักษาการณ์ ผู้จัดการแผนกธุรการ - น้อมจิตต์เซฟวิ่งสโตร์</span>
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content">
+                         <p class="text-[var(--primary-color)] mb-2 text-xs sm:text-base">สิงหาคม 2555 – สิงหาคม 2556</p>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-xs sm:text-base">
+                           <li>ติดตามและแก้ไขปัญหาต่างๆ ภายในศูนย์การค้า</li>
+                            <li>บริหารจัดการลานจอดรถ ควบคุมการจัดส่งเอกสาร</li>
+                            <li>กำหนดเป้าหมายและนโยบายการทำงาน</li>
+                            <li>ดูแล ตรวจสอบ และควบคุมการทำงานของเจ้าหน้าที่ธุรการ, ทำความสะอาด, รักษาความปลอดภัย, ประสานงาน และระบบลานจอดรถ</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
 
             <h3 class="text-xl sm:text-3xl font-bold mt-10 sm:mt-16 mb-6 sm:mb-8 section-title text-center sm:text-left">ประสบการณ์ผู้ประกอบการ</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6"> <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6"> 
+                <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
                     <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl">
                         <span>ร้านเสื้อผ้าผู้หญิงออนไลน์ (Facebook)</span>
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -334,7 +287,7 @@
                             <li>วางแผนการสั่งซื้อและสต็อกสินค้า</li>
                         </ul>
                     </div>
-                </div> 
+                </div>  
             </div>
         </div>
     </section>
@@ -473,28 +426,30 @@
             const content = item.querySelector('.accordion-content');
             const icon = header.querySelector('svg');
 
-            header.addEventListener('click', () => {
-                const isActive = content.classList.contains('active');
-                
-                accordionItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        const otherContent = otherItem.querySelector('.accordion-content');
-                        const otherIcon = otherItem.querySelector('svg');
-                        if (otherContent.classList.contains('active')) {
-                           otherContent.classList.remove('active');
-                           otherIcon.classList.remove('rotate-180');
+            if (header && content && icon) { // Ensure all elements exist
+                header.addEventListener('click', () => {
+                    const isActive = content.classList.contains('active');
+                    
+                    accordionItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            const otherContent = otherItem.querySelector('.accordion-content');
+                            const otherIcon = otherItem.querySelector('svg');
+                            if (otherContent && otherIcon && otherContent.classList.contains('active')) {
+                               otherContent.classList.remove('active');
+                               otherIcon.classList.remove('rotate-180');
+                            }
                         }
+                    });
+
+                    if (!isActive) {
+                        content.classList.add('active');
+                        icon.classList.add('rotate-180');
+                    } else {
+                        content.classList.remove('active');
+                        icon.classList.remove('rotate-180');
                     }
                 });
-
-                if (!isActive) {
-                    content.classList.add('active');
-                    icon.classList.add('rotate-180');
-                } else {
-                    content.classList.remove('active');
-                    icon.classList.remove('rotate-180');
-                }
-            });
+            }
         });
 
         const skillBars = document.querySelectorAll('.skill-bar');
