@@ -123,16 +123,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- ย้ายวิดีโอแนะนำตัวขึ้นมาใต้ #about -->
-    <section class="mt-10 text-center">
-      <h3 class="text-xl font-bold text-[var(--primary-color)] mb-4">แนะนำตัวผ่านวิดีโอ</h3>
-      <iframe width="560" height="315" class="mx-auto rounded-lg shadow-lg"
-        src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-      </iframe>
-    </section>
-
     <header x-data="{ open: false }" @keydown.escape.window="open = false" class="bg-[var(--background-dark)] bg-opacity-95 shadow-lg fixed w-full z-50 py-3 top-0 left-0">
         <nav class="container mx-auto flex flex-wrap justify-between items-center px-4">
             <a href="index.html" class="text-xl sm:text-2xl font-bold text-[var(--text-color-light)] hover:text-[var(--primary-color)] transition duration-300">อิทธิพล ศรีเดช</a>
@@ -205,27 +195,17 @@
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="accordion-content">
-                        <div class="flex flex-col md:flex-row justify-between gap-6">
-                          <div class="flex-1">
-                            <p class="text-[var(--primary-color)] mb-2 text-xs sm:text-base">มิถุนายน 2566 - ปัจจุบัน</p>
-                            <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-xs sm:text-base">
-                                <li>วางแผนและดำเนินกลยุทธ์การตลาดให้สอดคล้องกับเป้าหมายทางธุรกิจ</li>
-                                <li>วิเคราะห์ตลาด คู่แข่ง และกลุ่มเป้าหมาย เพื่อหาโอกาสทางการตลาด</li>
-                                <li>สร้างและรักษาภาพลักษณ์แบรนด์ พัฒนาแผนการสื่อสารการตลาดทั้งออฟไลน์และออนไลน์</li>
-                                <li>วางแผนและดำเนินแคมเปญการตลาดดิจิทัล (SEO, Google Ads, Facebook Ads, LINE OA)</li>
-                                <li>วิเคราะห์ข้อมูลและปรับปรุงแคมเปญอย่างต่อเนื่องเพื่อ ROI สูงสุด</li>
-                                <li>วางแผนและดำเนินแคมเปญส่งเสริมการขาย บริหารงบประมาณ และวัดผล</li>
-                                <li>วิเคราะห์ข้อมูลการตลาดและลูกค้าเพื่อนำเสนอข้อมูลเชิงลึกแก่ผู้บริหาร</li>
-                                <li>ประยุกต์ใช้ AI เพื่อช่วยในการวิเคราะห์ข้อมูลตลาด สร้างสรรค์เนื้อหา และเพิ่มประสิทธิภาพแคมเปญ</li>
-                            </ul>
-                          </div>
-                          <div class="md:w-1/4 flex flex-col items-center justify-start md:justify-center gap-4">
-                            <img src="44528bfd-c3f8-4e05-9e68-5a13e075c7b1.png" alt="certificate profile image" class="w-28 h-28 rounded-full object-cover shadow-md border border-gray-300">
-                            <a href="certificate.pdf" target="_blank" class="inline-block bg-[var(--accent-color)] text-white text-xs sm:text-sm px-4 py-2 rounded-full hover:bg-green-700 transition shadow">
-                              📄 หนังสือรับรอง
-                            </a>
-                          </div>
-                        </div>
+                        <p class="text-[var(--primary-color)] mb-2 text-xs sm:text-base">มิถุนายน 2566 - ปัจจุบัน</p>
+                        <ul class="list-disc list-inside text-[var(--text-color-dark)] space-y-1 text-xs sm:text-base">
+                            <li>วางแผนและดำเนินกลยุทธ์การตลาดให้สอดคล้องกับเป้าหมายทางธุรกิจ</li>
+                            <li>วิเคราะห์ตลาด คู่แข่ง และกลุ่มเป้าหมาย เพื่อหาโอกาสทางการตลาด</li>
+                            <li>สร้างและรักษาภาพลักษณ์แบรนด์ พัฒนาแผนการสื่อสารการตลาดทั้งออฟไลน์และออนไลน์</li>
+                            <li>วางแผนและดำเนินแคมเปญการตลาดดิจิทัล (SEO, Google Ads, Facebook Ads, LINE OA)</li>
+                            <li>วิเคราะห์ข้อมูลและปรับปรุงแคมเปญอย่างต่อเนื่องเพื่อ ROI สูงสุด</li>
+                            <li>วางแผนและดำเนินแคมเปญส่งเสริมการขาย บริหารงบประมาณ และวัดผล</li>
+                            <li>วิเคราะห์ข้อมูลการตลาดและลูกค้าเพื่อนำเสนอข้อมูลเชิงลึกแก่ผู้บริหาร</li>
+                            <li>ประยุกต์ใช้ AI เพื่อช่วยในการวิเคราะห์ข้อมูลตลาด สร้างสรรค์เนื้อหา และเพิ่มประสิทธิภาพแคมเปญ</li>
+                        </ul>
                     </div>
                 </div>
                 
@@ -241,18 +221,9 @@
                             <li>ลงพื้นที่ ให้คำแนะนำ ติดตาม และให้ความรู้แก่เกษตรกรเพื่อให้ผลผลิตได้มาตรฐาน</li>
                             <li>จัดทำเอกสารสัญญาและเอกสารที่เกี่ยวข้อง</li>
                             <li>ควบคุมงบประมาณ ต้นทุน และนำส่งสินค้าให้แก่บริษัท/คู่ค้า</li>
-                         </ul>
-                          </div>
-                          <div class="md:w-1/4 flex flex-col items-center justify-start md:justify-center gap-4">
-                            <img src="44528bfd-c3f8-4e05-9e68-5a13e075c7b1.png" alt="certificate profile image" class="w-28 h-28 rounded-full object-cover shadow-md border border-gray-300">
-                            <a href="certificate.pdf" target="_blank" class="inline-block bg-[var(--accent-color)] text-white text-xs sm:text-sm px-4 py-2 rounded-full hover:bg-green-700 transition shadow">
-                              📄 หนังสือรับรอง
-                            </a>
-                          </div>
-                        </div>
+                        </ul>
                     </div>
                 </div>
-        
                  <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
                     <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl">
                         <span>กรรมการผู้จัดการ - บริษัท ลีโอไนน์ โกลบอล จำกัด</span>
@@ -266,18 +237,9 @@
                             <li>จัดสรรทรัพยากร ควบคุมและบริหารงบประมาณ</li>
                             <li>ประสานงานกับคณะกรรมการบริษัทและหน่วยงานภายนอก</li>
                             <li>ให้คำปรึกษาแก่ผู้ใต้บังคับบัญชา สร้างความพึงพอใจลูกค้า และสร้างผลกำไร</li>
-                         </ul>
-                          </div>
-                          <div class="md:w-1/4 flex flex-col items-center justify-start md:justify-center gap-4">
-                            <img src="44528bfd-c3f8-4e05-9e68-5a13e075c7b1.png" alt="certificate profile image" class="w-28 h-28 rounded-full object-cover shadow-md border border-gray-300">
-                            <a href="certificate.pdf" target="_blank" class="inline-block bg-[var(--accent-color)] text-white text-xs sm:text-sm px-4 py-2 rounded-full hover:bg-green-700 transition shadow">
-                              📄 หนังสือรับรอง
-                            </a>
-                          </div>
-                        </div>
+                        </ul>
                     </div>
                 </div>
-        
                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
                     <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl">
                         <span>ผู้จัดการแผนกธุรการ ฝ่ายทรัพยากรบุคคล - บริษัท น้อมจิตต์อินคอเปอเรชั่น จำกัด (มหาชน)</span>
@@ -293,17 +255,8 @@
                             <li>ประสานงานระหว่างหน่วยงานภายในและกับลูกค้าเช่าพื้นที่</li>
                             <li>ควบคุมดูแลการทำงานของเจ้าหน้าที่ 6 ส่วนงาน (ปฏิบัติการ, รักษาความปลอดภัย, บริการ/ทำความสะอาด, ประสานงาน, ลานจอด, บริการห้องน้ำ)</li>
                         </ul>
-                          </div>
-                          <div class="md:w-1/4 flex flex-col items-center justify-start md:justify-center gap-4">
-                            <img src="44528bfd-c3f8-4e05-9e68-5a13e075c7b1.png" alt="certificate profile image" class="w-28 h-28 rounded-full object-cover shadow-md border border-gray-300">
-                            <a href="certificate.pdf" target="_blank" class="inline-block bg-[var(--accent-color)] text-white text-xs sm:text-sm px-4 py-2 rounded-full hover:bg-green-700 transition shadow">
-                              📄 หนังสือรับรอง
-                            </a>
-                          </div>
-                        </div>
                     </div>
                 </div>
-        
                 <div class="bg-[var(--text-color-light)] p-4 sm:p-6 rounded-xl shadow-xl accordion-item">
                     <div class="accordion-header flex justify-between items-center text-[var(--text-color-dark)] font-semibold text-base sm:text-xl">
                         <span>รักษาการณ์ ผู้จัดการแผนกธุรการ - น้อมจิตต์เซฟวิ่งสโตร์</span>
@@ -316,15 +269,7 @@
                             <li>บริหารจัดการลานจอดรถ ควบคุมการจัดส่งเอกสาร</li>
                             <li>กำหนดเป้าหมายและนโยบายการทำงาน</li>
                             <li>ดูแล ตรวจสอบ และควบคุมการทำงานของเจ้าหน้าที่ธุรการ, ทำความสะอาด, รักษาความปลอดภัย, ประสานงาน และระบบลานจอดรถ</li>
-                         </ul>
-                          </div>
-                          <div class="md:w-1/4 flex flex-col items-center justify-start md:justify-center gap-4">
-                            <img src="44528bfd-c3f8-4e05-9e68-5a13e075c7b1.png" alt="certificate profile image" class="w-28 h-28 rounded-full object-cover shadow-md border border-gray-300">
-                            <a href="certificate.pdf" target="_blank" class="inline-block bg-[var(--accent-color)] text-white text-xs sm:text-sm px-4 py-2 rounded-full hover:bg-green-700 transition shadow">
-                              📄 หนังสือรับรอง
-                            </a>
-                          </div>
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
